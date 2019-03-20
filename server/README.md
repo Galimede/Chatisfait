@@ -119,3 +119,10 @@ Les ressources utilisées sont spécialisées (main ou test):
 │           │       .......
 │           └── static
 ```
+
+## Passage du serveur Grizzly 2 à Jetty pour profiter du rechargement
+à chaud 
+
+git remote add correction https://git-iut.univ-lille1.fr/jean-marie.place/squelette-projet-s4-git.git
+git fetch correction
+git merge correction/hot_reload
