@@ -1,5 +1,6 @@
 package fr.ulille.iut.chatisfait.dao;
 
+import fr.ulille.iut.chatisfait.dto.UtilisateurDto;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,9 +31,18 @@ public class UtilisateurEntity {
     private String nom;
     private String adresse;
     private String adresseMail;
+    private boolean abonne;
 
     private final static Logger logger = LoggerFactory.getLogger(UtilisateurEntity.class);
     private static ModelMapper modelMapper = new ModelMapper();
+
+    public static UtilisateurDto utilisateurToDto(UtilisateurEntity utilisateurEntity) {
+        return modelMapper.map(utilisateurEntity,UtilisateurDto.class);
+    }
+
+    public static  UtilisateurEntity convertFromUtilisateurDto(UtilisateurDto utilisateurDto) {
+        return modelMapper.map(utilisateurDto, UtilisateurEntity.class);
+    }
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -110,6 +120,17 @@ public class UtilisateurEntity {
     public void setAdresseMail(String adresseMail) {
         this.adresseMail = adresseMail;
     }
+
+    @Basic
+    @Column(name = "abonne", nullable = false)
+    public boolean isAbonne() {
+        return abonne;
+    }
+
+    public void setAbonne(boolean abonne) {
+        this.abonne = abonne;
+    }
+
 
     @Override
     public String toString() {

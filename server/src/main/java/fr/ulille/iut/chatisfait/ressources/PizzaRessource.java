@@ -49,8 +49,8 @@ public class PizzaRessource {
         // Construit l'ensemble des ingredients à partir du tableau de long integers
         Set<IngredientEntity> composition = new HashSet<>();
         for (long ingredientId : pizzaDto.getIngredients()) {
-            IngredientEntity ingredient = dataAccess.getIngredientById(ingredientId);
-            composition.add(ingredient);
+            //IngredientEntity ingredient = dataAccess.getIngredientById(ingredientId);
+            //composition.add(ingredient);
         }
         pizzaEntity.setIngredients(composition);
         try {
