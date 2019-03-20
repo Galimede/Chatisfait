@@ -46,6 +46,8 @@ function renderAddPizza():void{
 renderHome();
 */
 
+//test
+
 import $ from 'jquery';
 import Authent from './pages/Authent.js';
 //import addBox from 'addBox.js';
