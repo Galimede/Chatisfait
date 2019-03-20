@@ -34,6 +34,3 @@ export default class AddBox extends Page {
         PageRenderer.renderPage(HomePage);
     });
 
-   /* mount(container:HTMLElement):void {
-		$('form.addPizzaPage').submit( this.submit );
-	}*/
