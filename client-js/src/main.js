@@ -46,11 +46,14 @@ function renderAddPizza():void{
 renderHome();
 */
 
-//test
+// configuration du PageRenderer
+PageRenderer.titleElement = document.querySelector('.pageTitle');
+PageRenderer.contentElement = document.querySelector('.contenu');
 
 import $ from 'jquery';
 import Authent from './pages/Authent.js';
-//import addBox from 'addBox.js';
+import AddBox from './pages/AddBox.js';
+import AddAbonnement from './pages/AddAbonnement.js';
 
 import HomePage from './pages/HomePage.js';
 import PageRenderer from './PageRenderer.js';
@@ -60,26 +63,28 @@ const menu:Menu = new Menu();
 
 
 const authentPage:Authent = new Authent();
-//const boxPage:addBox = new addBox();
-//const abonnementPage:Abonnement = new Abonnement();
+const boxPage:AddBox = new AddBox();
+const abonnementPage:AddAbonnement = new AddAbonnement();
 
 
 const connexionButton = $('.connecter');
+
 connexionButton.click( (event:Event) => {
 	event.preventDefault();
 	PageRenderer.renderPage(authentPage);
 });
 
 
-/*const abonnementButton = $('.abonner');
-connexionButton.click( (event:Event) => {
+const abonnementButton = $('.abonner');
+abonnementButton.click( (event:Event) => {
 	event.preventDefault();
 	PageRenderer.renderPage(abonnementPage);
 });
 
 
+
 const boxButton = $('.box');
-connexionButton.click( (event:Event) => {
+boxButton.click( (event:Event) => {
 	event.preventDefault();
 	PageRenderer.renderPage(boxPage);
-});*/
+});
