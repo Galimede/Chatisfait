@@ -334,4 +334,8 @@ public class MainActivity extends AppCompatActivity {
         EditText search = (EditText) findViewById(R.id.searchTool);
 
     }
+
+    public void onConnect(){
+
+    }
 }
