@@ -11,11 +11,8 @@ export default class AddBox extends Page {
 	render():string {
         return `<h1>Acheter une box</h1>
         <img src="box.jpg" alt="box">
-        <br><br>
         <h1>Titre de la box</h1>
-        <br><br>
         <h2>Description de la box blabla</h2>
-        <br>
         <h1>S'abonner à notre programme de box</h1>
         <button class="abonnerbox"
             type="button">
