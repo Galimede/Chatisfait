@@ -8,6 +8,13 @@ Le serveur Java fourni dans ce dossier correspond à la solution du dernier TP d
 
 	***NB:*** le fichier `index.html` a besoin du fichier `main.bundle.js` pour fonctionner. Ce fichier est généré par la compilation du projet JS contenu dans le dossier `client-js` : voir [README](../client-js/README.md)
 
+## JavaScript
+
+Récupération des tables du serveur REST.
+Les affichés sur notre page HTML.
+
+
+
 ##  Développement sous eclipse
 
 File 'import ' -> maven >> Existing maven projects
@@ -35,7 +42,13 @@ Les ressources utilisées sont spécialisées (main ou test):
 * persistence.xml (h2/fichier pour main, h2/memoire pour test)
 * log4j et logback (définition des logs)
 
+
+
+
+
+
 ## Structure du projet:
+
 
 ```
 ├── pom.xml
