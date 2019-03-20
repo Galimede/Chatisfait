@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String SERVER_KEY = "SERVEUR";
 
-    @Override
+    /*@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -305,6 +305,7 @@ public class MainActivity extends AppCompatActivity {
                         MainActivity.this.showError(error);
                     }
                 });
+
         pizzasRequest.setTag(VOLLEY_TAG);
         queue.add(pizzasRequest);
         Log.d(LOG_TAG, "Send done");
@@ -322,5 +323,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, HttpDialogActivity.class);
         intent.putExtra(SERVER_KEY, getHostname());
         startActivity(intent);
+    }*/
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity2);
+
+        TextView title = (TextView) findViewById(R.id.label);
+        EditText search = (EditText) findViewById(R.id.searchTool);
+
     }
 }
