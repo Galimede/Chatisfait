@@ -16,7 +16,11 @@ sélectionner le projet /pom.xml fr.ulille.iut.squelette...
 
 ## Développement sous IntelliJ
 
-  ...TODO...
+Open a project
+add a configuration -> petit plus (+) en haut puis maven
+en argument rentrer les commandes mavens
+ET C FINI
+
   
 ## Lancement du serveur
 ```bash
