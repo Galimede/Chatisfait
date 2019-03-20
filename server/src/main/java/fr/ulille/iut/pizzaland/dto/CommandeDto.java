@@ -3,11 +3,11 @@ package fr.ulille.iut.pizzaland.dto;
 import java.sql.Date;
 
 /**
- * CommandesDto
+ * CommandeDto
  *
  * @author blochs
  */
-public class CommandesDto {
+public class CommandeDto {
     private int idCommande;
     private int idUtilisateur;
     private double prix;

@@ -1,11 +1,11 @@
 package fr.ulille.iut.pizzaland.dto;
 
 /**
- * UtilisateursDto
+ * UtilisateurDto
  *
  * @author blochs
  */
-public class UtilisateursDto {
+public class UtilisateurDto {
     private int idUtilisateur;
     private String pseudo;
     private String mdp;
