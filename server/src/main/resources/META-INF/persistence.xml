@@ -3,11 +3,11 @@
 
     <persistence-unit name="PizzalandPersistenceUnit">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <class>fr.ulille.iut.pizzaland.dao.IngredientEntity</class>
-        <class>fr.ulille.iut.pizzaland.dao.PizzaEntity</class>
+        <class>fr.ulille.iut.chatisfait.dao.IngredientEntity</class>
+        <class>fr.ulille.iut.chatisfait.dao.PizzaEntity</class>
         <properties>
             <!-- Configuration postgresql -->
- 	       	<!--<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/pizzaland"/> -->
+ 	       	<!--<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/chatisfait"/> -->
  	        <!--<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/> -->
  	        <!--<property name="javax.persistence.jdbc.user" value="postgres"/> -->
  	        <!--<property name="javax.persistence.jdbc.password" value=""/> -->
@@ -15,12 +15,12 @@
             <!-- Configuration h2 -->
 	        <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
             <!-- base en mémoire -->
-	       	<!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:pizzaland"/>-->
-            <!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:pizzaland;INIT=RUNSCRIPT FROM 'populate.sql'"/>-->
-            <!-- <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:pizzaland"/> --> <!-- h2 en mémoire -->
+	       	<!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:chatisfait"/>-->
+            <!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:chatisfait;INIT=RUNSCRIPT FROM 'populate.sql'"/>-->
+            <!-- <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:chatisfait"/> --> <!-- h2 en mémoire -->
             <property name="javax.persistence.jdbc.url" value="jdbc:h2:~/tmp"/> <!-- h2 en fichiers -->
             <!-- base sur fichiers -->
-            <!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:~/tmp/pizzaland"/>-->
+            <!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:~/tmp/chatisfait"/>-->
             <!-- credential if needed -->
  	        <!--<property name="javax.persistence.jdbc.user" value="user"/> -->
  	        <!--<property name="javax.persistence.jdbc.password" value="password"/>         -->

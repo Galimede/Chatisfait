@@ -163,7 +163,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>fr.ulille.iut.pizzaland.Main</mainClass>
+                    <mainClass>fr.ulille.iut.chatisfait.Main</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -176,7 +176,7 @@
                     <finalName>pizzaland</finalName>
                     <archive>
                         <manifest>
-                            <mainClass>fr.ulille.iut.pizzaland.Main</mainClass>
+                            <mainClass>fr.ulille.iut.chatisfait.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -208,7 +208,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>fr.ulille.iut.pizzaland.Main</mainClass>
+                            <mainClass>fr.ulille.iut.chatisfait.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
