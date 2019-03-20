@@ -20,3 +20,4 @@ main.bundle.js.map
 server/.classpath
 server/.project
 server.settings
+/bin/
