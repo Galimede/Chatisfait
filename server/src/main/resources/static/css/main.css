@@ -163,7 +163,6 @@ form label .form-control {
 	white-space: nowrap;
 	color: #cd1a1e;
 	background-clip: text;
-	text-fill-color: transparent;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 
