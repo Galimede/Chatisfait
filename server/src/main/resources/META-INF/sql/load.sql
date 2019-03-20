@@ -1,4 +1,4 @@
-insert into ingredient(id, nom) values(1, 'tomate');
+/*insert into ingredient(id, nom) values(1, 'tomate');
 insert into ingredient(id, nom) values(2, 'lardons');
 insert into ingredient(id, nom) values(3, 'fromage');
 insert into ingredient(id, nom) values(4, 'oeuf');
@@ -21,4 +21,4 @@ insert into ingredientpizza(idingredient, idpizza) values(3, 3);
 insert into ingredientpizza(idingredient, idpizza) values(5, 5);
 insert into ingredientpizza(idingredient, idpizza) values(8, 5);
 
-select * from produits;
+select * from produits;*/
