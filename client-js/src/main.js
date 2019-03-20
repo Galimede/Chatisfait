@@ -1,5 +1,5 @@
 // @flow
-import HomePage from './pages/HomePage.js';
+/*import HomePage from './pages/HomePage.js';
 import AddPizzaPage from './pages/AddPizzaPage.js';
 import PageRenderer from './PageRenderer.js';
 import $ from 'jquery';
@@ -44,3 +44,40 @@ function renderAddPizza():void{
 // lorsqu'on arrive sur l'appli, par défaut
 // on affiche la page d'accueil
 renderHome();
+*/
+
+import $ from 'jquery';
+import Authent from './pages/Authent.js';
+//import addBox from 'addBox.js';
+
+import HomePage from './pages/HomePage.js';
+import PageRenderer from './PageRenderer.js';
+import Menu from './components/Menu.js';
+
+const menu:Menu = new Menu();
+
+
+const authentPage:Authent = new Authent();
+//const boxPage:addBox = new addBox();
+//const abonnementPage:Abonnement = new Abonnement();
+
+
+const connexionButton = $('.connecter');
+connexionButton.click( (event:Event) => {
+	event.preventDefault();
+	PageRenderer.renderPage(authentPage);
+});
+
+
+/*const abonnementButton = $('.abonner');
+connexionButton.click( (event:Event) => {
+	event.preventDefault();
+	PageRenderer.renderPage(abonnementPage);
+});
+
+
+const boxButton = $('.box');
+connexionButton.click( (event:Event) => {
+	event.preventDefault();
+	PageRenderer.renderPage(boxPage);
+});*/
