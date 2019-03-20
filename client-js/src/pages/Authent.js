@@ -70,20 +70,12 @@ export default class Authent extends Page {
     }
 
     getFieldValue(fieldName: string): ?string | Array<string> {
-        // on récupère une référence vers le champ qui a comme attribut `name` la valeur fieldName (nom, base, prix_petite, etc.)
+        // on récupère une référence vers le champ qui a comme attribut `name` la valeur fieldName (login, password)
         const field: ?HTMLElement = document.querySelector(`[name=${fieldName}]`);
         if (field instanceof HTMLInputElement) {
             // s'il s'agit d'un <input> on utilise la propriété `value`
             // et on retourne la chaine de caractère saisie
             return field.value != '' ? field.value : null;
-        } else if (field instanceof HTMLSelectElement) {
-            // s'il s'agit d'un <select> on utilise la propriété `selectedOptions`
-            const values: Array<string> = [];
-            for (let i = 0; i < field.selectedOptions.length; i++) {
-                values.push(field.selectedOptions[i].value);
-            }
-            // et on retourne un tableau avec les valeurs sélectionnées
-            return values.length ? values : null;
         }
         return null;
     }
