@@ -335,7 +335,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void onConnect(){
+    public void onConnect(View view){
 
     }
 }
