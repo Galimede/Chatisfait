@@ -27,9 +27,13 @@ export default class AddBox extends Page {
         `;
     }
 
-    // TODO --> 
+    // TODO --> verifier l'authentification
     const abonne:Element = document.querySelector(.abonnerbox);
     abonne.click( (event:Event) => {
         event.preventDefault();
         PageRenderer.renderPage(HomePage);
     });
+
+   /* mount(container:HTMLElement):void {
+		$('form.addPizzaPage').submit( this.submit );
+	}*/
