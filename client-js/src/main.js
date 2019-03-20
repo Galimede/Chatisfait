@@ -62,7 +62,7 @@ const menu:Menu = new Menu();
 
 
 const authentPage:Authent = new Authent();
-//const boxPage:addBox = new addBox();
+const boxPage:addBox = new addBox();
 //const abonnementPage:Abonnement = new Abonnement();
 
 
@@ -80,9 +80,10 @@ connexionButton.click( (event:Event) => {
 	PageRenderer.renderPage(abonnementPage);
 });
 
+*/
 
 const boxButton = $('.box');
 connexionButton.click( (event:Event) => {
 	event.preventDefault();
 	PageRenderer.renderPage(boxPage);
-});*/
+});
