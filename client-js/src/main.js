@@ -46,7 +46,9 @@ function renderAddPizza():void{
 renderHome();
 */
 
-//test
+// configuration du PageRenderer
+PageRenderer.titleElement = document.querySelector('.pageTitle');
+PageRenderer.contentElement = document.querySelector('.contenu');
 
 import $ from 'jquery';
 import Authent from './pages/Authent.js';
@@ -65,6 +67,7 @@ const authentPage:Authent = new Authent();
 
 
 const connexionButton = $('.connecter');
+
 connexionButton.click( (event:Event) => {
 	event.preventDefault();
 	PageRenderer.renderPage(authentPage);

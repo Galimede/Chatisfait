@@ -80,6 +80,10 @@ export default class Authent extends Page {
         return null;
     }
 
+    mount(container:HTMLElement):void {
+        container.innerHTML = this.render();
+	}
+
     verificationCompte(compte: {login:string,password:string}) : boolean {
         const fakeAccounts: Array<{ login: string, password: string }> = [
             {login:'titi',password:'toto'},
