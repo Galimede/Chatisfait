@@ -131,7 +131,7 @@ git merge correction/hot_reload
 
 ## Supporter le packaging war et jetty (problème eclipse)
 
-   <build>
+	<build>
      <plugins>
        <plugin>
          <groupId>org.apache.maven.plugins</groupId>
