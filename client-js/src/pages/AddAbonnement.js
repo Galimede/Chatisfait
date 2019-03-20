@@ -3,11 +3,9 @@ import Page from './Page.js';
 import $ from 'jquery';
 import HomePage from './HomePage.js';
 
-export default class AddBox extends Page {
+export default class AddAbonnement extends Page {
 	constructor(){
 		super('Souscrire à un abonnement');
-		// $FlowFixMe
-		this.submit = this.submit.bind(this);
 	}
 
 	render():string {
@@ -27,15 +25,17 @@ export default class AddBox extends Page {
 			</select>
 		</label>
         <button type="submit" class="btn btn-default">Soumettre<img src="images/send.png" /></button>
-	</form>`;
-
-    // TODO --> verifier l'authentification
-    const abonne:Element = document.querySelector(.submit);
-    submit.click( (event:Event) => {
-        event.preventDefault();
-        PageRenderer.renderPage(HomePage);
-    });
-
+    </form>`;
+    }
+    
     mount(container:HTMLElement):void {
         container.innerHTML = this.render();
-	}
+    }
+}
+
+// TODO --> verifier l'authentification
+/*let submit:HTMLElement = document.querySelector(".submit");
+submit.click( (event:Event) => {
+    event.preventDefault();
+    PageRenderer.renderPage(HomePage);
+});*/
