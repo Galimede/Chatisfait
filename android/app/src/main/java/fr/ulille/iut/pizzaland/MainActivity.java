@@ -336,6 +336,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onConnect(View view){
-
+        setContentView(R.layout.authent);
     }
 }
