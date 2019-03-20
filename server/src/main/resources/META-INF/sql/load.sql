@@ -20,3 +20,5 @@ insert into ingredientpizza(idingredient, idpizza) values(2, 3);
 insert into ingredientpizza(idingredient, idpizza) values(3, 3);
 insert into ingredientpizza(idingredient, idpizza) values(5, 5);
 insert into ingredientpizza(idingredient, idpizza) values(8, 5);
+
+select * from produits;

@@ -15,7 +15,7 @@ import java.net.URI;
  */
 public class Main {
     // Base URI the Grizzly HTTP server will listen on
-    private static final String GENERIC_URI = "http://0.0.0.0:%d/api/v1/";
+    private static final String GENERIC_URI = "http://0.0.0.0:%d/api+-/v1/";
     private static final String STATIC_URI = "http://0.0.0.0:%d/";
     private static final int DEFAULT_PORT = 8080;
 
