@@ -59,12 +59,8 @@ aboutButton.click( (event:Event) => {
 	PageRenderer.renderPage(aboutUs);
 });
 
-<<<<<<< HEAD
 aboutpanier.click( (event:Event) => {
 	event.preventDefault();
 	PageRenderer.renderPage(liste);
 });
 
-=======
- 
->>>>>>> c8c5de438bffeabba560ed00a5a3665bd3355e53
