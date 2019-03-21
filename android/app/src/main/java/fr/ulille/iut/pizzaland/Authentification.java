@@ -51,8 +51,7 @@ public class Authentification extends AppCompatActivity {
     }
 
     private String getFullHostname() {
-        String host = "";
-        host += "http://";
+        String host = "http://";
         host += HOST;
         host += ":" + String.valueOf(getResources().getInteger(R.integer.default_port));
         host += getResources().getString(R.string.default_base);
@@ -62,7 +61,6 @@ public class Authentification extends AppCompatActivity {
     private String[] cutJsonArray(JSONObject data){
         String text = data.toString().substring(2, data.toString().length()-1);
         String splitted[] = text.split(",");
-        //System.out.println(Arrays.deepToString(splitted));
         return splitted;
     }
 

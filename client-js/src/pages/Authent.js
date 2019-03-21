@@ -13,6 +13,7 @@ const inscriptionPage:Inscription = new Inscription();
 
 let users:Array<{id:number, pseudo:string, mdp:string,sel:string,prenom:string,nom:string,adresse:string,mail:string,aboonne:boolean}>;
 let compte: {login:?string,password:?string} = {login:null,password:null};
+const connexionButton = $('.connecter');
 export default class Authent extends Page {
     
     constructor() {
@@ -67,6 +68,7 @@ export default class Authent extends Page {
                 password: values.password,
             };
             if (this.verificationCompte(compte)) {
+                connexionButton.html('Mon Profil');
                 alert('Connexion réussie');
                 // puis on vide le formulaire
                 const form: ?HTMLElement = document.querySelector('form.Authent');
@@ -102,7 +104,7 @@ export default class Authent extends Page {
         });
     }
 
-    verificationCompte(compte: {login:string,password:string}) : boolean {  
+    verificationCompte(compte: {login:?string,password:?string}) : boolean {  
         fetch('http://localhost:8080/api/v1/utilisateurs')
         .then( (response:Response) => response.text() )
         .then( MAJ );

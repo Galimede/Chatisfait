@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage.js';
 import PageRenderer from './PageRenderer.js';
 import Menu from './components/Menu.js';
 import AboutUs from './pages/AboutUs.js';
+import ListeArticle from './pages/ListeArticle.js';
 
 
 // configuration du PageRenderer
@@ -20,6 +21,7 @@ export let authentPage:Authent = new Authent();
 const boxPage:AddBox = new AddBox();
 const abonnementPage:AddAbonnement = new AddAbonnement();
 const aboutUs:AboutUs = new AboutUs();
+const liste:ListeArticle = new ListeArticle();
 
 // Déclaration liens menus 
 const menu:Menu = new Menu();
@@ -28,6 +30,7 @@ const connexionButton = $('.connecter');
 const abonnementButton = $('.abonner');
 const boxButton = $('.box');
 const aboutButton = $('.about');
+const aboutpanier = $('.panier');
 
 // Gestion des evenements bouttons 
 
@@ -56,3 +59,12 @@ aboutButton.click( (event:Event) => {
 	PageRenderer.renderPage(aboutUs);
 });
 
+<<<<<<< HEAD
+aboutpanier.click( (event:Event) => {
+	event.preventDefault();
+	PageRenderer.renderPage(liste);
+});
+
+=======
+ 
+>>>>>>> c8c5de438bffeabba560ed00a5a3665bd3355e53

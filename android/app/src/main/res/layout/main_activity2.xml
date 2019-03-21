@@ -9,7 +9,7 @@
     <EditText
         android:id="@+id/searchTool"
         android:layout_width="220dp"
-        android:layout_height="38dp"
+        android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="108dp"
@@ -42,6 +42,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="120dp"
+        android:onClick="onAbonne"
         android:text="S'abonner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchTool" />
@@ -53,6 +54,7 @@
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
         android:layout_marginTop="28dp"
+        android:onClick="onBox"
         android:text="La box"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button4" />

@@ -331,7 +331,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity2);
-        
+
         EditText search = (EditText) findViewById(R.id.searchTool);
         ImageView icon = (ImageView) findViewById(R.id.icon);
 
@@ -340,6 +340,15 @@ public class MainActivity extends AppCompatActivity {
     public void onConnexion(View view){
         Intent it = new Intent(MainActivity.this, Authentification.class);
         startActivity(it);
+    }
+
+    public void onAbonne(View view){
+        Intent it = new Intent(MainActivity.this, Abonnement.class);
+        startActivity(it);
+    }
+
+    public void onBox(View view){
+
     }
 
 }
