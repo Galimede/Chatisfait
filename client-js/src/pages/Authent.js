@@ -14,7 +14,7 @@ const inscriptionPage:Inscription = new Inscription();
 let users:Array<{id:Number, login:string, password:string,sel:string,prenom:string,nom:string,adresse:string,mail:string,aboonne:boolean}>;
 export let compte: {login:string,password:string};
 export default class Authent extends Page {
-
+    
     constructor() {
         super('Se connecter');
         // $FlowFixMe
@@ -63,8 +63,8 @@ export default class Authent extends Page {
         } else {
             // si il n'y a pas d'erreur on recupère les données 
             compte= {
-                login: values.login,
-                password: values.password,
+                login: values.pseudo,
+                password: values.mdp,
             };
             if (this.verificationCompte(compte)) {
                 alert('Connexion réussie');
@@ -107,12 +107,14 @@ export default class Authent extends Page {
         .then( (response:Response) => response.text() )
         .then( MAJ );
         
-        console.log("avant foreach");
-        console.log(users);
         users.forEach(function(value){
-            console.log(value.login);
-            console.log(value.password);
-            if(value.login==compte.login && value.password == compte.password){
+            console.log("un tour");
+            console.log(value.pseudo);
+            console.log(value.mdp);
+            console.log(compte.login);
+            console.log(compte.password);
+            console.log(value.pseudo === (compte.login) && value.mdp === (compte.password));
+            if(value.pseudo === (compte.login) && value.mdp === (compte.password)){
                 return true;
             }
         });
@@ -127,6 +129,4 @@ function MAJ(data2:string){
     if(data){
         users=data;
     }
-    console.log("MAJ");
-    console.log(users);
 }
