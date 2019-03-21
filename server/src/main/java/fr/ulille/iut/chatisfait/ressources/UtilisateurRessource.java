@@ -60,7 +60,7 @@ public class UtilisateurRessource {
     public Response create(UtilisateurDto utilisateurDto) {
         DataAccess dataAccess = DataAccess.begin();
         UtilisateurEntity utilisateurEntity = UtilisateurEntity.convertFromUtilisateurDto(utilisateurDto);
-        if(utilisateurDto.getPseudo() == null) {
+        if(utilisateurDto.getPseudo() == null ) {
             dataAccess.closeConnection(false);
             return Response.status(Response.Status.NOT_ACCEPTABLE).entity("name not specified").build();
         }
@@ -74,6 +74,41 @@ public class UtilisateurRessource {
             e.printStackTrace();
             return Response.status(Response.Status.CONFLICT).build();
         }
+    }
+
+    @PUT
+    @Path("/{pseudo}")
+    public Response update(@PathParam("pseudo") String pseudo, UtilisateurEntity utilisateur) {
+        DataAccess dataAccess = DataAccess.begin();
+        UtilisateurEntity utilisateurEntity = dataAccess.getUtilisateurByPseudo(pseudo);
+        if (utilisateurEntity == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Utilisateur not found").build();
+        } else {
+            try {
+                utilisateurEntity.setAbonne(utilisateur.isAbonne());
+                dataAccess.updateUtilisateur(utilisateurEntity);
+                dataAccess.closeConnection(true);
+                return Response.ok(utilisateurEntity).build(); //  .created(instanceURI).build();
+            } catch (Exception ex) {
+                dataAccess.closeConnection(false);
+                return Response.status(Response.Status.CONFLICT).entity("Duplicated name").build();
+            }
+        }
+    }
+
+    @DELETE
+    @Path("/{idutilisateur}")
+    public Response delete(@PathParam("idutilisateur") int idUtilisateur){
+        DataAccess dataAccess = DataAccess.begin();
+        try {
+            dataAccess.deleteUtilisateur(idUtilisateur);
+            dataAccess.closeConnection(true);
+            return Response.status(Response.Status.NO_CONTENT).build();
+        } catch (Exception e) {
+            dataAccess.closeConnection(false);
+            return Response.status(Response.Status.NOT_FOUND).entity("Utilisateur not found").build();
+        }
+
     }
 
 }
