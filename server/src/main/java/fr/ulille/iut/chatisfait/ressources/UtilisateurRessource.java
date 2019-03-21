@@ -85,7 +85,7 @@ public class UtilisateurRessource {
             return Response.status(Response.Status.NOT_FOUND).entity("Utilisateur not found").build();
         } else {
             try {
-                utilisateurEntity.setNom(utilisateur.getPseudo());
+                utilisateurEntity.setAbonne(utilisateur.isAbonne());
                 dataAccess.updateUtilisateur(utilisateurEntity);
                 dataAccess.closeConnection(true);
                 return Response.ok(utilisateurEntity).build(); //  .created(instanceURI).build();
