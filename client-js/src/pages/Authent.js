@@ -2,12 +2,17 @@
 import Page from './Page.js'
 import $ from 'jquery';
 
+let users:Array<{id:Number, login:string, password:string,sel:string,prenom:string,nom:string,adresse:string,mail:string,aboonne:boolean}>;
+export let compte: {login:string,password:string};
 export default class Authent extends Page {
 
     constructor() {
         super('Se connecter');
         // $FlowFixMe
-		this.submit = this.submit.bind(this);
+        this.submit = this.submit.bind(this);
+        fetch('http://localhost:8080/api/v1/utilisateurs')
+        .then( (response:Response) => response.text() )
+        .then( MAJ );
     }
 
     render(): string {
@@ -48,7 +53,7 @@ export default class Authent extends Page {
             alert(errors.join('\n'));
         } else {
             // si il n'y a pas d'erreur on recupère les données 
-            const compte: {login:string,password:string} = {
+            compte= {
                 login: values.login,
                 password: values.password,
             };
@@ -82,15 +87,33 @@ export default class Authent extends Page {
 
     mount(container:HTMLElement):void {
         $('form.Authent').submit( this.submit );
-	}
-
-    verificationCompte(compte: {login:string,password:string}) : boolean {
-        const fakeAccounts: Array<{ login: string, password: string }> = [
-            {login:'titi',password:'toto'},
-            {login:'jean',password:'michel'},
-        ];    
-       return fakeAccounts.includes(compte.login) && fakeAccounts.includes(compte.password) ? true:false; 
-        
     }
 
+    verificationCompte(compte: {login:string,password:string}) : boolean {  
+        fetch('http://localhost:8080/api/v1/utilisateurs')
+        .then( (response:Response) => response.text() )
+        .then( MAJ );
+        
+        console.log("avant foreach");
+        console.log(users);
+        users.forEach(function(value){
+            console.log(value.login);
+            console.log(value.password);
+            if(value.login==compte.login && value.password == compte.password){
+                return true;
+            }
+        });
+        return false;
+    }
+
+}
+
+
+function MAJ(data2:string){
+    const data:Array<{id:number, login:string, password:string,sel:string,prenom:string,nom:string,adresse:string,mail:string,aboonne:boolean}> = JSON.parse(data2);
+    if(data){
+        users=data;
+    }
+    console.log("MAJ");
+    console.log(users);
 }
