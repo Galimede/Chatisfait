@@ -19,7 +19,7 @@
 	       	<!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:chatisfait"/>-->
             <!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:chatisfait;INIT=RUNSCRIPT FROM 'populate.sql'"/>-->
             <!-- <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:chatisfait"/> --> <!-- h2 en mémoire -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:~/tmp"/> <!-- h2 en fichiers -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:file:~/chatisfait"/> <!-- h2 en fichiers -->
             <!-- base sur fichiers -->
             <!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:~/tmp/chatisfait"/>-->
             <!-- credential if needed -->
@@ -42,8 +42,8 @@
             <!--<property name="eclipselink.ddl-generation.output-mode" value="both"/>-->
 
             <!-- logging level (INFO, FINE, FINEST, ...) -->
-            <property name="eclipselink.logging.level" value="OFF"/>
-            <property name="eclipselink.logging.level.sql" value="OFF"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
+            <property name="eclipselink.logging.level.sql" value="FINE"/>
         </properties>
     </persistence-unit>
 </persistence>
