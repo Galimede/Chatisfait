@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Authentification"></activity>
+        <activity android:name=".Inscription"></activity>
         <activity android:name=".HttpDialogActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>

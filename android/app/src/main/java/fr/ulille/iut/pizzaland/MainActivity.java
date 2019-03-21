@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.Cache;
@@ -210,6 +211,7 @@ public class MainActivity extends AppCompatActivity {
                         showError(error);
                     }
                 });
+        System.out.println("requete : "+request);
         request.setTag(VOLLEY_TAG);
         queue.add(request);
     }
@@ -329,9 +331,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity2);
-
-        TextView title = (TextView) findViewById(R.id.label);
+        
         EditText search = (EditText) findViewById(R.id.searchTool);
+        ImageView icon = (ImageView) findViewById(R.id.icon);
 
     }
 
