@@ -25,3 +25,4 @@ select * from produits;*/
 
 insert into utilisateur(pseudo,mdp) values ('sacha','sacha');
 insert into utilisateur(pseudo,mdp) values ('sully','sully');
+insert into article(nom,prix) values ('toto','42');

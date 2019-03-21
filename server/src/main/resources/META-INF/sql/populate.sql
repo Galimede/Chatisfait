@@ -60,3 +60,4 @@ CREATE TABLE commande(idcommande serial NOT NULL PRIMARY KEY, idutilisateur inte
 CREATE TABLE abonnement(idabonnement serial NOT NULL PRIMARY, idutilisateur integer, datefin DATE,type varchar, FOREIGN  KEY (idutilisateur) REFERENCES utilisateur(idutilisateur) ON DELETE CASCADE ON UPDATE CASCADE);
 insert into utilisateur(pseudo,mdp) values ('sacha','sacha');
 insert into utilisateur(pseudo,mdp) values ('sully','sully');
+insert into article(nom,prix) values ('toto','42');
