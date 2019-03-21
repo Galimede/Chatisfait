@@ -24,7 +24,7 @@ export default class AddAbonnement extends Page {
                 <option>Les deux</option>
 			</select>
 		</label>
-        <button type="submit" class="btn btn-default">Soumettre<img src="images/send.png" /></button>
+        <button type="submit" class="btn btn-default">Soumettre<img id="sendimg" src="images/send.jpg" /></button>
     </form>`;
     }
     

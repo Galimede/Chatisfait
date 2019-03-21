@@ -20,7 +20,7 @@ export default class Inscription extends Page {
 			Mot de passe :
 			<input type="text" name="mdp" class="form-control">
         </label>
-        <button type="submit" class="btn btn-default">Soumettre<img src="images/send.png" /></button>
+        <button type="submit" class="btn btn-default">Soumettre<img id="sendimg" src="images/send.jpg" /></button>
     </form>`;
     }
     

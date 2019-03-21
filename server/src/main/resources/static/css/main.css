@@ -252,3 +252,13 @@ form label .form-control {
 .abonner, .box, .connecter{
 	color : #4ca1af;
 }
+
+#boximg{
+	height: 100px;
+    width: 100px;
+}
+
+#sendimg{
+	height: 15px;
+    width: 15px;
+}
