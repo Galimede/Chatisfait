@@ -20,3 +20,15 @@ Faire les bases de données
 
 ## Sprint 3
 
+Nous avons encore avancer sur le visuel de la page.
+Notre server REST fonctionne.
+Progression sur l'authentification.
+Ajout de la page Box et de la page abonnement.
+Avancement sur l'application.
+
+TO DO
+Maintenant que notre server REST fonctionne, on va commencer à faire nos bases de données et nos requètes.
+Finir la page d'authentification.
+Faire une page visuelle d'inscription.
+Finaliser l'abonnement de la box (fonctionnel avec la base)
+Avancer encore sur l'application surtout au niveau du fonctionnement.
