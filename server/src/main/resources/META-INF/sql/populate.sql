@@ -59,3 +59,4 @@ CREATE TABLE utilisateur(idutilisateur serial NOT NULL PRIMARY KEY ,pseudo char(
 CREATE TABLE commande(idcommande serial NOT NULL PRIMARY KEY, idutilisateur integer, prix integer, date DATE, datearrive DATE, FOREIGN KEY  (idutilisateur) REFERENCES utilisateur(idutilisateur) ON DELETE CASCADE ON UPDATE CASCADE);
 CREATE TABLE abonnement(idabonnement serial NOT NULL PRIMARY, idutilisateur integer, datefin DATE,type varchar, FOREIGN  KEY (idutilisateur) REFERENCES utilisateur(idutilisateur) ON DELETE CASCADE ON UPDATE CASCADE);
 insert into utilisateur(pseudo,mdp) values ('sacha','sacha');
+insert into utilisateur(pseudo,mdp) values ('sully','sully');

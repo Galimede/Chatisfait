@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 
 @NamedQueries({
         @NamedQuery(name = "FindAllUtilisateurs", query = "SELECT u from UtilisateurEntity u"),
-        //@NamedQuery(name = "FindIngredientByName", query = "SELECT u from UtilisateurEntity u where u.pseudo = :upseudo")
+        @NamedQuery(name = "FindUtilisateurByPseudo", query = "SELECT u from UtilisateurEntity u where u.pseudo = :upseudo")
 })
 
 public class UtilisateurEntity {
