@@ -12,7 +12,7 @@ PageRenderer.contentElement = document.querySelector('.contenu');
 const inscriptionPage:Inscription = new Inscription();
 
 let users:Array<{id:Number, login:string, password:string,sel:string,prenom:string,nom:string,adresse:string,mail:string,aboonne:boolean}>;
-export let compte: {login:string,password:string};
+let compte: {login:string,password:string};
 export default class Authent extends Page {
     
     constructor() {
@@ -109,18 +109,16 @@ export default class Authent extends Page {
         
         let flag:boolean=false;
         users.forEach(function(value){
-            console.log("un tour");
-            console.log(value.pseudo);
-            console.log(value.mdp);
-            console.log(compte.login);
-            console.log(compte.password);
-            console.log(value.pseudo === (compte.login) && value.mdp === (compte.password));
             if(value.pseudo === (compte.login) && value.mdp === (compte.password)){
                 flag=true;
             }
         });
         return flag;
      
+    }
+
+    getCompte(){
+        return compte;
     }
 
 }
