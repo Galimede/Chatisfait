@@ -86,6 +86,20 @@ public class UtilisateurRessource {
         } else {
             try {
                 utilisateurEntity.setAbonne(utilisateur.isAbonne());
+                if(utilisateur.getSel() != null)
+                    utilisateurEntity.setSel(utilisateur.getSel());
+                if(utilisateur.getAdresse() != null)
+                    utilisateurEntity.setAdresse(utilisateur.getAdresse());
+                if(utilisateur.getAdresseMail() != null)
+                    utilisateurEntity.setAdresseMail(utilisateur.getAdresseMail());
+                if(utilisateur.getMdp() != null)
+                    utilisateurEntity.setMdp(utilisateur.getMdp());
+                if (utilisateur.getPrenom() != null)
+                    utilisateurEntity.setPrenom(utilisateur.getPrenom());
+                if(utilisateur.getPseudo() != null)
+                    utilisateurEntity.setPseudo(utilisateur.getPseudo());
+                if(utilisateurEntity.getNom() != null)
+                    utilisateurEntity.setNom(utilisateur.getNom());
                 dataAccess.updateUtilisateur(utilisateurEntity);
                 dataAccess.closeConnection(true);
                 return Response.ok(utilisateurEntity).build(); //  .created(instanceURI).build();

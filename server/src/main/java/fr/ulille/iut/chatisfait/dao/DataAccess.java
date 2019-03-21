@@ -83,10 +83,10 @@ public class DataAccess {
         return em.find(ArticleEntity.class, idArticle);
     }
 
-    public ArticleEntity getArticleByNom(String pseudo) {
+    public ArticleEntity getArticleByNom(String nom) {
         ArticleEntity returnValue;
         TypedQuery<ArticleEntity> query = em.createNamedQuery("FindArticleByNom", ArticleEntity.class);
-        query.setParameter("anom", pseudo);
+        query.setParameter("anom", nom);
         try {
             returnValue = query.getSingleResult();
         } catch (NonUniqueResultException | NoResultException e) {
@@ -114,6 +114,7 @@ public class DataAccess {
 
     public void updateArticle(ArticleEntity articleEntity) throws DatabaseConstraintException {
         try {
+            em.merge(articleEntity);
             em.flush();
         } catch (PersistenceException e) {
             throw new DatabaseConstraintException();
@@ -159,9 +160,11 @@ public class DataAccess {
      */
 	public int createUtilisateur(UtilisateurEntity utilisateur) throws DatabaseConstraintException {
         try {
-            em.persist(utilisateur);
-            em.flush();
-        } catch (PersistenceException e) {
+            //if(em.find(UtilisateurEntity.class,  utilisateur.getPseudo()) == null) {
+                em.persist(utilisateur);
+                em.flush();
+            //}
+        } catch (Exception e) {
             throw new DatabaseConstraintException();
         }
         return utilisateur.getIdUtilisateur();
@@ -187,6 +190,7 @@ public class DataAccess {
      */
 	public void updateUtilisateur(UtilisateurEntity utilisateurEntity) throws DatabaseConstraintException {
 	    try {
+	        em.merge(utilisateurEntity);
             em.flush();
         } catch (PersistenceException e) {
             throw new DatabaseConstraintException();

@@ -65,7 +65,7 @@ public class UtilisateurEntity {
     }
 
     @Basic
-    @Column(name = "pseudo", nullable = false, length = 60)
+    @Column(name = "pseudo", nullable = false, length = 60, unique = true)
     public String getPseudo() {
         return pseudo;
     }

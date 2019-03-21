@@ -84,7 +84,12 @@ public class ArticleRessource {
             return Response.status(Response.Status.NOT_FOUND).entity("Article not found").build();
         } else {
             try {
+                if(article.getNom() != null)
                 articleEntity.setNom(article.getNom());
+                if(article.getPrix() != 0)
+                    articleEntity.setPrix(article.getPrix());
+                if(article.getDescription() != null)
+                    articleEntity.setDescription(article.getDescription());
                 dataAccess.updateArticle(articleEntity);
                 dataAccess.closeConnection(true);
                 return Response.ok(articleEntity).build(); //  .created(instanceURI).build();
