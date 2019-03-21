@@ -56,3 +56,17 @@ TO DO
 
 Finir box.
 Page profil.
+
+
+## Sprint 6
+
+La box fonctionnel.
+Avancement sur l'application.
+Box inscription fonctionne.
+
+TO DO
+Inscription
+Mon profil
+Commande BDD à faire
+
+## Sprint 7
