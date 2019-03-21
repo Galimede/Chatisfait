@@ -1,6 +1,8 @@
 package fr.ulille.iut.chatisfait.ressources;
 
-import fr.ulille.iut.chatisfait.dao.*;
+import fr.ulille.iut.chatisfait.dao.DataAccess;
+import fr.ulille.iut.chatisfait.dao.DatabaseConstraintException;
+import fr.ulille.iut.chatisfait.dao.UtilisateurEntity;
 import fr.ulille.iut.chatisfait.dto.UtilisateurDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -74,38 +76,4 @@ public class UtilisateurRessource {
         }
     }
 
-    @GET
-    @Path("{idutilisateur}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getByIdUtilisateur(@PathParam("idutilisateur") int idUtilisateur) {
-        DataAccess dataAccess = DataAccess.begin();
-        UtilisateurEntity u = dataAccess.getUtilisateurById(idUtilisateur);
-        if ( u != null ) {
-            dataAccess.closeConnection(true);
-            return Response.ok(UtilisateurEntity.utilisateurToDto(u)).build();
-        } else {
-            dataAccess.closeConnection(false);
-            return Response.status(Response.Status.NOT_FOUND).entity("Users not found").build();
-        }
-    }
-
-    @PUT
-    @Path("/{prenom}")
-    public Response update(@PathParam("prenom") String pseudo, UtilisateurEntity user) {
-        DataAccess dataAccess = DataAccess.begin();
-        UtilisateurEntity utilisateurEntity = dataAccess.getUtilisateurByPseudo(pseudo);
-        if (utilisateurEntity == null) {
-            return Response.status(Response.Status.NOT_FOUND).entity("Article not found").build();
-        } else {
-            try {
-                utilisateurEntity.setAbonne(user.isAbonne());
-                dataAccess.updateUtilisateur(utilisateurEntity);
-                dataAccess.closeConnection(true);
-                return Response.ok(utilisateurEntity).build(); //  .created(instanceURI).build();
-            } catch (Exception ex) {
-                dataAccess.closeConnection(false);
-                return Response.status(Response.Status.CONFLICT).entity("Duplicated name").build();
-            }
-        }
-    }
 }
