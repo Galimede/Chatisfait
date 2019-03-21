@@ -26,13 +26,7 @@ export default class AddBox extends Page {
     mount(container:HTMLElement):void {
         container.innerHTML = this.render();
 
-
-
-
-        console.log(authentPage.getCompte());
         const compte:{login:string,password:string}=authentPage.getCompte();
-        console.log(compte);
-        
         
         $('.abonnerbox').click( (event:Event) => {
             event.preventDefault();
