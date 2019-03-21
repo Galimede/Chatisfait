@@ -81,7 +81,7 @@ export default class Authent extends Page {
     }
 
     mount(container:HTMLElement):void {
-        container.innerHTML = this.render();
+        $('form.Authent').submit( this.submit );
 	}
 
     verificationCompte(compte: {login:string,password:string}) : boolean {
@@ -90,6 +90,7 @@ export default class Authent extends Page {
             {login:'jean',password:'michel'},
         ];    
        return fakeAccounts.includes(compte.login) && fakeAccounts.includes(compte.password) ? true:false; 
+        
     }
 
 }
