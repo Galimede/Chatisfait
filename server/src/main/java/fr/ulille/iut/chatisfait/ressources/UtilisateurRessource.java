@@ -60,7 +60,7 @@ public class UtilisateurRessource {
     public Response create(UtilisateurDto utilisateurDto) {
         DataAccess dataAccess = DataAccess.begin();
         UtilisateurEntity utilisateurEntity = UtilisateurEntity.convertFromUtilisateurDto(utilisateurDto);
-        if(utilisateurDto.getPseudo() == null) {
+        if(utilisateurDto.getPseudo() == null ) {
             dataAccess.closeConnection(false);
             return Response.status(Response.Status.NOT_ACCEPTABLE).entity("name not specified").build();
         }
