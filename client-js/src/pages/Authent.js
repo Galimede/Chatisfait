@@ -68,6 +68,7 @@ export default class Authent extends Page {
                 password: values.password,
             };
             if (this.verificationCompte(compte)) {
+                connexionButton.html('Mon Profil');
                 alert('Connexion réussie');
                 // puis on vide le formulaire
                 const form: ?HTMLElement = document.querySelector('form.Authent');
