@@ -30,12 +30,14 @@ export default class AddBox extends Page {
 
 
         console.log(authentPage.getCompte());
-        
+        const compte:{login:string,password:string}=authentPage.getCompte();
+        console.log(compte);
         
         
         $('.abonnerbox').click( (event:Event) => {
             event.preventDefault();
-            /*if(authentPage.getCompte().login!=undefined){
+            
+            if(typeof compte.login == undefined){
                 alert('Vous êtes abonné à la box');
                 /*let user:Array<id:number, login:string, password:string,sel:string,prenom:string,nom:string,adresse:string,mail:string,aboonne:boolean>;
                 user.abonne=true; //faire un fetch sur un user par id ET ajouter dans la var compte d'authen l'id (ajouté quand l'authent a réussie)
@@ -43,21 +45,13 @@ export default class AddBox extends Page {
 					method:'POST',
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify(user)
-				})
+                })
+                */
             }else{
-                const authentPage:Authent = new Authent();
                 PageRenderer.renderPage(authentPage);
             }
         });
 	}
 
-    /*
-    // TODO --> verifier l'authentification
-    const abonne:Element = document.querySelector(.abonnerbox);
-    abonne.click( (event:Event) => {
-        event.preventDefault();
-        PageRenderer.renderPage(HomePage);
-    });
     
-    */
 }
