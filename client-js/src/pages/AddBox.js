@@ -61,7 +61,7 @@ export default class AddBox extends Page {
 				}
 				return response.json();
 			})
-			.catch( error => alert(`Enregistrement impossible : ${error.message}`) );
+			.catch( /*error => alert(`Enregistrement impossible : ${error.message}`) */);
                 
             }else{
                 PageRenderer.renderPage(authentPage);
