@@ -2,6 +2,7 @@ package fr.ulille.iut.chatisfait.ressources;
 
 import fr.ulille.iut.chatisfait.dao.DataAccess;
 import fr.ulille.iut.chatisfait.dao.DatabaseConstraintException;
+import fr.ulille.iut.chatisfait.dao.PizzaEntity;
 import fr.ulille.iut.chatisfait.dao.UtilisateurEntity;
 import fr.ulille.iut.chatisfait.dto.UtilisateurDto;
 import org.slf4j.Logger;
@@ -73,6 +74,21 @@ public class UtilisateurRessource {
         } catch (DatabaseConstraintException e) {
             e.printStackTrace();
             return Response.status(Response.Status.CONFLICT).build();
+        }
+    }
+
+    @GET
+    @Path("{idutilisateur}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getByIdUtilisateur(@PathParam("idutilisateur") int idUtilisateur) {
+        DataAccess dataAccess = DataAccess.begin();
+        UtilisateurEntity u = dataAccess.getUtilisateurById(idUtilisateur);
+        if ( u != null ) {
+            dataAccess.closeConnection(true);
+            return Response.ok(UtilisateurEntity.utilisateurToDto(u)).build();
+        } else {
+            dataAccess.closeConnection(false);
+            return Response.status(Response.Status.NOT_FOUND).entity("Users not found").build();
         }
     }
 

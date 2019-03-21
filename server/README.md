@@ -1,5 +1,9 @@
 # Serveur Java
 
+
+##NE PAS OUBLIER DE COMPILER SI TOUT ROUGE CAR LES MAVENS DEPENDENCIES SONT STOCKE DANS LE TMP
+##NE PAS OUBLIER DE METTRE LA NOUVELLE ENTITY DANS LE PERSISTANCE XML
+
 Le serveur Java fourni dans ce dossier correspond à la solution du dernier TP de programmation répartie. Il permet notamment de :
 - fournir une api REST/JSON sur l'url `http://localhost:8080/api/v1/xxxxx` :
 	- http://localhost:8080/api/v1/pizzas permet de manipuler la liste des pizzas

@@ -6,6 +6,7 @@ import fr.ulille.iut.chatisfait.dto.PizzaShortDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.persistence.PostUpdate;
 import javax.ws.rs.*;
 
 import javax.ws.rs.core.MediaType;
