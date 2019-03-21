@@ -76,4 +76,24 @@ public class UtilisateurRessource {
         }
     }
 
+    @PUT
+    @Path("/{pseudo}")
+    public Response update(@PathParam("pseudo") String pseudo, UtilisateurEntity utilisateur) {
+        DataAccess dataAccess = DataAccess.begin();
+        UtilisateurEntity utilisateurEntity = dataAccess.getUtilisateurByPseudo(pseudo);
+        if (utilisateurEntity == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Utilisateur not found").build();
+        } else {
+            try {
+                utilisateurEntity.setNom(utilisateur.getPseudo());
+                dataAccess.updateUtilisateur(utilisateurEntity);
+                dataAccess.closeConnection(true);
+                return Response.ok(utilisateurEntity).build(); //  .created(instanceURI).build();
+            } catch (Exception ex) {
+                dataAccess.closeConnection(false);
+                return Response.status(Response.Status.CONFLICT).entity("Duplicated name").build();
+            }
+        }
+    }
+
 }
