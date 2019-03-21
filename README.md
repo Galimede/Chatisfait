@@ -44,3 +44,15 @@ TO DO
 Base articles.
 Finir entierement l'authentification.
 Faire la box (pouvoir s'abonner).
+
+## Sprint 5
+
+Authentification fonctionne.
+Box avec bouton s'abonner presque fonctionnel.
+Connexion / authent avec l'application.
+Utilisateur et articles fonctionnels (a part delete)
+
+TO DO
+
+Finir box.
+Page profil.
