@@ -24,3 +24,4 @@ insert into ingredientpizza(idingredient, idpizza) values(8, 5);
 select * from produits;*/
 
 insert into utilisateur(pseudo,mdp) values ('sacha','sacha');
+insert into utilisateur(pseudo,mdp) values ('sully','sully');

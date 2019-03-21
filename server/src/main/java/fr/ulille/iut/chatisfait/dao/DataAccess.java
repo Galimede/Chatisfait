@@ -94,7 +94,7 @@ public class DataAccess {
 	public UtilisateurEntity getUtilisateurByPseudo(String pseudo) {
 	    UtilisateurEntity returnValue;
         TypedQuery<UtilisateurEntity> query = em.createNamedQuery("FindUtilisateurByPseudo", UtilisateurEntity.class);
-        query.setParameter("ipseudo", pseudo);
+        query.setParameter("upseudo", pseudo);
         try {
             returnValue = query.getSingleResult();
         } catch (NonUniqueResultException | NoResultException e) {
