@@ -11,7 +11,7 @@ PageRenderer.contentElement = document.querySelector('.contenu');
 
 const inscriptionPage:Inscription = new Inscription();
 
-let users:Array<{id:Number, login:string, password:string,sel:string,prenom:string,nom:string,adresse:string,mail:string,aboonne:boolean}>;
+let users:Array<{id:number, pseudo:string, mdp:string,sel:string,prenom:string,nom:string,adresse:string,mail:string,aboonne:boolean}>;
 let compte: {login:string,password:string};
 export default class Authent extends Page {
     
@@ -125,7 +125,7 @@ export default class Authent extends Page {
 
 
 function MAJ(data2:string){
-    const data:Array<{id:number, login:string, password:string,sel:string,prenom:string,nom:string,adresse:string,mail:string,aboonne:boolean}> = JSON.parse(data2);
+    const data:Array<{id:number, pseudo:string, mdp:string,sel:string,prenom:string,nom:string,adresse:string,mail:string,aboonne:boolean}> = JSON.parse(data2);
     if(data){
         users=data;
     }
