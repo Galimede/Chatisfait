@@ -5,7 +5,7 @@ import HomePage from './HomePage.js';
 import PageRenderer from '../PageRenderer.js';
 import {authentPage} from '../main.js';
 
-	clet users:Array<{id:number, pseudo:string, mdp:string,sel:string,prenom:string,nom:string,adresse:string,mail:string,aboonne:boolean}>;
+	let user:{id:number, pseudo:string, mdp:string,sel:string,prenom:string,nom:string,adresse:string,mail:string,aboonne:boolean};
     let compte: {login:string,password:string};
     export default class Profil extends Page {
         
@@ -13,22 +13,25 @@ import {authentPage} from '../main.js';
             super('Se connecter');
             // $FlowFixMe
             this.submit = this.submit.bind(this);
-            fetch('http://localhost:8080/api/v1/utilisateurs')
-            .then( (response:Response) => response.text() )
-            .then( MAJ );
+            fetch('http://localhost:8080/api/v1/utilisateurs/'+compte.login)
+            .then( (response:Response) => response.json() )
+            .then( (data:any) => {
+                if(data) {
+                    user = data;
+                }
+            });
         }
-	}
+	
 
 	render():string {
         return `<h1>Votre profil : </h1>
             <ul>
-                <li>Votre pseudo : ${users.pseudo}</li>
-                <li>Votre nom : ${users.nom}</li>
-                <li>Votre prenom : ${users.prenom}</li>
-                <li>Votre adresse : ${users.adresse}</li>
-                <li>Votre mail : ${users.mail}</li>
-            </ul>
-        `;
+                <li>Votre pseudo : ${user.pseudo}</li>
+                <li>Votre nom : ${user.nom}</li>
+                <li>Votre prenom : ${user.prenom}</li>
+                <li>Votre adresse : ${user.adresse}</li>
+                <li>Votre mail : ${user.mail}</li>
+            </ul>`;
     }
 
     mount(container:HTMLElement):void {
