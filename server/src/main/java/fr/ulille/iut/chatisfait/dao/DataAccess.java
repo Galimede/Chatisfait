@@ -73,6 +73,52 @@ public class DataAccess {
         TypedQuery<UtilisateurEntity> query = em.createNamedQuery("FindAllUtilisateurs", UtilisateurEntity.class);
         return query.getResultList();
 	}
+
+    public List<ArticleEntity> getAllArticles() {
+        TypedQuery<ArticleEntity> query = em.createNamedQuery("FindAllArticles", ArticleEntity.class);
+        return query.getResultList();
+    }
+
+    public ArticleEntity getArticleById(int idArticle) {
+        return em.find(ArticleEntity.class, idArticle);
+    }
+
+    public ArticleEntity getArticleByNom(String pseudo) {
+        ArticleEntity returnValue;
+        TypedQuery<ArticleEntity> query = em.createNamedQuery("FindArticleByNom", ArticleEntity.class);
+        query.setParameter("anom", pseudo);
+        try {
+            returnValue = query.getSingleResult();
+        } catch (NonUniqueResultException | NoResultException e) {
+            returnValue = null;
+        }
+        return returnValue;
+    }
+
+    public int createArticle(ArticleEntity articleEntity) throws DatabaseConstraintException {
+        try {
+            em.persist(articleEntity);
+            em.flush();
+        } catch (PersistenceException e) {
+            throw new DatabaseConstraintException();
+        }
+        return articleEntity.getIdArticle();
+    }
+
+    public void deleteArticle(String nom) throws Exception {
+        ArticleEntity articleEntity = em.find(ArticleEntity.class,  nom);
+        //System.out.println(articleEntity.toString());
+        if (articleEntity == null) throw new Exception();
+        em.remove(em.merge(articleEntity));
+    }
+
+    public void updateArticle(ArticleEntity articleEntity) throws DatabaseConstraintException {
+        try {
+            em.flush();
+        } catch (PersistenceException e) {
+            throw new DatabaseConstraintException();
+        }
+    }
 	
 	/**
 	 * Recherche d'un ingredient à partir de son id.

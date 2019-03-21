@@ -2,20 +2,29 @@ package fr.ulille.iut.chatisfait.dto;
 
 public class ArticleDto {
 
-    private int idarticle;
-    private int prix;
+    private int idArticle;
+    private String nom;
+    private double prix;
     private String description;
 
 
-    public int getIdarticle() {
-        return idarticle;
+    public int getIdArticle() {
+        return idArticle;
     }
 
-    public void setIdarticle(int idarticle) {
-        this.idarticle = idarticle;
+    public void setIdArticle(int idArticle) {
+        this.idArticle = idArticle;
     }
 
-    public int getPrix() {
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public double getPrix() {
         return prix;
     }
 
