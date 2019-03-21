@@ -63,8 +63,8 @@ export default class Authent extends Page {
         } else {
             // si il n'y a pas d'erreur on recupère les données 
             compte= {
-                login: values.pseudo,
-                password: values.mdp,
+                login: values.login,
+                password: values.password,
             };
             if (this.verificationCompte(compte)) {
                 alert('Connexion réussie');
@@ -107,6 +107,7 @@ export default class Authent extends Page {
         .then( (response:Response) => response.text() )
         .then( MAJ );
         
+        let flag:boolean=false;
         users.forEach(function(value){
             console.log("un tour");
             console.log(value.pseudo);
@@ -115,10 +116,11 @@ export default class Authent extends Page {
             console.log(compte.password);
             console.log(value.pseudo === (compte.login) && value.mdp === (compte.password));
             if(value.pseudo === (compte.login) && value.mdp === (compte.password)){
-                return true;
+                flag=true;
             }
         });
-        return false;
+        return flag;
+     
     }
 
 }
