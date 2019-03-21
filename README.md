@@ -30,5 +30,17 @@ TO DO
 Maintenant que notre server REST fonctionne, on va commencer à faire nos bases de données et nos requètes.
 Finir la page d'authentification.
 Faire une page visuelle d'inscription.
-Finaliser l'abonnement de la box (fonctionnel avec la base)
+Finaliser l'abonnement de la box (fonctionnel avec la base
 Avancer encore sur l'application surtout au niveau du fonctionnement.
+
+## Sprint 4
+
+Nous arrivons à récupérer les donbnées de notre base REST avec le js.
+Pour l'application, nous travaillons sur la récupération des données via le REST.
+Authentification presque fonctionnel.
+Base utilisateur.
+
+TO DO
+Base articles.
+Finir entierement l'authentification.
+Faire la box (pouvoir s'abonner).

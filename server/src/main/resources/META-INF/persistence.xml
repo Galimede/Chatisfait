@@ -6,6 +6,7 @@
         <class>fr.ulille.iut.chatisfait.dao.IngredientEntity</class>
         <class>fr.ulille.iut.chatisfait.dao.PizzaEntity</class>
         <class>fr.ulille.iut.chatisfait.dao.UtilisateurEntity</class>
+        <class>fr.ulille.iut.chatisfait.dao.ArticleEntity</class>
         <properties>
             <!-- Configuration postgresql -->
  	       	<!--<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/chatisfait"/> -->

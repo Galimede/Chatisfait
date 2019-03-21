@@ -55,7 +55,7 @@ public class UtilisateurEntity {
         this.idUtilisateur = idutilisateur;
     }
     @Basic
-    @Column(name = "nom", nullable = false, length = -1)
+    @Column(name = "nom", nullable = false, length = 30)
     public String getNom() {
         return nom;
     }
@@ -65,7 +65,7 @@ public class UtilisateurEntity {
     }
 
     @Basic
-    @Column(name = "pseudo", nullable = false, length = -1)
+    @Column(name = "pseudo", nullable = false, length = 60)
     public String getPseudo() {
         return pseudo;
     }
@@ -74,7 +74,7 @@ public class UtilisateurEntity {
         this.pseudo = pseudo;
     }
     @Basic
-    @Column(name = "mdp", nullable = false, length = -1)
+    @Column(name = "mdp", nullable = false, length = 60)
     public String getMdp() {
         return mdp;
     }
@@ -84,7 +84,7 @@ public class UtilisateurEntity {
     }
 
     @Basic
-    @Column(name = "sel", nullable = false, length = -1)
+    @Column(name = "sel", nullable = false, length = 5)
     public String getSel() {
         return sel;
     }
@@ -93,7 +93,7 @@ public class UtilisateurEntity {
         this.sel = sel;
     }
     @Basic
-    @Column(name = "prenom", nullable = false, length = -1)
+    @Column(name = "prenom", nullable = false, length = 20)
     public String getPrenom() {
         return prenom;
     }
@@ -102,7 +102,7 @@ public class UtilisateurEntity {
         this.prenom = prenom;
     }
     @Basic
-    @Column(name = "adresse", nullable = false, length = -1)
+    @Column(name = "adresse", nullable = false, length = 60)
     public String getAdresse() {
         return adresse;
     }
@@ -112,7 +112,7 @@ public class UtilisateurEntity {
     }
 
     @Basic
-    @Column(name = "adressemail", nullable = false, length = -1)
+    @Column(name = "adressemail", nullable = false, length = 70)
     public String getAdresseMail() {
         return adresseMail;
     }
