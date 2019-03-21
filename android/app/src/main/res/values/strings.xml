@@ -160,4 +160,10 @@
         <item>@string/content_5</item>
     </array>
 
+    <string-array name="choixAbo">
+        <item>Croquettes</item>
+        <item>Litière</item>
+        <item>Les deux</item>
+    </string-array>
+
 </resources>
