@@ -2,6 +2,8 @@
 import Page from './Page.js';
 import $ from 'jquery';
 import HomePage from './HomePage.js';
+import PageRenderer from '../PageRenderer.js';
+import {authentPage} from '../main.js';
 
 export default class AddBox extends Page {
 	constructor(){
@@ -23,6 +25,30 @@ export default class AddBox extends Page {
 
     mount(container:HTMLElement):void {
         container.innerHTML = this.render();
+
+
+
+
+        console.log(authentPage.getCompte());
+        
+        
+        
+        $('.abonnerbox').click( (event:Event) => {
+            event.preventDefault();
+            /*if(authentPage.getCompte().login!=undefined){
+                alert('Vous êtes abonné à la box');
+                /*let user:Array<id:number, login:string, password:string,sel:string,prenom:string,nom:string,adresse:string,mail:string,aboonne:boolean>;
+                user.abonne=true; //faire un fetch sur un user par id ET ajouter dans la var compte d'authen l'id (ajouté quand l'authent a réussie)
+                fetch( '/api/v1/utilisateurs', {
+					method:'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(user)
+				})
+            }else{
+                const authentPage:Authent = new Authent();
+                PageRenderer.renderPage(authentPage);
+            }
+        });
 	}
 
     /*

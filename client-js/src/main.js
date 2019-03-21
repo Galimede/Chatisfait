@@ -16,7 +16,7 @@ PageRenderer.contentElement = document.querySelector('.contenu');
 
 // Déclaration des pages 
 const homePage:HomePage = new HomePage([]);
-const authentPage:Authent = new Authent();
+export let authentPage:Authent = new Authent();
 const boxPage:AddBox = new AddBox();
 const abonnementPage:AddAbonnement = new AddAbonnement();
 const aboutUs:AboutUs = new AboutUs();
