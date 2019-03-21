@@ -2,27 +2,28 @@
 import Page from './Page.js';
 import $ from 'jquery';
 import Inscription from './Inscription';
-
+import Profil from './Profil.js';
 import PageRenderer from '../PageRenderer.js';
 
 // configuration du PageRenderer
 PageRenderer.titleElement = document.querySelector('.pageTitle');
 PageRenderer.contentElement = document.querySelector('.contenu');
 
-const inscriptionPage:Inscription = new Inscription();
+const inscriptionPage: Inscription = new Inscription();
 
-let users:Array<{id:number, pseudo:string, mdp:string,sel:string,prenom:string,nom:string,adresse:string,mail:string,aboonne:boolean}>;
-let compte: {login:?string,password:?string} = {login:null,password:null};
+let users: Array<{ id: number, pseudo: string, mdp: string, sel: string, prenom: string, nom: string, adresse: string, mail: string, aboonne: boolean }>;
+let compte: { login: ?string, password: ?string } = { login: null, password: null };
 const connexionButton = $('.connecter');
+const profilePage: Profil = new Profil();
 export default class Authent extends Page {
-    
+
     constructor() {
         super('Se connecter');
         // $FlowFixMe
         this.submit = this.submit.bind(this);
         fetch('http://localhost:8080/api/v1/utilisateurs')
-        .then( (response:Response) => response.text() )
-        .then( MAJ );
+            .then((response: Response) => response.text())
+            .then(MAJ);
     }
 
     render(): string {
@@ -63,7 +64,7 @@ export default class Authent extends Page {
             alert(errors.join('\n'));
         } else {
             // si il n'y a pas d'erreur on recupère les données 
-            compte= {
+            compte = {
                 login: values.login,
                 password: values.password,
             };
@@ -96,39 +97,45 @@ export default class Authent extends Page {
         return null;
     }
 
-    mount(container:HTMLElement):void {
-        $('form.Authent').submit( this.submit );
-        $('.inscription').click( (event:Event) => {
+    mount(container: HTMLElement): void {
+        $('form.Authent').submit(this.submit);
+        if(compte !== undefined) { // Surement pb ici      
+        connexionButton.click((event: Event) => {
+            event.preventDefault();
+            PageRenderer.renderPage(profilePage);
+        });
+        }
+        $('.inscription').click((event: Event) => {
             event.preventDefault();
             PageRenderer.renderPage(inscriptionPage);
         });
     }
 
-    verificationCompte(compte: {login:?string,password:?string}) : boolean {  
+    verificationCompte(compte: { login: ?string, password: ?string }): boolean {
         fetch('http://localhost:8080/api/v1/utilisateurs')
-        .then( (response:Response) => response.text() )
-        .then( MAJ );
-        
-        let flag:boolean=false;
-        users.forEach(function(value){
-            if(value.pseudo === (compte.login) && value.mdp === (compte.password)){
-                flag=true;
+            .then((response: Response) => response.text())
+            .then(MAJ);
+
+        let flag: boolean = false;
+        users.forEach(function (value) {
+            if (value.pseudo === (compte.login) && value.mdp === (compte.password)) {
+                flag = true;
             }
         });
         return flag;
-     
+
     }
 
-    getCompte(){
+    getCompte() {
         return compte;
     }
 
 }
 
 
-function MAJ(data2:string){
-    const data:Array<{id:number, pseudo:string, mdp:string,sel:string,prenom:string,nom:string,adresse:string,mail:string,aboonne:boolean}> = JSON.parse(data2);
-    if(data){
-        users=data;
+function MAJ(data2: string) {
+    const data: Array<{ id: number, pseudo: string, mdp: string, sel: string, prenom: string, nom: string, adresse: string, mail: string, aboonne: boolean }> = JSON.parse(data2);
+    if (data) {
+        users = data;
     }
 }
