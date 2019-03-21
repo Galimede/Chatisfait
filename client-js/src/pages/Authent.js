@@ -1,6 +1,15 @@
 // @flow 
-import Page from './Page.js'
+import Page from './Page.js';
 import $ from 'jquery';
+import Inscription from './Inscription';
+
+import PageRenderer from '../PageRenderer.js';
+
+// configuration du PageRenderer
+PageRenderer.titleElement = document.querySelector('.pageTitle');
+PageRenderer.contentElement = document.querySelector('.contenu');
+
+const inscriptionPage:Inscription = new Inscription();
 
 let users:Array<{id:Number, login:string, password:string,sel:string,prenom:string,nom:string,adresse:string,mail:string,aboonne:boolean}>;
 export let compte: {login:string,password:string};
@@ -27,7 +36,7 @@ export default class Authent extends Page {
 		</label>
         <button type="submit" class="btn btn-default">Ajouter</button>
     </form>
-    <button type="submit" class="btn btn-default">S'inscrire</button>`;  //TODO : Rediriger sur inscription
+    <button class="btn btn-default inscription">S'inscrire</button>`;  //TODO : Rediriger sur inscription
     }
 
     submit(event: Event): void {
@@ -87,6 +96,10 @@ export default class Authent extends Page {
 
     mount(container:HTMLElement):void {
         $('form.Authent').submit( this.submit );
+        $('.inscription').click( (event:Event) => {
+            event.preventDefault();
+            PageRenderer.renderPage(inscriptionPage);
+        });
     }
 
     verificationCompte(compte: {login:string,password:string}) : boolean {  
