@@ -36,22 +36,37 @@ export default class AddBox extends Page {
         
         $('.abonnerbox').click( (event:Event) => {
             event.preventDefault();
-            
-            if(typeof compte.login == undefined){
+
+            if(compte.login != null){
                 alert('Vous êtes abonné à la box');
-                /*let user:Array<id:number, login:string, password:string,sel:string,prenom:string,nom:string,adresse:string,mail:string,aboonne:boolean>;
-                user.abonne=true; //faire un fetch sur un user par id ET ajouter dans la var compte d'authen l'id (ajouté quand l'authent a réussie)
-                fetch( '/api/v1/utilisateurs', {
-					method:'POST',
+                let user:{id:number, pseudo:string, password:string,sel:string,prenom:string,nom:string,adresse:string,mail:string,abonne:boolean};
+                fetch('http://localhost:8080/api/v1/utilisateurs/'+compte.login)
+                .then( (response:Response) => response.json() )
+                .then ( (data:any) => {
+                    if(data) user = data;
+                    user.abonne=true;
+                    console.log(user);
+                });
+
+                
+                
+                fetch( '/api/v1/utilisateurs/'+compte.login, {
+					method:'PUT',
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify(user)
-                })
-                */
+				})
+			.then(response => {
+				if (!response.ok) {
+					throw new Error( `${response.status} : ${response.statusText}` );
+				}
+				return response.json();
+			})
+			.catch( error => alert(`Enregistrement impossible : ${error.message}`) );
+                
             }else{
                 PageRenderer.renderPage(authentPage);
             }
         });
-	}
-
+    }
     
 }
