@@ -23,9 +23,7 @@ import org.json.JSONObject;
 
 public class Authentification extends AppCompatActivity {
 
-    private static final String HOST = "10.0.2.2";
-    public static final String LOG_TAG = "APPLI";
-    public static final String VOLLEY_TAG = "TEST_CHATISFAIT";
+    protected GenericData generic;
     private RequestQueue queue;
 
     private static String login;
@@ -36,26 +34,9 @@ public class Authentification extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.authent);
 
+        generic = new GenericData(this);
+
         queue = Volley.newRequestQueue(Authentification.this);
-    }
-
-    public void hideKeyboard() {
-        InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-        //Find the currently focused view, so we can grab the correct window token from it.
-        View view = getCurrentFocus();
-        //If no view currently has focus, create a new one, just so we can grab a window token from it
-        if (view == null) {
-            view = new View(this);
-        }
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-    }
-
-    private String getFullHostname() {
-        String host = "http://";
-        host += HOST;
-        host += ":" + String.valueOf(getResources().getInteger(R.integer.default_port));
-        host += getResources().getString(R.string.default_base);
-        return host;
     }
 
     private String[] cutJsonArray(JSONObject data){
@@ -91,7 +72,7 @@ public class Authentification extends AppCompatActivity {
     }
 
     public void onConnect(View view){
-        hideKeyboard();
+        generic.hideKeyboard();
 
         EditText log = (EditText) findViewById(R.id.login);
         EditText passwd = (EditText) findViewById(R.id.mdp);
@@ -99,11 +80,9 @@ public class Authentification extends AppCompatActivity {
         login = log.getText().toString();
         mdp = passwd.getText().toString();
 
-        String base_uri = getFullHostname();
-        Log.d(LOG_TAG, "Send started");
+        String base_uri = generic.getFullHostname();
 
         String uri = base_uri + "/utilisateurs";
-        Log.d(LOG_TAG, "Uri: " + uri);
 
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
@@ -123,7 +102,6 @@ public class Authentification extends AppCompatActivity {
                     }
                 });
         System.out.println("requete : " + request);
-        request.setTag(VOLLEY_TAG);
         queue.add(request);
     }
 
