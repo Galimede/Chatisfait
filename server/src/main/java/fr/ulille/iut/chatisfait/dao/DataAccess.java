@@ -69,32 +69,32 @@ public class DataAccess {
      * Charge la liste de tous les ingrédientns de la base
      * @return La liste des ingredients
      */
-	public List<IngredientEntity> getAllIngredients() {
-        TypedQuery<IngredientEntity> query = em.createNamedQuery("FindAllIngredients", IngredientEntity.class);
+	public List<UtilisateurEntity> getAllUtilisateurs() {
+        TypedQuery<UtilisateurEntity> query = em.createNamedQuery("FindAllUtilisateurs", UtilisateurEntity.class);
         return query.getResultList();
 	}
 	
 	/**
 	 * Recherche d'un ingredient à partir de son id.
 	 * retourne null si aucun ingredient de la base ne possède cet id.
-	 * @param idIngredient l'id recherché
+	 * @param idUtilisateur l'id recherché
 	 * @return L'ingredient si elle existe
 	 */
-	public IngredientEntity getIngredientById(long idIngredient) {
-        return em.find(IngredientEntity.class, idIngredient);
+	public UtilisateurEntity getUtilisateurById(int idUtilisateur) {
+        return em.find(UtilisateurEntity.class, idUtilisateur);
 	}
 	
 	/**
 	 * Recherche d'un ingredient à partir de son nom.
 	 * retourne null si aucun ingredient de la base ne possède ce nom.
 	 * retourne null si il existe plusieurs ingredients de ce nom.
-	 * @param nom le nom recherché
+	 * @param pseudo le nom recherché
 	 * @return L'ingredient si il existe
 	 */
-	public IngredientEntity getIngredientByName(String nom) {
-	    IngredientEntity returnValue;
-        TypedQuery<IngredientEntity> query = em.createNamedQuery("FindIngredientByName", IngredientEntity.class);
-        query.setParameter("inom", nom);
+	public UtilisateurEntity getUtilisateurByPseudo(String pseudo) {
+	    UtilisateurEntity returnValue;
+        TypedQuery<UtilisateurEntity> query = em.createNamedQuery("FindUtilisateurByPseudo", UtilisateurEntity.class);
+        query.setParameter("ipseudo", pseudo);
         try {
             returnValue = query.getSingleResult();
         } catch (NonUniqueResultException | NoResultException e) {
@@ -107,39 +107,39 @@ public class DataAccess {
      * Ajoute un ingredients à la liste des ingrédients disponibles.
      * Un ingrédient de même nom ne doit pas déjà exister.
      * L'id (généré par la BDD) est renseigné automatiquement après l'ajout.
-     * @param ingredient L'ingrédient à ajouter
+     * @param utilisateur L'ingrédient à ajouter
      * @return L'id de l'ingrédient ajouté
      * @throws DatabaseConstraintException Si un ingrédient de même nom eiste déjà
      */
-	public long createIngredient(IngredientEntity ingredient) throws DatabaseConstraintException {
+	public int createUtilisateur(UtilisateurEntity utilisateur) throws DatabaseConstraintException {
         try {
-            em.persist(ingredient);
+            em.persist(utilisateur);
             em.flush();
         } catch (PersistenceException e) {
             throw new DatabaseConstraintException();
         }
-        return ingredient.getId();
+        return utilisateur.getIdUtilisateur();
 	}
 
     /**
      * Supprime de la base l'ingrédient spéxifié par son identifiant.
      * TODO On ne vérifie pas qu'aucune pizza n'utilise cet ingrédient
-     * @param id L'identifant de la pizza à supprimer.
+     * @param idUtilisateur L'identifant de la pizza à supprimer.
      * @throws Exception Si aucun ingrédient n'a cet id.
      */
-	public void deleteIngredient(long id) throws Exception {
+	public void deleteUtilisateur(int idUtilisateur) throws Exception {
      // @TODO On ne vérifie pas qu'aucune pizza n'utilise cet ingrédient
-        IngredientEntity ingredient = em.find(IngredientEntity.class,  id);
-        if (ingredient == null) throw new Exception();
-        em.remove(em.merge(ingredient));
+        UtilisateurEntity utilisateurEntity = em.find(UtilisateurEntity.class,  idUtilisateur);
+        if (utilisateurEntity == null) throw new Exception();
+        em.remove(em.merge(utilisateurEntity));
 	}
 
     /**
      *
-     * @param ingredient L'ingredient mis à jour
+     * @param utilisateurEntity L'ingredient mis à jour
      * @throws DatabaseConstraintException si l unicité du nom ou de l'id n'est pas respectée
      */
-	public void updateIngredient(IngredientEntity ingredient) throws DatabaseConstraintException {
+	public void updateUtilisateur(UtilisateurEntity utilisateurEntity) throws DatabaseConstraintException {
 	    try {
             em.flush();
         } catch (PersistenceException e) {
