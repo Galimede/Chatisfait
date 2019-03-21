@@ -96,4 +96,19 @@ public class UtilisateurRessource {
         }
     }
 
+    @DELETE
+    @Path("/{idutilisateur}")
+    public Response delete(@PathParam("idutilisateur") int idUtilisateur){
+        DataAccess dataAccess = DataAccess.begin();
+        try {
+            dataAccess.deleteUtilisateur(idUtilisateur);
+            dataAccess.closeConnection(true);
+            return Response.status(Response.Status.NO_CONTENT).build();
+        } catch (Exception e) {
+            dataAccess.closeConnection(false);
+            return Response.status(Response.Status.NOT_FOUND).entity("Utilisateur not found").build();
+        }
+
+    }
+
 }
