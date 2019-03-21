@@ -28,9 +28,9 @@ export default class AddAbonnement extends Page {
     </form>`;
     }
     
-    mount(container:HTMLElement):void {
-        container.innerHTML = this.render();
-    }
+	mount(container:HTMLElement):void {
+        $('form.addAbonnement').submit( this.submit );
+	}
 }
 
 // TODO --> verifier l'authentification
