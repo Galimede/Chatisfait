@@ -3,7 +3,7 @@ import Page from './Page.js';
 import $ from 'jquery';
 import HomePage from './HomePage.js';
 
-export default class Inscription extends Page {
+export default class ListeArticle extends Page {
 	constructor(){
 		super(``);
 	}
@@ -16,24 +16,7 @@ export default class Inscription extends Page {
             <link rel="icon" type="image/png" href="/fresh-bootstrap-table/assets/img/favicon.ico">
             <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         
-            <title>Fresh Bootstrap Table by Creative Tim</title>
-        
             <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-        
-            <!-- Canonical SEO -->
-            <link rel="canonical" href="https://www.creative-tim.com/product/fresh-bootstrap-table"/>
-        
-            <!--  Social tags      -->
-            <meta name="keywords" content="creative tim, html table, html css table, web table, freebie, free bootstrap table, bootstrap, css3 table, bootstrap table, fresh bootstrap table, frontend, modern table, responsive bootstrap table, responsive bootstrap table">
-        
-            <meta name="description" content="Probably the most beautiful and complex bootstrap table you've ever seen on the internet, this bootstrap table is one of the essential plugins you will need.">
-        
-            <!-- Schema.org markup for Google+ -->
-            <meta itemprop="name" content="Fresh Bootstrap Table by Creative Tim">
-            <meta itemprop="description" content="Probably the most beautiful and complex bootstrap table you've ever seen on the internet, this bootstrap table is one of the essential plugins you will need.">
-        
-            <meta itemprop="image" content="http://s3.amazonaws.com/creativetim_bucket/products/31/original/opt_fbt_thumbnail.jpg">
-            <!-- Twitter Card data -->
         
             <meta name="twitter:card" content="product">
             <meta name="twitter:site" content="@creativetim">
@@ -68,7 +51,7 @@ export default class Inscription extends Page {
             <script type="text/javascript" src="/fresh-bootstrap-table/assets/js/bootstrap.js"></script>
             <script type="text/javascript" src="/fresh-bootstrap-table/assets/js/bootstrap-table.js"></script>
         
-            <!--  Just for demo purpose, do not include in your project     -->
+
             <script type="text/javascript" src="/fresh-bootstrap-table/assets/js/demo/gsdk-switch.js"></script>
             <script type="text/javascript" src="/fresh-bootstrap-table/assets/js/demo/jquery.sharrre.js"></script>
             <script type="text/javascript" src="/fresh-bootstrap-table/assets/js/demo/demo.js"></script>
@@ -90,9 +73,7 @@ export default class Inscription extends Page {
             </a>
         
             <div class="fresh-table full-color-orange full-screen-table">
-            <!--    Available colors for the full background: full-color-blue, full-color-azure, full-color-green, full-color-red, full-color-orange
-                    Available colors only for the toolbar: toolbar-color-blue, toolbar-color-azure, toolbar-color-green, toolbar-color-red, toolbar-color-orange
-            -->
+            
                 <table id="fresh-table" class="table">
                     <thead>
                         <th data-field="id">ID</th>
@@ -321,74 +302,6 @@ export default class Inscription extends Page {
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        
-            <div class="description description-footer">
-                <h2 id="sharrreTitle">Thank you for shares!</h2>
-                <br>
-                <button id="twitter" class="btn btn-info btn-social btn-twitter btn-round btn-fill btn-wd"><i class="fa fa-twitter"></i></button>
-                <button id="facebook" class="btn btn-info btn-social btn-facebook btn-round btn-fill btn-wd"><i class="fa fa-facebook-square"></i></button>
-        
-                <p>Copyright &copy; 2015 <a href="http://creative-tim.com">Creative Tim</a>, made with <i class="fa fa-heart ct-heart"></i> for a better web.</p>
-            </div>
-        </div>
-        
-        
-        <div class="fixed-plugin" style="top: 300px">
-            <div class="dropdown open">
-                <a href="#" data-toggle="dropdown">
-                <i class="fa fa-cog fa-2x"> </i>
-                </a>
-                <ul class="dropdown-menu">
-                    <li class="header-title">Adjustments</li>
-                    <li class="adjustments-line">
-                        <a href="javascript:void(0)" class="switch-trigger">
-                            <p>Full Background</p>
-                            <div class="switch"
-                                data-on-label="ON"
-                                data-off-label="OFF">
-                                <input type="checkbox" checked data-target="section-header" data-type="parallax"/>
-                            </div>
-                            <div class="clearfix"></div>
-                        </a>
-                    </li>
-                    <li class="adjustments-line">
-                        <a href="javascript:void(0)" class="switch-trigger">
-                            <p>Colors</p>
-                            <div class="pull-right">
-                                <span class="badge filter badge-blue" data-color="blue"></span>
-                                <span class="badge filter badge-azure" data-color="azure"></span>
-                                <span class="badge filter badge-green" data-color="green"></span>
-                                <span class="badge filter badge-orange active" data-color="orange"></span>
-                                <span class="badge filter badge-red" data-color="red"></span>
-                            </div>
-                            <div class="clearfix"></div>
-                        </a>
-                    </li>
-                    <li class="header-title">Layouts</li>
-                    <li>
-                        <a class="img-holder" href="/fresh-bootstrap-table">
-                            <img src="/fresh-bootstrap-table/assets/img/compact.jpg">
-                            <h5>Compact Table</h5>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a class="img-holder" href="/fresh-bootstrap-table-full-screen">
-                            <img src="/fresh-bootstrap-table/assets/img/full.jpg">
-                            <h5>Full Screen Table</h5>
-                        </a>
-                    </li>
-                    <li>
-                        <div class="">
-                            <a href="/fresh-bootstrap-table-tutorial" target="_blank" class="btn btn-default btn-block btn-fill">Tutorial</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="">
-                            <a href="http://www.creative-tim.com/product/fresh-bootstrap-table" target="_blank" class="btn btn-info btn-block btn-fill">Download, it's free!</a>
-                        </div>
-                    </li>
-                </ul>
             </div>
         </div>
         
