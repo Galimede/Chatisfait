@@ -10,7 +10,7 @@ export default class AddBox extends Page {
 
 	render():string {
         return `<h1>Acheter une box</h1>
-        <img src="box.jpg" alt="box">
+        <img id="boximg" src="images/box.jpg" alt="box">
         <h1>Titre de la box</h1>
         <h2>Description de la box blabla</h2>
         <h1>S'abonner à notre programme de box</h1>

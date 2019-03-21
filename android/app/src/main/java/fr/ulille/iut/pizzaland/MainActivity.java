@@ -335,8 +335,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void onConnect(View view){
-        setContentView(R.layout.authent);
+    public void onConnexion(View view){
+        Intent it = new Intent(MainActivity.this, Authentification.class);
+        startActivity(it);
     }
 
 }

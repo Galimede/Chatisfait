@@ -2,7 +2,7 @@ html {
 	height: 100%;
 }
 body {
-	background: #c9c9c9;
+	background: #fff;
 	padding-bottom: 50px;
 	position: relative;
 	min-height: 100%;
@@ -251,4 +251,43 @@ form label .form-control {
 
 .abonner, .box, .connecter{
 	color : #4ca1af;
+}
+
+#boximg{
+	height: 100px;
+    width: 100px;
+}
+
+#sendimg{
+	height: 15px;
+    width: 15px;
+}
+
+.formulaireinscription{
+	background-color: black;
+}
+
+#img{
+	height: 200px;
+    width: 200px;
+}
+
+#boutonsubmit{
+	border: 2px solid green;
+  border-radius: 15px;
+  background-color: green;
+}
+
+.codepostal{
+	display: inline;
+}
+
+.fomcomplet{
+	display: inline;
+	margin: 25px 25px 25px 25px;
+}
+
+#block{
+	background-color: black;
+	border-bottom: 2px solid grey;
 }

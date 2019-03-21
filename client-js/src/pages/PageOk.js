@@ -15,6 +15,6 @@ export default class PageOk extends Page {
                 <h1>Votre login : blabla</h1>
                 <h1>Votre adresse : blabla</h1>
                 <h1>Votre panier : blabla</h1>
-                <button type="submit" class="btn btn-default">Payer<img src="images/send.png" />Confirmer</button>
+                <button type="submit" class="btn btn-default">Payer<img id="sendimg" src="images/send.jpg" />Confirmer</button>
        `;
     }

@@ -24,13 +24,13 @@ export default class AddAbonnement extends Page {
                 <option>Les deux</option>
 			</select>
 		</label>
-        <button type="submit" class="btn btn-default">Soumettre<img src="images/send.png" /></button>
+        <button type="submit" class="btn btn-default">Soumettre<img id="sendimg" src="images/send.jpg" /></button>
     </form>`;
     }
     
-    mount(container:HTMLElement):void {
-        container.innerHTML = this.render();
-    }
+	mount(container:HTMLElement):void {
+        $('form.addAbonnement').submit( this.submit );
+	}
 }
 
 // TODO --> verifier l'authentification
