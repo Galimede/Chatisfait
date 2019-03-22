@@ -338,16 +338,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onConnexion(View view){
-        Intent it = new Intent(MainActivity.this, Authentification.class);
+        Intent it = new Intent(this, Authentification.class);
         startActivity(it);
     }
 
     public void onAbonne(View view){
-        Intent it = new Intent(MainActivity.this, Abonnement.class);
+        Intent it = new Intent(this, Abonnement.class);
         startActivity(it);
     }
 
     public void onBox(View view){
+
+    }
+
+    public void onPannierClick(View view){
 
     }
 
