@@ -82,7 +82,7 @@ public class AbonnementRessource {
                     abonnementEntity.setIdAbonnement(abonne.getIdArticle());
                 if (abonne.getIdutilisateur() != 0)
                     abonnementEntity.setIdAbonnement(abonne.getIdutilisateur());
-                if (abonne.getTypeAbonne() == null)
+                if (abonne.getTypeAbonne() != null)
                     abonnementEntity.setTypeAbonne(abonne.getTypeAbonne());
                 dataAccess.updateAbonnement(abonnementEntity);
                 dataAccess.closeConnection(true);

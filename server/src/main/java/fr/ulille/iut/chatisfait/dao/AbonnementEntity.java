@@ -11,11 +11,11 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "article")
+@Table(name = "abonnement")
 
 @NamedQueries({
         @NamedQuery(name = "FindAllAbonnements",query = "SELECT a from AbonnementEntity a"),
-        @NamedQuery(name = "FindAbonnementById",query = "SELECT a from AbonnementEntity a where a.i = :aid")
+        @NamedQuery(name = "FindAbonnementById",query = "SELECT a from AbonnementEntity a where a.idAbonnement = :aidabonnement")
 })
 
 public class AbonnementEntity {
