@@ -13,7 +13,7 @@ import Achat from './pages/Achat';
 
 //declaration du panier
 export let box:boolean=false;
-export let panier:Array<{idarticle:number}>;
+export let panier:Array<{idarticle:number}> = [];
 
 // configuration du PageRenderer
 PageRenderer.titleElement = document.querySelector('.pageTitle');
