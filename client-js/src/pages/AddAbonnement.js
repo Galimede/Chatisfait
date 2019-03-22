@@ -4,6 +4,7 @@ import $ from 'jquery';
 import HomePage from './HomePage.js';
 
 let typechat:string="";
+let typeabonnement:string="";
 
 export default class AddAbonnement extends Page {
 	constructor(){
@@ -32,25 +33,27 @@ export default class AddAbonnement extends Page {
 		<br>
 		<h2 id="choisirformule">Choissiez une formule</h2>
 		<h3 id="texteformuel">TEXTE</h3>
-		<div class="mensuel">
-				<h2 id="mensuel">Mensuel</h2>
-				<h3 id="prixmensuel">19.90€</h3>
-				<h3 id="infomensuel">Sans engagement</h3>
-			</div>
-			<div class="3mois">
-				<h2 id="3mois">3 mois</h2>
-				<h3 id="prix3mois">56.70€</h3>
-				<h3 id="infomensuel">Une offre idéale pour se lancer</h3>
-			</div>
-			<div class="6mois">
-				<h2 id="6mois">6 mois</h2>
-				<h3 id="prix6mois">101.40€</h3>
-				<h3 id="info6mois">Seulement pour la box 16.90€</h3>
-			</div>
-			<div class="12mois">
-				<h2 id="12mois">12 mois</h2>
-				<h3 id="prix12mois">178.80€</h3>
-				<h3 id="info12mois">Seulement pour la box 16.90€</h3>
+		<div class="choixabo">
+			<div class="mensuel">
+					<h2 id="mensuel">Mensuel</h2>
+					<h3 id="prixmensuel">19.90€</h3>
+					<h3 id="infomensuel">Sans engagement</h3>
+				</div>
+				<div class="3mois">
+					<h2 id="3mois">3 mois</h2>
+					<h3 id="prix3mois">56.70€</h3>
+					<h3 id="infomensuel">Une offre idéale pour se lancer</h3>
+				</div>
+				<div class="6mois">
+					<h2 id="6mois">6 mois</h2>
+					<h3 id="prix6mois">101.40€</h3>
+					<h3 id="info6mois">Seulement pour la box 16.90€</h3>
+				</div>
+				<div class="12mois">
+					<h2 id="12mois">12 mois</h2>
+					<h3 id="prix12mois">178.80€</h3>
+					<h3 id="info12mois">Seulement pour la box 16.90€</h3>
+				</div>
 			</div>
 			<br>
 			<section class="Apropos">
@@ -71,27 +74,6 @@ export default class AddAbonnement extends Page {
     			<option value="Oui">Oui</option>
     			<option value="Non">Non</option>
 			</select>
-			<div class="adresseliv">
-			<label>
-			Nom
-			<input id="nompropos"  type="text" name="nompropos" class="form-control">
-			</label>
-			</section>
-			<section class="Adresse livraion">
-			<label>
-			Nom
-			<input id="nom"  type="text" name="nomp" class="form-control">
-			</label>
-			<label>
-			Prenom
-			<input id="prenom"  type="text" name="prenom" class="form-control">
-			</label>
-			<label>
-			Information
-			<input id="information"  type="text" name="information" class="form-control">
-			</label>
-			</section>
-			</div> 
 
 `;
     }
@@ -124,6 +106,26 @@ export default class AddAbonnement extends Page {
 								<option value="Croquettes">Croquettes</option>
 								<option value="Litières">Litières</option>
 								</select>`);
+		});
+		$('.mensuel').click( (event:Event) => {
+			event.preventDefault();
+			typeabonnement="mensuel";
+			$('.choixabo').html(`<h1>Vous avez chosi l'abonnement mensuel</h1>`);
+		});
+		$('.3mois').click( (event:Event) => {
+			event.preventDefault();
+			typeabonnement="3mois";
+			$('.choixabo').html(`<h1>Vous avez choisi l'abonnement de 3 mois</h1>`);
+		});
+		$('.6mois').click( (event:Event) => {
+			event.preventDefault();
+			typeabonnement="6mois";
+			$('.choixabo').html(`<h1>Vpus avez choisi l'abonnement de 6 mois</h1>`);
+		});
+		$('.12mois').click( (event:Event) => {
+			event.preventDefault();
+			typeabonnement="12mois";
+			$('.choixabo').html(`<h1>Vous avez choisi l'abonnement de 12 mois</h1>`);
 		});
 	}
 }
