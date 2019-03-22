@@ -10,6 +10,9 @@ public class GenericData {
 
     private static final String HOST = "10.0.2.2";
 
+    private static String login = "";
+    private static String passwd = "";
+
 
     public GenericData(Activity classe){
         activity = classe;
@@ -33,4 +36,21 @@ public class GenericData {
         host += activity.getResources().getString(R.string.default_base);
         return host;
     }
+
+    public static void setLogin(String pseudo){
+        if(login.equals("")) login = pseudo;
+    }
+
+    public static void setPasswd(String password){
+        if(passwd.equals("")) passwd = password;
+    }
+
+    public static String getLogin(){
+        return login;
+    }
+
+    public static String getPasswd(){
+        return passwd;
+    }
+
 }
