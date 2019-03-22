@@ -4,7 +4,7 @@ import $ from 'jquery';
 import HomePage from './HomePage.js';
 import List from 'list.js';
 
-let articles: Array<{ description: string, idArticle: string, nom: string, prix: number }>;
+let articles: Array<{ categorie: string, description: string, idArticle: string, image:string, nom: string, prix: number }>;
 let options;
 let articlesList;
 
@@ -17,15 +17,17 @@ export default class ListeArticle extends Page {
     }
 
     render(): string {
-        let html: string = `<div id="articles"> <input class="search" type="text" placeholder="Rechercher un article" aria-label="Search"></input>
-        
+        let html: string = `<div id="articles"> 
+        <input class="search" type="text" placeholder="Rechercher un article" aria-label="Search"></input>
         <ul class="list">`;
         articles.forEach(article => {
-            html += `<li>
-                <!--<div class="img"><a href="#"><img alt="img" src="images/post1.jpg"></a></div>-->
+            html += `<br>
+            <li>
+                <div class="img"><a href="#"><img alt="img" src="${article.image}"></a></div>
                 <div class="info">
                     <a class="nom" href="#">${article.nom}</a>
                     <p>${article.description}</p>
+                    <p class="categorie">${article.categorie}</p>
                     <div class="price">
                         <span class="st">Prix:</span><strong>${article.prix}€</strong>
                     </div>
@@ -47,7 +49,7 @@ export default class ListeArticle extends Page {
 }
 
 function MAJ(data2: any) {
-    const data: Array<{ description: string, idArticle: string, nom: string, prix: number }> = data2;
+    const data: Array<{ categorie: string, description: string, idArticle: string, image:string,  nom: string, prix: number }> = data2;
     if (data) {
         articles = data;
       
