@@ -90,6 +90,10 @@ public class ArticleRessource {
                     articleEntity.setPrix(article.getPrix());
                 if(article.getDescription() != null)
                     articleEntity.setDescription(article.getDescription());
+                if(article.getCategorie() != null)
+                    articleEntity.setCategorie(article.getCategorie());
+                if(article.getImage() != null)
+                    articleEntity.setImage(article.getImage());
                 dataAccess.updateArticle(articleEntity);
                 dataAccess.closeConnection(true);
                 return Response.ok(articleEntity).build(); //  .created(instanceURI).build();

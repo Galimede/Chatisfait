@@ -29,6 +29,8 @@ public class ArticleEntity {
     private String nom;
     private double prix;
     private String description;
+    private String categorie;
+    private String image;
 
     private final static Logger logger = LoggerFactory.getLogger(ArticleEntity.class);
     private static ModelMapper modelMapper = new ModelMapper();
@@ -81,5 +83,25 @@ public class ArticleEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Basic
+    @Column(name = "categorie", length = 20)
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
+    }
+
+    @Basic
+    @Column(name = "image", length = 100)
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

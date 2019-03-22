@@ -6,6 +6,8 @@ public class ArticleDto {
     private String nom;
     private double prix;
     private String description;
+    private String image;
+    private String categorie;
 
 
     public int getIdArticle() {
@@ -28,15 +30,31 @@ public class ArticleDto {
         return prix;
     }
 
-    public void setPrix(int prix) {
-        this.prix = prix;
-    }
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setPrix(double prix) {
+        this.prix = prix;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
     }
 }
