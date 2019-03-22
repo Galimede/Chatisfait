@@ -1,8 +1,6 @@
 package fr.ulille.iut.chatisfait.ressources;
 
 import fr.ulille.iut.chatisfait.ApiV1;
-import fr.ulille.iut.chatisfait.dto.IngredientDto;
-import fr.ulille.iut.chatisfait.dto.IngredientPayloadDto;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Test;
 

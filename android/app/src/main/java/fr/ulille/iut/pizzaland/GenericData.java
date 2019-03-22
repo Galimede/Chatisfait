@@ -4,6 +4,12 @@ import android.app.Activity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class GenericData {
 
     private Activity activity;
@@ -13,9 +19,14 @@ public class GenericData {
     private static String login = "";
     private static String passwd = "";
 
+    private JSONArray answer;
+    private RequestQueue queue;
+
 
     public GenericData(Activity classe){
         activity = classe;
+        queue = Volley.newRequestQueue(classe);
+        answer = null;
     }
 
     protected void hideKeyboard() {
@@ -51,6 +62,19 @@ public class GenericData {
 
     public static String getPasswd(){
         return passwd;
+    }
+
+    protected String[] cutJsonArray(JSONObject data){
+        String text = data.toString().substring(2, data.toString().length()-1);
+        return text.split(",");
+    }
+
+    protected int searchPattern(String[] donnees, String regex){
+        for(int i=0; i<donnees.length; i++){
+            if(donnees[i].matches(regex)) return i;
+        }
+
+        return -1;
     }
 
 }

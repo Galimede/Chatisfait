@@ -64,7 +64,7 @@ public class DataAccess {
     }
 
     // Ingredient operations
-
+    
     /**
      * Charge la liste de tous les ingrédientns de la base
      * @return La liste des ingredients
@@ -84,22 +84,12 @@ public class DataAccess {
         return query.getResultList();
     }
 
-    public List<AbonnementEntity> getAllAbonnements() {
-        TypedQuery<AbonnementEntity> query = em.createNamedQuery("FindAllAbonnements", AbonnementEntity.class);
-        return query.getResultList();
-    }
-
-
     public ArticleEntity getArticleById(int idArticle) {
         return em.find(ArticleEntity.class, idArticle);
     }
 
     public CommandeEntity getCommandeById(int idCommande) {
         return em.find(CommandeEntity.class, idCommande);
-    }
-
-    public AbonnementEntity getAbonnmentById(int idAbonnement) {
-        return em.find(AbonnementEntity.class, idAbonnement);
     }
 
     public ArticleEntity getArticleByNom(String nom) {
@@ -134,15 +124,7 @@ public class DataAccess {
         return commandeEntity.getIdCommande();
     }
 
-    public int createAbonnement(AbonnementEntity abonnementEntity) throws DatabaseConstraintException {
-        try {
-            em.persist(abonnementEntity);
-            em.flush();
-        } catch (PersistenceException e) {
-            throw new DatabaseConstraintException();
-        }
-        return abonnementEntity.getIdAbonnement();
-    }
+
 
 
     public void deleteArticle(String nom) throws Exception {
@@ -157,13 +139,6 @@ public class DataAccess {
         //System.out.println(articleEntity.toString());
         if (commandeEntity == null) throw new Exception();
         em.remove(em.merge(commandeEntity));
-    }
-
-    public void deleteAbonnment(int idAbonnement) throws Exception {
-        AbonnementEntity abonnementEntity = em.find(AbonnementEntity.class,  idAbonnement);
-        //System.out.println(articleEntity.toString());
-        if (abonnementEntity == null) throw new Exception();
-        em.remove(em.merge(abonnementEntity));
     }
 
 
@@ -184,16 +159,7 @@ public class DataAccess {
             throw new DatabaseConstraintException();
         }
     }
-
-    public void updateAbonnement(AbonnementEntity abonnementEntity) throws DatabaseConstraintException {
-        try {
-            em.merge(abonnementEntity);
-            em.flush();
-        } catch (PersistenceException e) {
-            throw new DatabaseConstraintException();
-        }
-    }
-
+	
 	/**
 	 * Recherche d'un ingredient à partir de son id.
 	 * retourne null si aucun ingredient de la base ne possède cet id.
@@ -203,7 +169,7 @@ public class DataAccess {
 	public UtilisateurEntity getUtilisateurById(int idUtilisateur) {
         return em.find(UtilisateurEntity.class, idUtilisateur);
 	}
-
+	
 	/**
 	 * Recherche d'un ingredient à partir de son nom.
 	 * retourne null si aucun ingredient de la base ne possède ce nom.
@@ -271,7 +237,7 @@ public class DataAccess {
     }
 
 	// Pizza operations
-
+	
 	/**
 	 * Lecture de la totalités des pizzas de la base
 	 * @return La liste des pizzas
@@ -280,7 +246,7 @@ public class DataAccess {
         TypedQuery<PizzaEntity> query = em.createNamedQuery("FindAllPizzas", PizzaEntity.class);
         return query.getResultList();
 	}
-
+	
 	/**
 	 * Recherche d'une pizza à partir de son id.
 	 * retourne null si aucune pizza de la base ne possède cet id.
@@ -290,7 +256,7 @@ public class DataAccess {
 	public PizzaEntity getPizzaById(long idPizza) {
         return em.find(PizzaEntity.class,  idPizza);
 	}
-
+	
 	/**
 	 * Recherche d'une pizza à partir de son nom
 	 * retourne null si aucune pizza de ce nom n'existe
@@ -324,7 +290,7 @@ public class DataAccess {
             throw new PizzaNameExistsException();
         }
 	}
-
+	
 	public long createPizza(PizzaEntity pizza) {
         em.persist(pizza);
         em.flush();

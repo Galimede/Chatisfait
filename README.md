@@ -69,7 +69,17 @@ Inscription
 Mon profil
 Commande BDD à faire
 
-## Sprint 7
+## Sprint 7 
+
+Profil 
+Inscription
+
+TO DO 
+Inscription android
+liste article
+
+
+## Sprint 8
 
 Nous avons fait fonctionner l'inscription sur android avec mise de données dans le serveur REST.
 Nous pouvons affichier la liste des articles en les récupérant dans la base de données.
@@ -80,3 +90,14 @@ Le CSS de la page box.
 La page abonnement qui fonctionne.
 Commencer la page achat.
 La search bar de la liste pour sélectionner un article.
+
+## Sprint 9
+
+Abonnement avancement.
+Page achat avancement.
+Barre recherche article fonctionne.
+
+TO DO
+
+
+## Sprint 10

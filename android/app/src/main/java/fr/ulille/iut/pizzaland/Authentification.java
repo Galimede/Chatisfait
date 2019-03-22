@@ -32,32 +32,18 @@ public class Authentification extends AppCompatActivity {
         setContentView(R.layout.authent);
 
         generic = new GenericData(this);
-
-        queue = Volley.newRequestQueue(Authentification.this);
+        queue = Volley.newRequestQueue(this);
     }
 
-    private String[] cutJsonArray(JSONObject data){
-        String text = data.toString().substring(2, data.toString().length()-1);
-        return text.split(",");
-    }
-
-    private int searchPattern(String[] donnees, String regex){
-        for(int i=0; i<donnees.length; i++){
-            if(donnees[i].matches(regex)) return i;
-        }
-
-        return -1;
-    }
-
-    public void showJsonArrayResponse(JSONArray response) {
+    protected void authentify(JSONArray response){
         System.out.println(response);
         boolean found = false;
         try {
             for (int i = 0; i < response.length() ; i++) {
                 JSONObject obj = response.getJSONObject(i);
-                String[] cut = cutJsonArray(obj);
-                int logIdx = searchPattern(cut, ".*pseudo.*");
-                int mdpIdx = searchPattern(cut, ".*mdp.*");
+                String[] cut = generic.cutJsonArray(obj);
+                int logIdx = generic.searchPattern(cut, ".*pseudo.*");
+                int mdpIdx = generic.searchPattern(cut, ".*mdp.*");
 
                 if(cut[mdpIdx].equals("\"mdp\":\""+mdp+"\"") && cut[logIdx].equals("\"pseudo\":\""+login+"\"") && !found) {
                     found = true;
@@ -75,11 +61,13 @@ public class Authentification extends AppCompatActivity {
             Toast toast = Toast.makeText(Authentification.this, text, duration);
             toast.show();
 
-            //tvDisplay.setText(response.toString(4));
         } catch (Exception e) {
             e.printStackTrace();
-            //tvDisplay.setText(getResources().getString(R.string.msg_jsonFormatError));
         }
+    }
+
+    private void showJsonArrayResponse(JSONArray response) {
+
     }
 
     public void onConnect(View view){
@@ -102,8 +90,7 @@ public class Authentification extends AppCompatActivity {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        showJsonArrayResponse(response);
-                        //cbGetPizzas.setChecked(true);
+                        authentify(response);
                     }
                 },
                 new ErrorListener() {
@@ -112,12 +99,12 @@ public class Authentification extends AppCompatActivity {
                         error.printStackTrace();
                     }
                 });
-        System.out.println("requete : " + request);
+        //System.out.println("requete : " + request);
         queue.add(request);
     }
 
     public void doInscrip(View view){
-        Intent it = new Intent(Authentification.this, Inscription.class);
+        Intent it = new Intent(this, Inscription.class);
         startActivity(it);
     }
 }
