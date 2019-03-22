@@ -87,7 +87,7 @@ export default class AddAbonnement extends Page {
 			<input id="information"  type="text" name="information" class="form-control">
 			</label>
 			</section>
-			</div>
+			</div> 
 
 `;
     }
