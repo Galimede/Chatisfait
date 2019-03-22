@@ -68,37 +68,30 @@ public class AbonnementRessource {
         }
     }
 
-    @PUT
-    @Path("/{idabonnement}")
-    public Response update(@PathParam("idabonnement") int idAbonnement, AbonnementEntity abonne) {
-        DataAccess dataAccess = DataAccess.begin();
-        AbonnementEntity abonnementEntity = dataAccess.getAbonnementById(idAbonnement);
-        if (abonnementEntity == null) {
-            return Response.status(Response.Status.NOT_FOUND).entity("Abonne not found").build();
-        } else {
-            System.out.println("lol");
-            try {
-                if(abonne.get != null)
-                    commandeEntity.setAdresse(commande.getAdresse());
-                if (commande.getAdresseMail() != null)
-                    commandeEntity.setAdresseMail(commande.getAdresseMail());
-                if(commande.getDateCommande() != null)
-                    commandeEntity.setDateCommande(commande.getDateCommande());
-                if(commande.getPrix() != 0)
-                    commandeEntity.setPrix(commande.getPrix());
-                if(commande.getPrenom() != null)
-                    commandeEntity.setPrenom(commande.getPrenom());
-                if(commande.getNom() != null)
-                    commandeEntity.setNom(commande.getNom());
-                dataAccess.updateCommande(commandeEntity);
-                dataAccess.closeConnection(true);
-                return Response.ok(commandeEntity).build(); //  .created(instanceURI).build();
-            } catch (Exception ex) {
-                dataAccess.closeConnection(false);
-                return Response.status(Response.Status.CONFLICT).entity("Commande probleme").build();
-            }
-        }
-    }
+//    @PUT
+//    @Path("/{idabonnement}")
+//    public Response update(@PathParam("idabonnement") int idAbonnement, AbonnementEntity abonne) {
+//        DataAccess dataAccess = DataAccess.begin();
+//        AbonnementEntity abonnementEntity = dataAccess.getAbonnementById(idAbonnement);
+//        if (abonnementEntity == null) {
+//            return Response.status(Response.Status.NOT_FOUND).entity("Abonne not found").build();
+//        } else {
+//            System.out.println("lol");
+//            try {
+//                if(abonne.getIdAbonnement() != null)
+//                    abonnementEntity.setIdAbonnement(abonne.getIdAbonnement());
+//                if (abonne.getIdArticle() != null)
+//                    abonnementEntity.setIdAbonnement(abonne.getIdArticle());
+//                if (abonne.getIdutilisateur() )
+//                dataAccess.updateCommande(commandeEntity);
+//                dataAccess.closeConnection(true);
+//                return Response.ok(commandeEntity).build(); //  .created(instanceURI).build();
+//            } catch (Exception ex) {
+//                dataAccess.closeConnection(false);
+//                return Response.status(Response.Status.CONFLICT).entity("Commande probleme").build();
+//            }
+//        }
+//    }
 
 
 }
