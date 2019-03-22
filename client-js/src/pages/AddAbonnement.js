@@ -3,6 +3,8 @@ import Page from './Page.js';
 import $ from 'jquery';
 import HomePage from './HomePage.js';
 
+let typechat:string="";
+
 export default class AddAbonnement extends Page {
 	constructor(){
 		super('');
@@ -13,38 +15,40 @@ export default class AddAbonnement extends Page {
 		<h1 id="chatisfait">Chatisfait</h1>
 		<h2 id="monchat">Mon Chat</2>
 		<h3 id="textinfo"> Indiquez-nous la taille de votre matou afin que nous lui sélectionnions des produits adaptés!</h3>
+		<div class="choixchat">	
 			<div class="chaton">
-				<h2 id="chaton">Chaton</div>
+				<h2 id="chatontext">Chaton</h2>
 				<h3 id="infochaton">(De 2 mois à un an)</h3>
 			</div>
 			<div class="adulte">
-				<h2 id="adulte">Adulte</div>
+				<h2 id="adulte">Adulte</h2>
 				<h3 id="infoadulte">(De 1 an à 8 ans)</h3>
 			</div>
 			<div class="Senior">
-				<h2 id="senior">Senior</div>
+				<h2 id="senior">Senior</h2>
 				<h3 id="infosenior">(à partir de 8ans)</h3>
 			</div>
+		</div>
 		<br>
 		<h2 id="choisirformule">Choissiez une formule</h2>
 		<h3 id="texteformuel">TEXTE</h3>
 		<div class="mensuel">
-				<h2 id="mensuel">Mensuel</div>
+				<h2 id="mensuel">Mensuel</h2>
 				<h3 id="prixmensuel">19.90€</h3>
 				<h3 id="infomensuel">Sans engagement</h3>
 			</div>
 			<div class="3mois">
-				<h2 id="3mois">3 mois</div>
+				<h2 id="3mois">3 mois</h2>
 				<h3 id="prix3mois">56.70€</h3>
 				<h3 id="infomensuel">Une offre idéale pour se lancer</h3>
 			</div>
 			<div class="6mois">
-				<h2 id="6mois">6 mois</div>
+				<h2 id="6mois">6 mois</h2>
 				<h3 id="prix6mois">101.40€</h3>
 				<h3 id="info6mois">Seulement pour la box 16.90€</h3>
 			</div>
 			<div class="12mois">
-				<h2 id="12mois">12 mois</div>
+				<h2 id="12mois">12 mois</h2>
 				<h3 id="prix12mois">178.80€</h3>
 				<h3 id="info12mois">Seulement pour la box 16.90€</h3>
 			</div>
@@ -93,7 +97,34 @@ export default class AddAbonnement extends Page {
     }
     
 	mount(container:HTMLElement):void {
-        $('form.addAbonnement').submit( this.submit );
+		//$('form.addAbonnement').submit( this.submit );
+		$('.chaton').click( (event:Event) => {
+			event.preventDefault();
+			typechat="chaton";
+			$('.choixchat').html(`<h1>Chaton</h1>
+								<select id="stereliseselect">
+								<option value="Croquettes">Croquettes</option>
+								<option value="Litières">Litières</option>
+								</select>`);
+		});
+		$('.adulte').click( (event:Event) => {
+			event.preventDefault();
+			typechat="adulte";
+			$('.choixchat').html(`<h1>Adulte</h1>
+								<select id="stereliseselect">
+								<option value="Croquettes">Croquettes</option>
+								<option value="Litières">Litières</option>
+								</select>`);
+		});
+		$('.Senior').click( (event:Event) => {
+			event.preventDefault();
+			typechat="senior";
+			$('.choixchat').html(`<h1>Senior</h1>
+								<select id="stereliseselect">
+								<option value="Croquettes">Croquettes</option>
+								<option value="Litières">Litières</option>
+								</select>`);
+		});
 	}
 }
 
