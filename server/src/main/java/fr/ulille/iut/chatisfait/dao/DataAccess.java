@@ -79,8 +79,17 @@ public class DataAccess {
         return query.getResultList();
     }
 
+    public List<CommandeEntity> getAllCommandes() {
+        TypedQuery<CommandeEntity> query = em.createNamedQuery("FindAllCommandes", CommandeEntity.class);
+        return query.getResultList();
+    }
+
     public ArticleEntity getArticleById(int idArticle) {
         return em.find(ArticleEntity.class, idArticle);
+    }
+
+    public CommandeEntity getCommandeById(int idCommande) {
+        return em.find(CommandeEntity.class, idCommande);
     }
 
     public ArticleEntity getArticleByNom(String nom) {
@@ -105,6 +114,19 @@ public class DataAccess {
         return articleEntity.getIdArticle();
     }
 
+    public int createCommande(CommandeEntity commandeEntity) throws DatabaseConstraintException {
+        try {
+            em.persist(commandeEntity);
+            em.flush();
+        } catch (PersistenceException e) {
+            throw new DatabaseConstraintException();
+        }
+        return commandeEntity.getIdCommande();
+    }
+
+
+
+
     public void deleteArticle(String nom) throws Exception {
         ArticleEntity articleEntity = em.find(ArticleEntity.class,  nom);
         //System.out.println(articleEntity.toString());
@@ -112,9 +134,26 @@ public class DataAccess {
         em.remove(em.merge(articleEntity));
     }
 
+    public void deleteCommande(int idCommande) throws Exception {
+        CommandeEntity commandeEntity = em.find(CommandeEntity.class,  idCommande);
+        //System.out.println(articleEntity.toString());
+        if (commandeEntity == null) throw new Exception();
+        em.remove(em.merge(commandeEntity));
+    }
+
+
     public void updateArticle(ArticleEntity articleEntity) throws DatabaseConstraintException {
         try {
             em.merge(articleEntity);
+            em.flush();
+        } catch (PersistenceException e) {
+            throw new DatabaseConstraintException();
+        }
+    }
+
+    public void updateCommande(CommandeEntity commandeEntity) throws DatabaseConstraintException {
+        try {
+            em.merge(commandeEntity);
             em.flush();
         } catch (PersistenceException e) {
             throw new DatabaseConstraintException();
