@@ -1,6 +1,6 @@
 package fr.ulille.iut.chatisfait.dto;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * CommandeDto

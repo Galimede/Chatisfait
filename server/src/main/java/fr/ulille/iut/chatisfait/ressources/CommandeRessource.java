@@ -86,6 +86,7 @@ public class CommandeRessource {
         if (commandeEntity == null) {
             return Response.status(Response.Status.NOT_FOUND).entity("Commande not found").build();
         } else {
+            System.out.println("lol");
             try {
                 if(commande.getAdresse() != null)
                     commandeEntity.setAdresse(commande.getAdresse());
@@ -93,7 +94,7 @@ public class CommandeRessource {
                     commandeEntity.setAdresseMail(commande.getAdresseMail());
                 if(commande.getDateCommande() != null)
                     commandeEntity.setDateCommande(commande.getDateCommande());
-                if(commande.getPrix() == 0)
+                if(commande.getPrix() != 0)
                     commandeEntity.setPrix(commande.getPrix());
                 if(commande.getPrenom() != null)
                     commandeEntity.setPrenom(commande.getPrenom());

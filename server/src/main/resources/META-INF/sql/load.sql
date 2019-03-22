@@ -26,4 +26,4 @@ select * from produits;*/
 insert into utilisateur(pseudo,mdp) values ('sacha','sacha');
 insert into utilisateur(pseudo,mdp) values ('sully','sully');
 insert into article(nom,prix,description) values ('toto','42','c bleu mdr');/*'2019-03-22 00:00:00.000'*/
-insert into commande(idutilisateur,prix,datecommande,adressemail,adresse,nom,prenom) values ('1','20','2019-03-22 00:00:00.000','mail@mail.com','77 rue du du','toto','toto');
+insert into commande(idutilisateur,prix,datecommande,adressemail,adresse,nom,prenom) values ('1','20',' 	2008-10-29','mail@mail.com','77 rue du du','toto','toto');

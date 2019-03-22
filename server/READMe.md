@@ -7,6 +7,8 @@
 les tables :
 - article(nom, prix, description)
 
+format date sql : 
+-  	2008-10-29 
 
 ##Commande
 
