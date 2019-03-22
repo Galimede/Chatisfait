@@ -71,6 +71,12 @@ export default class Authent extends Page {
             if (this.verificationCompte(compte)) {
                 connexionButton.html('Mon Profil');
                 alert('Connexion réussie');
+                if(compte.login != null) { // Surement pb ici      
+                    connexionButton.click((event: Event) => {
+                        event.preventDefault();
+                        PageRenderer.renderPage(profilePage);
+                    });
+                    }
                 // puis on vide le formulaire
                 const form: ?HTMLElement = document.querySelector('form.Authent');
                 if (form && form instanceof HTMLFormElement) {
@@ -99,12 +105,6 @@ export default class Authent extends Page {
 
     mount(container: HTMLElement): void {
         $('form.Authent').submit(this.submit);
-        if(compte.login != null) { // Surement pb ici      
-        connexionButton.click((event: Event) => {
-            event.preventDefault();
-            PageRenderer.renderPage(profilePage);
-        });
-        }
         $('.inscription').click((event: Event) => {
             event.preventDefault();
             PageRenderer.renderPage(inscriptionPage);

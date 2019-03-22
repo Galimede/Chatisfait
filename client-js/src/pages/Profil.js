@@ -36,16 +36,13 @@ function MAJ (data2: string){
     let user:{idutilisateur:number, pseudo:string, mdp:string,sel:string,prenom:string,nom:string,adresse:string,adressemail:string,abonne:boolean};
     if(data2) user = data2;
     if(user.abonne==false){
-        $('.informations').text(`Vous n'êtes pas abonné à la box`);
+        $('.abonnement').text(`Vous n'êtes pas abonné à la box`);
     }
-    console.log("connecté");
-    console.log($('.informations'));
     $('.informations').html(`<li>Votre pseudo : ${user.pseudo}</li>
     <li>Votre nom : ${user.nom}</li>
     <li>Votre prenom : ${user.prenom}</li>
     <li>Votre adresse : ${user.adresse}</li>
     <li>Votre mail : ${user.mail}</li>`);
-    console.log($('.informations'));
 }
 
 
