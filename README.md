@@ -70,3 +70,13 @@ Mon profil
 Commande BDD à faire
 
 ## Sprint 7
+
+Nous avons fait fonctionner l'inscription sur android avec mise de données dans le serveur REST.
+Nous pouvons affichier la liste des articles en les récupérant dans la base de données.
+Quant-on clique sur mon profil après la connection , il affiche la page du profil de l'utilisateur.
+
+TO DO
+Le CSS de la page box.
+La page abonnement qui fonctionne.
+Commencer la page achat.
+La search bar de la liste pour sélectionner un article.
