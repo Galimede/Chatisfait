@@ -2,7 +2,6 @@ package fr.ulille.iut.chatisfait.ressources;
 
 import fr.ulille.iut.chatisfait.ApiV1;
 import fr.ulille.iut.chatisfait.dao.DataAccess;
-import fr.ulille.iut.chatisfait.dao.PizzaEntity;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Test;
 

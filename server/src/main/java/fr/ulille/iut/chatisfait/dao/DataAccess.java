@@ -84,12 +84,21 @@ public class DataAccess {
         return query.getResultList();
     }
 
+    public List<AbonnementEntity> getAllAbonnements() {
+        TypedQuery<AbonnementEntity> query = em.createNamedQuery("FindAllAbonnements", AbonnementEntity.class);
+        return query.getResultList();
+    }
+
     public ArticleEntity getArticleById(int idArticle) {
         return em.find(ArticleEntity.class, idArticle);
     }
 
     public CommandeEntity getCommandeById(int idCommande) {
         return em.find(CommandeEntity.class, idCommande);
+    }
+
+    public AbonnementEntity getAbonnementById(int idAbonnements) {
+        return em.find(AbonnementEntity.class, idAbonnements);
     }
 
     public ArticleEntity getArticleByNom(String nom) {
@@ -124,8 +133,15 @@ public class DataAccess {
         return commandeEntity.getIdCommande();
     }
 
-
-
+    public int createAbonnement(AbonnementEntity abonnementEntity) throws DatabaseConstraintException {
+        try {
+            em.persist(abonnementEntity);
+            em.flush();
+        } catch (PersistenceException e) {
+            throw new DatabaseConstraintException();
+        }
+        return abonnementEntity.getIdAbonnement();
+    }
 
     public void deleteArticle(String nom) throws Exception {
         ArticleEntity articleEntity = em.find(ArticleEntity.class,  nom);
@@ -141,6 +157,12 @@ public class DataAccess {
         em.remove(em.merge(commandeEntity));
     }
 
+    public void deleteAbonnement(int idAbonnement) throws Exception {
+        AbonnementEntity abonnementEntity = em.find(AbonnementEntity.class,  idAbonnement);
+        //System.out.println(articleEntity.toString());
+        if (abonnementEntity == null) throw new Exception();
+        em.remove(em.merge(abonnementEntity));
+    }
 
     public void updateArticle(ArticleEntity articleEntity) throws DatabaseConstraintException {
         try {
@@ -159,7 +181,17 @@ public class DataAccess {
             throw new DatabaseConstraintException();
         }
     }
-	
+
+    public void updateAbonnement(AbonnementEntity abonnementEntity) throws DatabaseConstraintException {
+        try {
+            em.merge(abonnementEntity);
+            em.flush();
+        } catch (PersistenceException e) {
+            throw new DatabaseConstraintException();
+        }
+    }
+
+
 	/**
 	 * Recherche d'un ingredient à partir de son id.
 	 * retourne null si aucun ingredient de la base ne possède cet id.
@@ -242,10 +274,7 @@ public class DataAccess {
 	 * Lecture de la totalités des pizzas de la base
 	 * @return La liste des pizzas
 	 */
-	public List<PizzaEntity> getAllPizzas() {
-        TypedQuery<PizzaEntity> query = em.createNamedQuery("FindAllPizzas", PizzaEntity.class);
-        return query.getResultList();
-	}
+
 	
 	/**
 	 * Recherche d'une pizza à partir de son id.
@@ -253,9 +282,7 @@ public class DataAccess {
 	 * @param idPizza l'id recherché
 	 * @return La pizza si elle existe
 	 */
-	public PizzaEntity getPizzaById(long idPizza) {
-        return em.find(PizzaEntity.class,  idPizza);
-	}
+
 	
 	/**
 	 * Recherche d'une pizza à partir de son nom
@@ -264,15 +291,6 @@ public class DataAccess {
 	 * @param nom le nom de la pizza recherchée.
 	 * @return La pizza recherchée si elle existe
 	 */
-    public PizzaEntity getPizzaByName(String nom) {
-        TypedQuery<PizzaEntity> query = em.createNamedQuery("FindPizzaByName", PizzaEntity.class);
-        query.setParameter("pnom", nom);
-        try {
-            return query.getSingleResult();
-        } catch (NonUniqueResultException | NoResultException e) {
-        	return null;
-        }
-	}
 
     /**
      * Met à jour les informations sur une pizza (y compris la liste de ses ingrédients).
@@ -282,24 +300,5 @@ public class DataAccess {
      * @param pizza La pizza dont on veut modifier les informations.
      * @throws PizzaNameExistsException Si le nouveau nom de pizza existait déjà sur une autre  ligne (contrainte d'unicité de la table)
      */
-	public void updatePizza(PizzaEntity pizza) throws PizzaNameExistsException {
-	    try {
-            em.merge(pizza);
-            em.flush();
-        } catch (javax.persistence.PersistenceException e){
-            throw new PizzaNameExistsException();
-        }
-	}
-	
-	public long createPizza(PizzaEntity pizza) {
-        em.persist(pizza);
-        em.flush();
-        return pizza.getId();
-	}
 
-	public void deletePizza(long id) throws Exception {
-        PizzaEntity pizza = em.find(PizzaEntity.class,  id);
-        if (pizza == null) throw new Exception();
-        em.remove(em.merge(pizza));
-	}
 }
