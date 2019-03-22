@@ -68,30 +68,46 @@ public class AbonnementRessource {
         }
     }
 
-//    @PUT
-//    @Path("/{idabonnement}")
-//    public Response update(@PathParam("idabonnement") int idAbonnement, AbonnementEntity abonne) {
-//        DataAccess dataAccess = DataAccess.begin();
-//        AbonnementEntity abonnementEntity = dataAccess.getAbonnementById(idAbonnement);
-//        if (abonnementEntity == null) {
-//            return Response.status(Response.Status.NOT_FOUND).entity("Abonne not found").build();
-//        } else {
-//            System.out.println("lol");
-//            try {
-//                if(abonne.getIdAbonnement() != null)
-//                    abonnementEntity.setIdAbonnement(abonne.getIdAbonnement());
-//                if (abonne.getIdArticle() != null)
-//                    abonnementEntity.setIdAbonnement(abonne.getIdArticle());
-//                if (abonne.getIdutilisateur() )
-//                dataAccess.updateCommande(commandeEntity);
-//                dataAccess.closeConnection(true);
-//                return Response.ok(commandeEntity).build(); //  .created(instanceURI).build();
-//            } catch (Exception ex) {
-//                dataAccess.closeConnection(false);
-//                return Response.status(Response.Status.CONFLICT).entity("Commande probleme").build();
-//            }
-//        }
-//    }
+    @PUT
+    @Path("/{idabonnement}")
+    public Response update(@PathParam("idabonnement") int idAbonnement, AbonnementEntity abonne) {
+        DataAccess dataAccess = DataAccess.begin();
+        AbonnementEntity abonnementEntity = dataAccess.getAbonnementById(idAbonnement);
+        if (abonnementEntity == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Abonne not found").build();
+        } else {
+            System.out.println("lol");
+            try {
+                if (abonne.getIdArticle() != 0)
+                    abonnementEntity.setIdAbonnement(abonne.getIdArticle());
+                if (abonne.getIdutilisateur() != 0)
+                    abonnementEntity.setIdAbonnement(abonne.getIdutilisateur());
+                if (abonne.getTypeAbonne() == null)
+                    abonnementEntity.setTypeAbonne(abonne.getTypeAbonne());
+                dataAccess.updateAbonnement(abonnementEntity);
+                dataAccess.closeConnection(true);
+                return Response.ok(abonnementEntity).build(); //  .created(instanceURI).build();
+            } catch (Exception ex) {
+                dataAccess.closeConnection(false);
+                return Response.status(Response.Status.CONFLICT).entity("Abonnement probleme").build();
+            }
+        }
+    }
+
+    @DELETE
+    @Path("/{idabonnement}")
+    public Response delete(@PathParam("idabonnement") int idAbonnement){
+        DataAccess dataAccess = DataAccess.begin();
+        try {
+            dataAccess.deleteAbonnement(idAbonnement);
+            dataAccess.closeConnection(true);
+            return Response.status(Response.Status.NO_CONTENT).build();
+        } catch (Exception e) {
+            dataAccess.closeConnection(false);
+            return Response.status(Response.Status.NOT_FOUND).entity("Abonnement not found").build();
+        }
+
+    }
 
 
 }
