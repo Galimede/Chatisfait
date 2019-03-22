@@ -1,12 +1,9 @@
 package fr.ulille.iut.pizzaland;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -41,18 +38,32 @@ public class Authentification extends AppCompatActivity {
 
     private String[] cutJsonArray(JSONObject data){
         String text = data.toString().substring(2, data.toString().length()-1);
-        String splitted[] = text.split(",");
-        return splitted;
+        return text.split(",");
+    }
+
+    private int searchPattern(String[] donnees, String regex){
+        for(int i=0; i<donnees.length; i++){
+            if(donnees[i].matches(regex)) return i;
+        }
+
+        return -1;
     }
 
     public void showJsonArrayResponse(JSONArray response) {
+        System.out.println(response);
         boolean found = false;
         try {
             for (int i = 0; i < response.length() ; i++) {
                 JSONObject obj = response.getJSONObject(i);
                 String[] cut = cutJsonArray(obj);
-                if(cut[2].equals("\"mdp\":\""+mdp+"\"") && cut[3].equals("\"pseudo\":\""+login+"\"") && !found)
+                int logIdx = searchPattern(cut, ".*pseudo.*");
+                int mdpIdx = searchPattern(cut, ".*mdp.*");
+
+                if(cut[mdpIdx].equals("\"mdp\":\""+mdp+"\"") && cut[logIdx].equals("\"pseudo\":\""+login+"\"") && !found) {
                     found = true;
+                    GenericData.setLogin(login);
+                    GenericData.setPasswd(mdp);
+                }
 
             }
 

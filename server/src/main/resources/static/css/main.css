@@ -262,37 +262,31 @@ form label .form-control {
 	height: 15px;
     width: 15px;
 }
-
-.formulaireinscription{
-	background-color: black;
-}
-
 #img{
 	height: 200px;
     width: 200px;
 }
 
 #boutonsubmit{
-	border: 2px solid green;
+	border: 2px solid rgb(77, 77, 177);
   border-radius: 15px;
-  background-color: green;
+  background-color: rgb(77, 77, 177);
 }
 
 .codepostal{
 	display: inline;
 }
 
-.fomcomplet{
-	display: inline;
-	margin: 25px 25px 25px 25px;
-}
-
 #block{
-	background-color: black;
+	background-color: lightblue;
 	border-bottom: 2px solid grey;
 }
 
 #imgpanier{
 	height: 20px;
     width: 20px;
+}
+
+.formcomplet{
+	margin-left:50%;
 }
