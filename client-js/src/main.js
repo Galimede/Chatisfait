@@ -12,7 +12,6 @@ import ListeArticle from './pages/ListeArticle.js';
 import Achat from './pages/Achat';
 
 //declaration du panier
-export let box:boolean=false;
 export let panier:Array<{idarticle:number}>;
 
 // configuration du PageRenderer
@@ -26,6 +25,7 @@ const boxPage:AddBox = new AddBox();
 const abonnementPage:AddAbonnement = new AddAbonnement();
 const aboutUs:AboutUs = new AboutUs();
 const articles:ListeArticle = new ListeArticle();
+export let achatpage:Achat = new Achat();
 
 // Déclaration liens menus 
 const menu:Menu = new Menu();
@@ -34,10 +34,16 @@ const connexionButton = $('.connecter');
 const abonnementButton = $('.abonner');
 const boxButton = $('.box');
 const aboutButton = $('.about');
-//const aboutpanier = $('.panier');
+const panierButton = $('.panier');
 const articlesButton = $('.articles');
 
 // Gestion des evenements bouttons 
+
+panierButton.click((event:Event) => {
+	event.preventDefault();
+	achatpage = new Achat()
+	PageRenderer.renderPage(achatpage);
+});
 
 logoLink.click((event:Event) => {
 	event.preventDefault();

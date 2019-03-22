@@ -4,6 +4,10 @@ import $ from 'jquery';
 import HomePage from './HomePage.js';
 import PageRenderer from '../PageRenderer.js';
 import {authentPage} from '../main.js';
+import {achatpage} from '../main.js';
+import Achat from './Achat.js';
+
+export let box:boolean=false;
 
 export default class AddBox extends Page {
 	constructor(){
@@ -30,47 +34,14 @@ export default class AddBox extends Page {
         
         $('.abonnerbox').click( (event:Event) => {
             event.preventDefault();
-
             if(compte.login != null){
-                console.log(1);
-                alert('Vous êtes abonné à la box');
-                let user:{idutilisateur:number, pseudo:string, mdp:string,sel:string,prenom:string,nom:string,adresse:string,adressemail:string,abonne:boolean};
-                fetch('http://localhost:8080/api/v1/utilisateurs/'+compte.login)
-                .then( (response:Response) => response.json() )
-                .then ( (data:any) => {
-                    if(data) user = data;
-                    user.abonne=true;
-                    console.log(2);
-                    console.log(user);
-                    console.log("TEST");
-                    console.log(JSON.stringify(user));
-                    return fetch( '/api/v1/utilisateurs/'+compte.login, {
-                        method:'PUT',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(user)
-                    })
-                })
-                .then(response => {
-                    console.log(4);
-    
-                    if (!response.ok) {
-                        throw new Error( `${response.status} : ${response.statusText}` );
-                    }
-                    return response.json();
-                })
-                .catch( error => alert(`Enregistrement impossible : ${error.message}`) );
-                    
-                
-                console.log(3);
-
-
-                
-                
-			
+                box=true;
+                this.achatpage = new Achat();
+                PageRenderer.renderPage(achatpage);
+                box=false;
             }else{
                 PageRenderer.renderPage(authentPage);
             }
-            console.log(5);
 
         });
     }
