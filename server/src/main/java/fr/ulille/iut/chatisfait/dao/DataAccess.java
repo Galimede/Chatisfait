@@ -84,12 +84,21 @@ public class DataAccess {
         return query.getResultList();
     }
 
+    public List<AbonnementEntity> getAllAbonnements() {
+        TypedQuery<AbonnementEntity> query = em.createNamedQuery("FindAllAbonnements", AbonnementEntity.class);
+        return query.getResultList();
+    }
+
     public ArticleEntity getArticleById(int idArticle) {
         return em.find(ArticleEntity.class, idArticle);
     }
 
     public CommandeEntity getCommandeById(int idCommande) {
         return em.find(CommandeEntity.class, idCommande);
+    }
+
+    public AbonnementEntity getAbonnementById(int idAbonnements) {
+        return em.find(AbonnementEntity.class, idAbonnements);
     }
 
     public ArticleEntity getArticleByNom(String nom) {
@@ -124,8 +133,15 @@ public class DataAccess {
         return commandeEntity.getIdCommande();
     }
 
-
-
+    public int createAbonnement(AbonnementEntity abonnementEntity) throws DatabaseConstraintException {
+        try {
+            em.persist(abonnementEntity);
+            em.flush();
+        } catch (PersistenceException e) {
+            throw new DatabaseConstraintException();
+        }
+        return abonnementEntity.getIdAbonnement();
+    }
 
     public void deleteArticle(String nom) throws Exception {
         ArticleEntity articleEntity = em.find(ArticleEntity.class,  nom);
@@ -141,6 +157,12 @@ public class DataAccess {
         em.remove(em.merge(commandeEntity));
     }
 
+    public void deleteAbonnement(int idAbonnement) throws Exception {
+        AbonnementEntity abonnementEntity = em.find(AbonnementEntity.class,  idAbonnement);
+        //System.out.println(articleEntity.toString());
+        if (abonnementEntity == null) throw new Exception();
+        em.remove(em.merge(abonnementEntity));
+    }
 
     public void updateArticle(ArticleEntity articleEntity) throws DatabaseConstraintException {
         try {
@@ -159,7 +181,17 @@ public class DataAccess {
             throw new DatabaseConstraintException();
         }
     }
-	
+
+    public void updateAbonnement(AbonnementEntity abonnementEntity) throws DatabaseConstraintException {
+        try {
+            em.merge(abonnementEntity);
+            em.flush();
+        } catch (PersistenceException e) {
+            throw new DatabaseConstraintException();
+        }
+    }
+
+
 	/**
 	 * Recherche d'un ingredient à partir de son id.
 	 * retourne null si aucun ingredient de la base ne possède cet id.
