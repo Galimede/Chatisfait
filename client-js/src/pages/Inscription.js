@@ -13,11 +13,8 @@ export default class Inscription extends Page {
 	render():string {
         return `<div class="formcomplet">
         <label>
-        <h1> id ="titleinscriptionjs"> Formulaire d'inscription</h1>
+        <h1> Formulaire d'inscription</h1>
         <label>
-        <span class="image">
-            <img id="img" src="images/chatisfait.png" />
-        </span>
         <div class="formulaireinscription">
             <form class="Inscription">
 		<label>
