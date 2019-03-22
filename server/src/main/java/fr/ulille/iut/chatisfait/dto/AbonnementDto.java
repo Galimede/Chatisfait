@@ -6,8 +6,9 @@ public class AbonnementDto {
 
     private int idAbonnement;
     private int idutilisateur;
-    private Date datefin;
-    private String type;
+    private int idArticle;
+    private String typeAbonne;
+
 
     public int getIdAbonnement() {
         return idAbonnement;
@@ -25,19 +26,11 @@ public class AbonnementDto {
         this.idutilisateur = idutilisateur;
     }
 
-    public Date getDatefin() {
-        return datefin;
+    public String getTypeAbonne() {
+        return typeAbonne;
     }
 
-    public void setDatefin(Date datefin) {
-        this.datefin = datefin;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void setTypeAbonne(String type) {
+        this.typeAbonne = type;
     }
 }
