@@ -11,7 +11,7 @@ public class CommandeDto {
     private int idCommande;
     private int idUtilisateur;
     private double prix;
-    private Date date;
+    private Date dateCommande;
     private String adresseMail;
     private String adresse;
     private String nom;
@@ -41,12 +41,12 @@ public class CommandeDto {
         this.prix = prix;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getDateCommande() {
+        return dateCommande;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDateCommande(Date dateCommande) {
+        this.dateCommande = dateCommande;
     }
 
     public String getAdresseMail() {

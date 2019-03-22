@@ -91,8 +91,8 @@ public class CommandeRessource {
                     commandeEntity.setAdresse(commande.getAdresse());
                 if (commande.getAdresseMail() != null)
                     commandeEntity.setAdresseMail(commande.getAdresseMail());
-                if(commande.getDate() != null)
-                    commandeEntity.setDate(commande.getDate());
+                if(commande.getDateCommande() != null)
+                    commandeEntity.setDateCommande(commande.getDateCommande());
                 if(commande.getPrix() == 0)
                     commandeEntity.setPrix(commande.getPrix());
                 if(commande.getPrenom() != null)

@@ -14,11 +14,12 @@ import java.sql.Date;
  * @author blochs
  */
 
-
+@Entity
 @Table(name = "commande")
+
 @NamedQueries({
         @NamedQuery(name = "FindAllCommandes",query = "SELECT c from CommandeEntity c"),
-        @NamedQuery(name = "FindCommandById",query = "SELECT c from CommandeEntity c where c.idcommande = :cidcommande")
+        @NamedQuery(name = "FindCommandeById",query = "SELECT c from CommandeEntity c where c.idCommande = :cidcommande")
 })
 
 
@@ -26,7 +27,7 @@ public class CommandeEntity {
     private int idCommande;
     private int idUtilisateur;
     private double prix;
-    private Date date;
+    private Date dateCommande;
     private String adresseMail;
     private String adresse;
     private String nom;
@@ -75,13 +76,13 @@ public class CommandeEntity {
     }
 
     @Basic
-    @Column(name = "date")
-    public Date getDate() {
-        return date;
+    @Column(name = "datecommande")
+    public Date getDateCommande() {
+        return dateCommande;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDateCommande(Date date) {
+        this.dateCommande = date;
     }
 
     @Basic
