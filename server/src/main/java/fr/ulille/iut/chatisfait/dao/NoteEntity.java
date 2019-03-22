@@ -18,7 +18,7 @@ import javax.persistence.*;
 
 @NamedQueries({
         @NamedQuery(name = "FindAllNotes",query = "SELECT n from NoteEntity n"),
-        @NamedQuery(name = "FindNoteByIdArticle",query = "SELECT n from NoteEntity n where n.idarticle = :nidarticle")
+        @NamedQuery(name = "FindNoteByIdArticle",query = "SELECT n from NoteEntity n where n.idArticle = :nidarticle")
 })
 
 public class NoteEntity {

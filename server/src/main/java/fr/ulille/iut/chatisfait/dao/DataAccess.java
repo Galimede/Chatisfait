@@ -1,5 +1,6 @@
 package fr.ulille.iut.chatisfait.dao;
 
+import org.glassfish.grizzly.http.Note;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -89,6 +90,12 @@ public class DataAccess {
         return query.getResultList();
     }
 
+    public List<NoteEntity> getAllNotes() {
+        TypedQuery<NoteEntity> query = em.createNamedQuery("FindAllNotes", NoteEntity.class);
+        return query.getResultList();
+    }
+
+
     public ArticleEntity getArticleById(int idArticle) {
         return em.find(ArticleEntity.class, idArticle);
     }
@@ -101,10 +108,26 @@ public class DataAccess {
         return em.find(AbonnementEntity.class, idAbonnements);
     }
 
+    public NoteEntity getNoteById(int idNote) {
+        return em.find(NoteEntity.class, idNote);
+    }
+
     public ArticleEntity getArticleByNom(String nom) {
         ArticleEntity returnValue;
         TypedQuery<ArticleEntity> query = em.createNamedQuery("FindArticleByNom", ArticleEntity.class);
         query.setParameter("anom", nom);
+        try {
+            returnValue = query.getSingleResult();
+        } catch (NonUniqueResultException | NoResultException e) {
+            returnValue = null;
+        }
+        return returnValue;
+    }
+
+    public NoteEntity getNoteByIdArticle(int idArticle) {
+        NoteEntity returnValue;
+        TypedQuery<NoteEntity> query = em.createNamedQuery("FindNoteByIdArticle", NoteEntity.class);
+        query.setParameter("nidarticle", idArticle);
         try {
             returnValue = query.getSingleResult();
         } catch (NonUniqueResultException | NoResultException e) {
@@ -143,6 +166,17 @@ public class DataAccess {
         return abonnementEntity.getIdAbonnement();
     }
 
+    public int createNote(NoteEntity noteEntity) throws DatabaseConstraintException {
+        try {
+            em.persist(noteEntity);
+            em.flush();
+        } catch (PersistenceException e) {
+            throw new DatabaseConstraintException();
+        }
+        return noteEntity.getIdNote();
+    }
+
+
     public void deleteArticle(String nom) throws Exception {
         ArticleEntity articleEntity = em.find(ArticleEntity.class,  nom);
         //System.out.println(articleEntity.toString());
@@ -162,6 +196,13 @@ public class DataAccess {
         //System.out.println(articleEntity.toString());
         if (abonnementEntity == null) throw new Exception();
         em.remove(em.merge(abonnementEntity));
+    }
+
+    public void deleteNote(int idArticle) throws Exception {
+        NoteEntity noteEntity = em.find(NoteEntity.class,  idArticle);
+        //System.out.println(articleEntity.toString());
+        if (noteEntity == null) throw new Exception();
+        em.remove(em.merge(noteEntity));
     }
 
     public void updateArticle(ArticleEntity articleEntity) throws DatabaseConstraintException {
@@ -185,6 +226,15 @@ public class DataAccess {
     public void updateAbonnement(AbonnementEntity abonnementEntity) throws DatabaseConstraintException {
         try {
             em.merge(abonnementEntity);
+            em.flush();
+        } catch (PersistenceException e) {
+            throw new DatabaseConstraintException();
+        }
+    }
+
+    public void updateNote(NoteEntity noteEntity) throws DatabaseConstraintException {
+        try {
+            em.merge(noteEntity);
             em.flush();
         } catch (PersistenceException e) {
             throw new DatabaseConstraintException();
