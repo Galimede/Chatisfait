@@ -1,8 +1,6 @@
 package fr.ulille.iut.chatisfait.testdao;
 
 import fr.ulille.iut.chatisfait.dao.DataAccess;
-import fr.ulille.iut.chatisfait.dao.IngredientEntity;
-import fr.ulille.iut.chatisfait.dao.PizzaEntity;
 import fr.ulille.iut.chatisfait.dao.PizzaNameExistsException;
 
 import org.junit.Test;

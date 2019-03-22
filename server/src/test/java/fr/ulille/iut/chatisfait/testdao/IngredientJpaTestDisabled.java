@@ -2,7 +2,6 @@ package fr.ulille.iut.chatisfait.testdao;
 
 import fr.ulille.iut.chatisfait.dao.DataAccess;
 import fr.ulille.iut.chatisfait.dao.DatabaseConstraintException;
-import fr.ulille.iut.chatisfait.dao.IngredientEntity;
 import org.junit.Test;
 
 import java.util.List;
