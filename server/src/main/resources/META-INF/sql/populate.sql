@@ -60,5 +60,5 @@ CREATE TABLE commande(idcommande serial NOT NULL PRIMARY KEY, idutilisateur inte
 CREATE TABLE abonnement(idabonnement serial NOT NULL PRIMARY KEY, idutilisateur integer, idarticle integer, typeabonne integer , datefin DATE, FOREIGN  KEY (idutilisateur) REFERENCES utilisateur(idutilisateur), FOREIGN KEY (idarticle) REFERENCES article(idArticle) ON DELETE CASCADE ON UPDATE CASCADE);
 insert into utilisateur(pseudo,mdp) values ('sacha','sacha');
 insert into utilisateur(pseudo,mdp) values ('sully','sully');
-insert into article(nom,prix) values ('toto','42');
+insert into article(nom,prix,description) values ('toto','42','c bleu mdr');
 insert into commande(idutilisateur,prix,datecommande,adressemail,adresse,nom,prenom) values ('1','20','2019-03-22 00:00:00.000','mail@mail.com','77 rue du du','toto','toto');
