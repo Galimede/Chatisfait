@@ -99,7 +99,7 @@ export default class Authent extends Page {
 
     mount(container: HTMLElement): void {
         $('form.Authent').submit(this.submit);
-        if(compte !== undefined) { // Surement pb ici      
+        if(compte.login != null) { // Surement pb ici      
         connexionButton.click((event: Event) => {
             event.preventDefault();
             PageRenderer.renderPage(profilePage);
