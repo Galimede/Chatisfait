@@ -61,4 +61,5 @@ CREATE TABLE abonnement(idabonnement serial NOT NULL PRIMARY KEY, idutilisateur 
 insert into utilisateur(pseudo,mdp) values ('sacha','sacha');
 insert into utilisateur(pseudo,mdp) values ('sully','sully');
 insert into article(nom,prix,description) values ('toto','42','c bleu mdr');
+insert into article(nom,prix,description) values ('cinamonebun','720','c rouge mdr');
 insert into commande(idutilisateur,prix,datecommande,adressemail,adresse,nom,prenom) values ('1','20','2019-03-22 00:00:00.000' ,'mail@mail.com','77 rue du du','toto','toto');
