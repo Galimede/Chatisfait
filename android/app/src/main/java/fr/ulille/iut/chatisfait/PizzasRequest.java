@@ -1,6 +1,5 @@
-package fr.ulille.iut.pizzaland;
+package fr.ulille.iut.chatisfait;
 
-import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.android.volley.NetworkResponse;
@@ -15,9 +14,9 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 
-import fr.ulille.iut.pizzaland.dto.PizzaShortDto;
+import fr.ulille.iut.chatisfait.dto.PizzaShortDto;
 
-import static fr.ulille.iut.pizzaland.MainActivity.LOG_TAG;
+import static fr.ulille.iut.chatisfait.MainActivity.LOG_TAG;
 
 public class PizzasRequest extends Request<PizzaShortDto[]> {
     private Response.Listener<PizzaShortDto[]> listener = null;

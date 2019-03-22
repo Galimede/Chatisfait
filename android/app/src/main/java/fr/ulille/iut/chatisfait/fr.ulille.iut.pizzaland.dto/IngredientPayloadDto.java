@@ -1,4 +1,4 @@
-package fr.ulille.iut.pizzaland.dto;
+package fr.ulille.iut.chatisfait.dto;
 
 import java.util.Objects;
 

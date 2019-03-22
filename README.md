@@ -98,6 +98,18 @@ Page achat avancement.
 Barre recherche article fonctionne.
 
 TO DO
-
+AJouter des articles
 
 ## Sprint 10
+
+Base abonnement.
+On peut ajouter des articles.
+On peut ajouter des articles dans le panier.
+Liste trier par nom, categorie.
+Page achat avancement.
+Visualisation profil et panier (dans la base pour le panier)
+
+TO DO
+
+## Sprint 11
+

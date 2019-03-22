@@ -78,26 +78,35 @@ public class AbonnementRessource {
         } else {
             System.out.println("lol");
             try {
-                if(abonne.get != null)
-                    commandeEntity.setAdresse(commande.getAdresse());
-                if (commande.getAdresseMail() != null)
-                    commandeEntity.setAdresseMail(commande.getAdresseMail());
-                if(commande.getDateCommande() != null)
-                    commandeEntity.setDateCommande(commande.getDateCommande());
-                if(commande.getPrix() != 0)
-                    commandeEntity.setPrix(commande.getPrix());
-                if(commande.getPrenom() != null)
-                    commandeEntity.setPrenom(commande.getPrenom());
-                if(commande.getNom() != null)
-                    commandeEntity.setNom(commande.getNom());
-                dataAccess.updateCommande(commandeEntity);
+                if (abonne.getIdArticle() != 0)
+                    abonnementEntity.setIdAbonnement(abonne.getIdArticle());
+                if (abonne.getIdutilisateur() != 0)
+                    abonnementEntity.setIdAbonnement(abonne.getIdutilisateur());
+                if (abonne.getTypeAbonne() != null)
+                    abonnementEntity.setTypeAbonne(abonne.getTypeAbonne());
+                dataAccess.updateAbonnement(abonnementEntity);
                 dataAccess.closeConnection(true);
-                return Response.ok(commandeEntity).build(); //  .created(instanceURI).build();
+                return Response.ok(abonnementEntity).build(); //  .created(instanceURI).build();
             } catch (Exception ex) {
                 dataAccess.closeConnection(false);
-                return Response.status(Response.Status.CONFLICT).entity("Commande probleme").build();
+                return Response.status(Response.Status.CONFLICT).entity("Abonnement probleme").build();
             }
         }
+    }
+
+    @DELETE
+    @Path("/{idabonnement}")
+    public Response delete(@PathParam("idabonnement") int idAbonnement){
+        DataAccess dataAccess = DataAccess.begin();
+        try {
+            dataAccess.deleteAbonnement(idAbonnement);
+            dataAccess.closeConnection(true);
+            return Response.status(Response.Status.NO_CONTENT).build();
+        } catch (Exception e) {
+            dataAccess.closeConnection(false);
+            return Response.status(Response.Status.NOT_FOUND).entity("Abonnement not found").build();
+        }
+
     }
 
 

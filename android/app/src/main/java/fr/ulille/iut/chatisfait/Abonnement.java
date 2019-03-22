@@ -1,4 +1,4 @@
-package fr.ulille.iut.pizzaland;
+package fr.ulille.iut.chatisfait;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,23 +10,19 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class Abonnement extends AppCompatActivity {
+public class Abonnement extends AppCompatActivity implements ReceiverClient {
 
     private Spinner abo;
     private TextView selection;
     private EditText name;
 
-    protected GenericData generic;
+    protected GenericDataCenter generic;
     private RequestQueue queue;
 
     @Override
@@ -34,8 +30,9 @@ public class Abonnement extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.abonne);
 
-        generic = new GenericData(this);
         queue = Volley.newRequestQueue(this);
+        generic = new GenericDataCenter(this, queue);
+
 
         selection = (TextView) findViewById(R.id.selection);
 
@@ -79,12 +76,16 @@ public class Abonnement extends AppCompatActivity {
         }
     }
 
+    public void getJsonArrayResponse(JSONArray response){
+        abonne(response);
+    }
+
     public void doAbonnement(View view){
-        if(!GenericData.getLogin().equals("") && !GenericData.getPasswd().equals("")){
+        if(!GenericDataCenter.getLogin().equals("") && !GenericDataCenter.getPasswd().equals("")){
             name = (EditText) findViewById(R.id.aboNom);
             System.out.println("nom : "+name.getText().toString());
 
-            String base_uri = generic.getFullHostname();
+            /*String base_uri = generic.getFullHostname();
 
             String uri = base_uri + "/utilisateurs";
 
@@ -105,7 +106,8 @@ public class Abonnement extends AppCompatActivity {
                         }
                     });
             System.out.println("requete : " + request);
-            queue.add(request);
+            queue.add(request);*/
+            generic.doGet(this);
         }else{
             Intent it = new Intent(this, Authentification.class);
             startActivity(it);

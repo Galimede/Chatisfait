@@ -1,4 +1,4 @@
-package fr.ulille.iut.pizzaland;
+package fr.ulille.iut.chatisfait;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -18,16 +18,17 @@ import org.json.JSONObject;
 
 public class Inscription extends AppCompatActivity {
 
-    protected GenericData generic;
+    protected GenericDataCenter generic;
     private RequestQueue queue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inscrip);
-        generic = new GenericData(this);
+
 
         queue = Volley.newRequestQueue(Inscription.this);
+        generic = new GenericDataCenter(this, queue);
     }
 
     public void showJsonObjectResponse(JSONObject response) {
@@ -73,8 +74,8 @@ public class Inscription extends AppCompatActivity {
 
             queue.add(request);
             System.out.println("request : "+request);
-            GenericData.setLogin(login);
-            GenericData.setPasswd(passwd);
+            GenericDataCenter.setLogin(login);
+            GenericDataCenter.setPasswd(passwd);
         } catch (Exception e) {
             Log.e("APPLI", "Error while initializing Json request content");
         }
