@@ -67,6 +67,8 @@ public class Abonnement extends AppCompatActivity implements ReceiverClient {
                 int nameIdx = generic.searchPattern(splitted, ".*pseudo.*");
 
                 if(splitted[nameIdx].equals("\"pseudo\":\""+name.getText().toString()+"\"") && !found) {
+                    String json = "{'abonne':'true', 'pseudo':'"+GenericDataCenter.getLogin()+"', 'mdp':'"+GenericDataCenter.getPasswd()+"'}";
+                    generic.doPut(this, json);
                     //TO DO UPDATE
                 }
             }
@@ -76,8 +78,13 @@ public class Abonnement extends AppCompatActivity implements ReceiverClient {
         }
     }
 
+    public void postJsonObjectResponse(JSONObject response){
+        System.out.println(response);
+        //abonne(response);
+    }
+
     public void getJsonArrayResponse(JSONArray response){
-        abonne(response);
+
     }
 
     public void doAbonnement(View view){
@@ -107,7 +114,7 @@ public class Abonnement extends AppCompatActivity implements ReceiverClient {
                     });
             System.out.println("requete : " + request);
             queue.add(request);*/
-            generic.doGet(this);
+            generic.doGet(this, GenericDataCenter.Utilisateurs);
         }else{
             Intent it = new Intent(this, Authentification.class);
             startActivity(it);

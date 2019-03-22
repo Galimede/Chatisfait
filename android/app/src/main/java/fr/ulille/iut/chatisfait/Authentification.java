@@ -65,6 +65,10 @@ public class Authentification extends AppCompatActivity implements ReceiverClien
         authentify(response);
     }
 
+    public void postJsonObjectResponse(JSONObject response){
+        //Nothing here
+    }
+
     public void onConnect(View view){
         generic.hideKeyboard();
 
@@ -96,7 +100,7 @@ public class Authentification extends AppCompatActivity implements ReceiverClien
                 });
         System.out.println("requete : " + request);
         queue.add(request);*/
-        generic.doGet(this);
+        generic.doGet(this, GenericDataCenter.Utilisateurs);
 
     }
 

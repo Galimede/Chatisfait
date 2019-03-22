@@ -15,7 +15,6 @@
         <activity android:name=".Authentification"></activity>
         <activity android:name=".Inscription"></activity>
         <activity android:name=".Abonnement"></activity>
-        <activity android:name=".HttpDialogActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
