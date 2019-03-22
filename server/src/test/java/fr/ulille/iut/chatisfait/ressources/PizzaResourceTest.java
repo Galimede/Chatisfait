@@ -1,8 +1,6 @@
 package fr.ulille.iut.chatisfait.ressources;
 
 import fr.ulille.iut.chatisfait.ApiV1;
-import fr.ulille.iut.chatisfait.dto.PizzaCreateDto;
-import fr.ulille.iut.chatisfait.dto.PizzaDto;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Test;
 
