@@ -105,7 +105,7 @@ public class CommandeEntity {
     }
 
     @Basic
-    @Column(name = "tutu", length = 20)
+    @Column(name = "nom", length = 20)
     public String getNom() {
         return nom;
     }
@@ -114,6 +114,8 @@ public class CommandeEntity {
         this.nom = nom;
     }
 
+    @Basic
+    @Column(name = "prenom", length = 20)
     public String getPrenom() {
         return prenom;
     }

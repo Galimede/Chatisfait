@@ -6,3 +6,10 @@
 
 les tables :
 - article(nom, prix, description)
+
+
+##Commande
+
+###Exemple
+
+`curl -i -H "Content-type: application/json" -X PUT --data "{\"abonne\":\"false\"}" http://172.18.49.71:8080/api/v1/utilisateurs/sacha`
