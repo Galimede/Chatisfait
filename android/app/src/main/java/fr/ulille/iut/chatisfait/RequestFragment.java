@@ -1,13 +1,11 @@
-package fr.ulille.iut.pizzaland;
+package fr.ulille.iut.chatisfait;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +16,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import static fr.ulille.iut.pizzaland.Data.CUSTOM_PRESET;
+import static fr.ulille.iut.chatisfait.Data.CUSTOM_PRESET;
 
 
 /**

@@ -1,19 +1,13 @@
-package fr.ulille.iut.pizzaland.dto;
+package fr.ulille.iut.chatisfait.dto;
 
-public class PizzaShortDto {
-	private long id;
+import java.util.List;
+
+public class PizzaCreateDto {
 	private String nom;
 	private String base;
 	private float prix_petite;
 	private float prix_grande;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
+	private List<Long> ingredients;
 
 	public String getNom() {
 		return nom;
@@ -45,5 +39,13 @@ public class PizzaShortDto {
 
 	public void setPrix_grande(float prix_grande) {
 		this.prix_grande = prix_grande;
+	}
+
+	public List<Long> getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(List<Long> ingredients) {
+		this.ingredients = ingredients;
 	}
 }

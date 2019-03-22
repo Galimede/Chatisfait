@@ -1,4 +1,4 @@
-package fr.ulille.iut.pizzaland;
+package fr.ulille.iut.chatisfait;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,20 +7,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.Response.ErrorListener;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class Authentification extends AppCompatActivity {
+public class Authentification extends AppCompatActivity implements ReceiverClient {
 
-    protected GenericData generic;
+    protected GenericDataCenter generic;
     private RequestQueue queue;
 
     private static String login;
@@ -31,8 +26,8 @@ public class Authentification extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.authent);
 
-        generic = new GenericData(this);
         queue = Volley.newRequestQueue(this);
+        generic = new GenericDataCenter(this, queue);
     }
 
     protected void authentify(JSONArray response){
@@ -47,8 +42,8 @@ public class Authentification extends AppCompatActivity {
 
                 if(cut[mdpIdx].equals("\"mdp\":\""+mdp+"\"") && cut[logIdx].equals("\"pseudo\":\""+login+"\"") && !found) {
                     found = true;
-                    GenericData.setLogin(login);
-                    GenericData.setPasswd(mdp);
+                    GenericDataCenter.setLogin(login);
+                    GenericDataCenter.setPasswd(mdp);
                 }
 
             }
@@ -66,8 +61,8 @@ public class Authentification extends AppCompatActivity {
         }
     }
 
-    private void showJsonArrayResponse(JSONArray response) {
-
+    public void getJsonArrayResponse(JSONArray response) {
+        authentify(response);
     }
 
     public void onConnect(View view){
@@ -79,7 +74,7 @@ public class Authentification extends AppCompatActivity {
         login = log.getText().toString();
         mdp = passwd.getText().toString();
 
-        String base_uri = generic.getFullHostname();
+        /*String base_uri = generic.getFullHostname();
 
         String uri = base_uri + "/utilisateurs";
 
@@ -99,8 +94,10 @@ public class Authentification extends AppCompatActivity {
                         error.printStackTrace();
                     }
                 });
-        //System.out.println("requete : " + request);
-        queue.add(request);
+        System.out.println("requete : " + request);
+        queue.add(request);*/
+        generic.doGet(this);
+
     }
 
     public void doInscrip(View view){

@@ -1,4 +1,4 @@
-package fr.ulille.iut.pizzaland;
+package fr.ulille.iut.chatisfait;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
