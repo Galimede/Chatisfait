@@ -21,7 +21,7 @@ export let authentPage:Authent = new Authent();
 const boxPage:AddBox = new AddBox();
 const abonnementPage:AddAbonnement = new AddAbonnement();
 const aboutUs:AboutUs = new AboutUs();
-const liste:ListeArticle = new ListeArticle();
+const articles:ListeArticle = new ListeArticle();
 
 // Déclaration liens menus 
 const menu:Menu = new Menu();
@@ -30,7 +30,8 @@ const connexionButton = $('.connecter');
 const abonnementButton = $('.abonner');
 const boxButton = $('.box');
 const aboutButton = $('.about');
-const aboutpanier = $('.panier');
+//const aboutpanier = $('.panier');
+const articlesButton = $('.articles');
 
 // Gestion des evenements bouttons 
 
@@ -59,8 +60,8 @@ aboutButton.click( (event:Event) => {
 	PageRenderer.renderPage(aboutUs);
 });
 
-aboutpanier.click( (event:Event) => {
+articlesButton.click( (event:Event) => {
 	event.preventDefault();
-	PageRenderer.renderPage(liste);
-});
+	PageRenderer.renderPage(articles);
+})
 
