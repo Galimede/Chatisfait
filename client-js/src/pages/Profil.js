@@ -42,7 +42,7 @@ function MAJ (data2: string){
     <li>Votre nom : ${user.nom}</li>
     <li>Votre prenom : ${user.prenom}</li>
     <li>Votre adresse : ${user.adresse}</li>
-    <li>Votre mail : ${user.mail}</li>`);
+    <li>Votre mail : ${user.adressemail}</li>`);
 }
 
 

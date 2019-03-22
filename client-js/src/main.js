@@ -9,7 +9,11 @@ import PageRenderer from './PageRenderer.js';
 import Menu from './components/Menu.js';
 import AboutUs from './pages/AboutUs.js';
 import ListeArticle from './pages/ListeArticle.js';
+import Achat from './pages/Achat';
 
+//declaration du panier
+export let box:boolean=false;
+export let panier:Array<{idarticle:number}>;
 
 // configuration du PageRenderer
 PageRenderer.titleElement = document.querySelector('.pageTitle');
