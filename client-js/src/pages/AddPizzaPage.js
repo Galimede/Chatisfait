@@ -80,7 +80,7 @@ export default class AddPizzaPage extends Page {
 				prix_grande: Number(values.prix_grande),
 				ingredients: values.ingredients
 			};
-			fetch( '/api/v1/pizzas', {
+			fetch( '/v1/pizzas', {
 					method:'POST',
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify(pizza)

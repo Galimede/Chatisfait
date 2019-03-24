@@ -11,7 +11,7 @@ let articles :Array<{description:string,idArticle:string,nom:string,prix:number}
 export default class Achat extends Page {
 	constructor(){
 		super('Votre Panier');
-        fetch('http://localhost:8080/api/v1/articles')
+        fetch('http://localhost:8080/v1/articles')
         .then((response: Response) => response.json())
         .then( MAJArticles );
 	}
@@ -37,7 +37,7 @@ export default class Achat extends Page {
         const compte:{login:string,password:string}=authentPage.getCompte();
 
         if(compte.login!=null){
-                fetch('http://localhost:8080/api/v1/utilisateurs/'+compte.login)
+                fetch('http://localhost:8080/v1/utilisateurs/'+compte.login)
                 .then( (response:Response) => response.json() )
                 .then( MAJ );
         }
@@ -59,7 +59,7 @@ export default class Achat extends Page {
                     console.log(1);
                     alert('Vous êtes abonné à la box');
                     let user:{idutilisateur:number, pseudo:string, mdp:string,sel:string,prenom:string,nom:string,adresse:string,adressemail:string,abonne:boolean};
-                    fetch('http://localhost:8080/api/v1/utilisateurs/'+compte.login)
+                    fetch('http://localhost:8080/v1/utilisateurs/'+compte.login)
                     .then( (response:Response) => response.json() )
                     .then ( (data:any) => {
                         if(data) user = data;
@@ -68,7 +68,7 @@ export default class Achat extends Page {
                         console.log(user);
                         console.log("TEST");
                         console.log(JSON.stringify(user));
-                        return fetch( '/api/v1/utilisateurs/'+compte.login, {
+                        return fetch( '/v1/utilisateurs/'+compte.login, {
                             method:'PUT',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(user)
