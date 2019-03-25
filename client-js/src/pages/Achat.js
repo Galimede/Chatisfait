@@ -5,8 +5,13 @@ import HomePage from './HomePage.js';
 import {panier} from '../main.js';
 import {box} from './AddBox.js';
 import {authentPage} from '../main.js';
+import PageRenderer from '../PageRenderer.js';
 
 let articles :Array<{description:string,idArticle:number,nom:string,prix:number}>=[];
+
+// configuration du PageRenderer
+PageRenderer.titleElement = document.querySelector('.pageTitle');
+PageRenderer.contentElement = document.querySelector('.contenu');
 
 export default class Achat extends Page {
 	constructor(){
@@ -56,7 +61,6 @@ export default class Achat extends Page {
                 event.preventDefault();
     
                 if(compte.login != null){
-                    console.log(1);
                     alert('Vous êtes abonné à la box');
                     let user:{idutilisateur:number, pseudo:string, mdp:string,sel:string,prenom:string,nom:string,adresse:string,adressemail:string,abonne:boolean};
                     fetch('http://localhost:8080/v1/utilisateurs/'+compte.login)
@@ -64,10 +68,6 @@ export default class Achat extends Page {
                     .then ( (data:any) => {
                         if(data) user = data;
                         user.abonne=true;
-                        console.log(2);
-                        console.log(user);
-                        //console.log("TEST");
-                        console.log(JSON.stringify(user));
                         return fetch( 'http://localhost:8080/v1/utilisateurs/'+compte.login, {
                             method:'PUT',
                             headers: { 'Content-Type': 'application/json' },
@@ -98,6 +98,8 @@ export default class Achat extends Page {
         }else{
             let htmlcontenu:string="";
             if(panier){
+                console.log("002");
+                console.log(panier);
                 panier.forEach( article => { 
                     let flag:boolean=false;
                     for(let i=0;i<articles.length && flag==false;i++){
@@ -119,6 +121,51 @@ export default class Achat extends Page {
                 });
 
                 $('.liste').html(htmlcontenu);
+                
+                if(compte.login != null){
+
+                    //COMMANDE
+                    $('.confirmer').click( (event:Event) => {
+                        event.preventDefault();
+                        alert('Votre commande a été passée');
+                        panier.forEach( article => { 
+
+                            let user:{idutilisateur:number, pseudo:string, mdp:string,sel:string,prenom:string,nom:string,adresse:string,adressemail:string,abonne:boolean};
+                            fetch('http://localhost:8080/v1/utilisateurs/'+compte.login)
+                            .then( (response:Response) => response.json() )
+                            .then ( (data:any) => {
+                                if(data) user = data;
+                                const commande = {
+                                    adresse:user.adresse,
+                                    adresseMail:user.adressemail,
+                                    idUtilisateur:user.idUtilisateur,
+                                    idArticle:article,
+                                    nom:user.nom,
+                                    prenom:user.prenom,
+                                }
+                                return fetch( 'http://localhost:8080/v1/commandes', {
+                                    method:'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify(commande)
+                                })
+                            })
+                            .then(response => {
+                
+                                if (!response.ok) {
+                                    throw new Error( `${response.status} : ${response.statusText}` );
+                                }
+                                return response.json();
+                            })
+                            .catch( error => alert(`Enregistrement impossible : ${error.message}`) );
+                        });
+                    });
+
+                }else{
+                    $('.confirmer').click( (event:Event) => {
+                        event.preventDefault();
+                        PageRenderer.renderPage(authentPage);
+                    });
+                }
             }
         }
         
@@ -134,7 +181,7 @@ function MAJ (data2: string){
         <li>nom : ${user.nom}</li>
         <li>prenom : ${user.prenom}</li>
         <li>adresse : ${user.adresse}</li>
-        <li>mail : ${user.adressemail}</li>`);
+        <li>mail : ${user.adresseMail}</li>`);
     }else{
         $('.vosinfos').html('<li>Veuillez vous connecter</li>');
     }

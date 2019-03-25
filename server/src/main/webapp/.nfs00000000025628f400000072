@@ -10,7 +10,6 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
 	<link rel="stylesheet" type="text/css" href="css/addAbonnement.css"/>
 	<link rel="stylesheet" type="text/css" href="css/box.css" />
-	<link rel="stylesheet" type="text/css" href="listProduct/box.css" />
 	
 
 	<script src="build/main.bundle.js" defer ></script>
@@ -33,7 +32,7 @@
 							<li><a href="" class="connecter">Se connecter / S'inscrire</a></li>
 							<li><a href="" class="about">Qui Sommes Nous ?</a></li>
 							<li><a href=""  class="articles">Produits</a></li> 
-							<li><a href=""  class="ajoutarticle">AjouterArticle</a></li> 
+							<li><a href=""  class="ajoutarticle">AjouterProduit</a></li> 
 							<li><a href="" class="panier"><img id="imgpanier" src="images/panier.png"/>Mon panier</a></li>
 						</ul>
 					</div>
