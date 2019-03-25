@@ -53,7 +53,7 @@ export default class ListeArticle extends Page {
         ajoutPanier.click( (event:Event) => {
 	    event.preventDefault();
        panier.push($(event.currentTarget).attr('id'));
-    //    console.log(panier);
+       console.log(panier);
 });
 	}
 }
