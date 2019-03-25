@@ -42,7 +42,7 @@ export default class AddBox extends Page {
                                 <img class="img" src="images/box/2.jpg" alt=""/> 
                             </div>
                             <div class="Block_title">L'abonnement</div>
-                            <div class="Block_title">La personnalisation du profile de votre chat nous permettra d’adapter au mieux la box à votre compagnon afin qu’il soit pleinement satisfait !</div>
+                            <div class="Block_title">L’abonnement est sans engagement, vous pouvez le suspendre à tout moment, vous êtes libre de tout !</div>
         
                         </div>
         
@@ -51,7 +51,7 @@ export default class AddBox extends Page {
                                 <img class="img" src="images/box/4.jpg" alt=""/> 
                             </div>
                             <div class="Block_title">Patience !</div>
-                            <div class="Block_title">La personnalisation du profile de votre chat nous permettra d’adapter au mieux la box à votre compagnon afin qu’il soit pleinement satisfait !</div>
+                            <div class="Block_title">Vous recevrez votre box entre le 15 et le 25 du mois, de quoi gâter votre chat de ses nombreuses surprises !</div>
         
                         </div>
                     </div>
