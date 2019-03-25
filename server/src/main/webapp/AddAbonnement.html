@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<title>Chatisfait</title>
+
+	<link rel="stylesheet" type="text/css" href="css/flatly-bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link rel="stylesheet" type="text/css" href="css/addAbonnement.css" />
+
+	<script src="build/main.bundle.js" defer ></script>
+
+</head>
+
+
+<body>
+	<main id="appContainer">
+		<div class="container">
+			<header>
+				<nav class="navbar navbar-inverse navbar-fixed-top">
+					<div class="container">
+						<div class="navbar-header">
+							<a class="navbar-brand" href="#">
+								<img src="images/chatisfait.png" />
+							</a>
+						</div>
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="#" class="abonner">S'abonner</a></li>
+							<li><a href="#" class="box">La Box</a></li>
+							<li><a href="#" class="connecter">Se connecter / S'incrire</a></li>
+							<li><a href="#" class="about">Qui Sommes Nous ?</a></li>
+							<li><a href=""  class="articles">Articles</a></li> 
+							<li><a href=""  class="ajoutarticle">AjouterArticle</a></li> 
+							<li><a href="#" class="panier"><img id="imgpanier" src="images/panier.png"/>Mon panier</a></li>
+						</ul>
+					</div>
+				</nav>
+			</header>
+
+			<div class="containerBox">
+				<form class="form cf">
+					<section class="profil">
+						<h1>Profil de votre chat</h1>
+						<div class="num1">
+							<label>Age</label>
+							<select id="age" class="pl-el">
+								<option>Chaton (de 2 mois à 1 an)</option>
+								<option>Adulte (entre 1 et 8 ans)</option>
+								<option>Senior (8 ans et plus)</option>
+							</select>
+							<br><br>
+							<label>Stérilisé</label>
+							<select id="sterilise" class="pl-el">
+								<option>Non</option>
+								<option>Oui</option>
+							</select>
+						</div>
+						<div class="num2">
+							<label>Poils</label>
+							<select id="poil" class="pl-el">
+								<option>Court</option>
+								<option>Mi-long</option>
+								<option>Long</option>
+								<option>Sans poils</option>
+							</select>
+							<br><br>
+							<label id="name" class="name">Nom</label>
+							<input type="text" name="catname" id="catname" class="pl-el">
+						</div>
+					</section>
+
+					<section class="plan cf">
+						<h1>Choix de la formule</h1>
+						<input type="radio" name="radio1" id="free" value="free"><label class="free-label four col" for="free">1 mois - 19,90€<br>sans engagement</label>
+						<input type="radio" name="radio1" id="basic" value="basic"><label class="basic-label four col" for="basic">3 mois</label>
+						<input type="radio" name="radio1" id="premium" value="premium"><label class="premium-label four col" for="premium">6 mois</label>
+						<input type="radio" name="radio1" id="gold" value="gold"><label class="gold-label four col" for="gold">12 mois</label>
+						<input class="submit" type="submit" value="Valider">	
+					</section>
+					</form>
+				</div>
+
+
+			</div>
+
+<!--
+			<div class="content">
+				<svg display="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<defs>
+						<symbol id="nuage" viewBox="0 0 14 9">
+							<path d="M 4.6896406,2.193207 C 4.3809572,1.9465182 3.9938202,1.8003049 3.5729552,1.8003049 2.5823821,1.8003049 1.775846,2.6131022 1.7509166,3.626099 0.7280824,4.0205008 0,5.0357471 0,6.2249506 0,7.6300996 1.0155026,8.7915601 2.3330895,8.9745147 l 0,0.02549 9.3338215,0 0,-0.0045 C 12.968367,8.9175247 14,7.8078009 14,6.4498903 14,5.1399669 13.040222,4.0609862 11.804755,3.9162727 c 0.0052,-0.079481 0.0081,-0.1604597 0.0081,-0.2414399 C 11.812855,1.6450891 10.147724,0 8.0939899,0 6.5740356,0 5.266714,0.9012751 4.6896743,2.1932028"/>
+						</symbol>
+					</defs>
+				</svg>
+				<div class="banner2">
+					<svg class="nuages nuage3">
+						<switch>
+							<use xlink:href="#nuage"/>
+						</switch>
+					</svg>
+					<svg class="nuages nuage2">
+						<switch>
+							<use xlink:href="#nuage"/>
+						</switch>
+					</svg>
+					<svg class="nuages nuage1">
+						<switch>
+							<use xlink:href="#nuage"/>
+						</switch>
+					</svg>
+					<svg class="nuages nuage4">
+						<switch>
+							<use xlink:href="#nuage"/>
+						</switch>
+					</svg>
+				</div>-->
+  
+</div>
+	</main>
+</body>
+</html>

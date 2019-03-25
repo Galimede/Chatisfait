@@ -1,0 +1,253 @@
+
+form, section {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  backface-visibility: hidden;
+}
+
+section {
+  padding: 15px;
+  flex-direction: column;
+  justify-content: center;
+  h2 {
+    color: #39D1B4;
+  }
+}
+
+input {
+  width: 250px;
+  height: 60px;
+  font-weight: 600;
+}
+
+button {
+  width: 250px;
+  height: 45px;
+  border: 1px solid #FFF;
+  border-radius: 25px;
+  transition: all 300ms ease-in-out;
+}
+
+button:hover {
+  background-color: HSLA(0, 0%, 100%, .2);
+}
+
+
+
+/********* PROFIL CHAT *******/
+
+
+/*** SELECT */
+select#age, select#poil, select#sterilise,{
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(../images/fleche.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   margin: 20px;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 300px;
+}
+
+.num1{
+  width: 50%;
+  float: left;
+
+}
+
+.num2{
+    width: 100%;
+}
+
+.pl-el{
+  float: left;
+}
+
+
+/********* CONTAINER BOX *******/
+h1{
+  padding-bottom: 10px;
+  border-bottom: 4px solid #71bf00;
+  max-width: 32%;
+}
+
+/* CONTAINERS */
+
+.containerBox { margin: 20px auto;}
+.four { width: 32%; max-width: 32.26%;}
+
+
+/* COLUMNS */
+
+.col {
+  display: block;
+  float:left;
+  margin: 1% 0 1% 1.6%;
+}
+
+.col:first-of-type { margin-left: 0; }
+
+/* CLEARFIX */
+
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}
+
+/* FORM */
+
+.form .plan input, .form .payment-plan input, .form .payment-type input{
+  display: none;
+}
+
+.form .free-label,.form .basic-label, .form .premium-label, .form .gold-label{
+  position: relative;
+  color: #fff;
+  background-color: #84bc26;
+  background-image: linear-gradient(45deg, #86bb2c, #bae472);
+  font-size: 26px;
+  text-align: center;
+  width: 195px;
+  height: 170px;
+  line-height: 150px;
+  display: block;
+  cursor: pointer;
+  border: 3px solid transparent;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.form .plan input:checked + label, .form .payment-plan input:checked + label, .form .payment-type input:checked + label{
+  border: 3px solid #333;
+    background-color: #73d7ff;
+    background-image: linear-gradient(45deg, #4ca1af, #c4e0e5);
+}
+
+.form .plan input:checked + label:after, form .payment-plan input:checked + label:after, .form .payment-type input:checked + label:after{
+  content: "\2713";
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 100%;
+  border: 2px solid #333;
+    background-color: #73d7ff;
+    background-image: linear-gradient(45deg, #4ca1af, #c4e0e5);
+  z-index: 999;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.submit{
+  padding: 15px 60px;
+  display: inline-block!important;
+  border: none;
+  margin: 20px 0;
+  background-color: #54b2be;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 18px;
+  -webkit-transition: transform 0.3s ease-in-out;
+  -o-transition: transform 0.3s ease-in-out;
+  transition: transform 1.3s ease-in-out;
+}
+
+.submit:hover{
+  cursor: pointer;
+  transform: rotateX(360deg);
+}
+
+
+#age, #sterilise, #poil, #name, #catname{
+  width: 300px;
+}
+
+#catname{
+  height: 40px;
+}
+
+
+
+
+/*
+Nuages qui passent
+
+@keyframes translate_ltr {
+  0%   {opacity: 1;right: 100%;}
+  90%  {opacity: 1;}
+  100% {opacity: 0;right: -50px;}
+}/* je ne me suis pas cassé la tête sur l'animation ;-) 
+.nuages {
+  position: absolute;
+  animation-name: translate_ltr;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  
+}
+.nuage1 {
+  width: calc(140px * .8);/* cette méthode de dimensionnement permet de garder intact le ratio 
+  height: calc(90px * .8);
+  top: 105px;
+  fill: red;
+  animation-duration: 6s;
+}
+.nuage2 {
+  width: calc(140px * .2);
+  height: calc(90px * .2);
+  top: 100px;
+  fill: orange;
+  animation-duration: 12s;
+}
+.nuage3 {
+  width: calc(140px * 1.2);
+  height: calc(90px * 1.2);
+  fill: rgba(128, 0, 128, .2);
+  animation-duration: 24s;
+}
+.nuage4 {
+  width: calc(140px * .1);
+  height: calc(90px *.1);
+  bottom: 10px;
+  fill: dimgray;
+  animation-delay: 4s;
+  animation-duration: 10s;
+  animation-direction: reverse;
+  opacity: 0;/* comme l'animation est delayée, il faut éviter que l'objet s'affiche à sa position par défaut durant l'attente 
+}
+/*
+  MISE EN PAGE
+
+body {
+  display: flex;
+  align-content: center;
+}
+body > div {
+margin:auto;
+}
+body > div > ul {
+  margin:0;
+}*/

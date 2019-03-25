@@ -11,17 +11,21 @@ export let box:boolean=false;
 
 export default class AddBox extends Page {
 	constructor(){
-		super('Ajouter une box');
+		super('');
 	}
 
 	render():string {
-        return `
+        return `<div>
         <img id="boximg" src="images/box/bannierebox.png" alt="box">
         <button class="abonnerbox"
             type="button">
             S'abonner
         </button>
-        <h2>Description de la box blabla</h2>
+        </div>
+        <div>   
+        <h2>Comment ça marche ?</h2>
+        </div>
+
         `;
     }
 
