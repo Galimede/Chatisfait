@@ -27,7 +27,7 @@ export default class ListeArticle extends Page {
             html += `<div class="containerLP">
   <div class="product">
     <div class="img-containerLP">
-      <img src="${article.image}">
+      <img class="imgLP" src="${article.image}">
     </div>
     <div class="product-info">
       <div class="product-content">
