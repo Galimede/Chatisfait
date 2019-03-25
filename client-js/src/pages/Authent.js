@@ -4,6 +4,7 @@ import $ from 'jquery';
 import Inscription from './Inscription';
 import Profil from './Profil.js';
 import PageRenderer from '../PageRenderer.js';
+import AddBox from './AddBox.js';
 
 // configuration du PageRenderer
 PageRenderer.titleElement = document.querySelector('.pageTitle');
@@ -37,7 +38,7 @@ export default class Authent extends Page {
 			Mot De passe :
             <input type="password" name="password" class="form-control">
 		</label>
-        <button type="submit" class="btn btn-default">Ajouter</button>
+        <button type="submit" class="btn btn-default">Connexion</button>
     </form>
     <button class="btn btn-default inscription">S'inscrire</button>`;  //TODO : Rediriger sur inscription
     }
