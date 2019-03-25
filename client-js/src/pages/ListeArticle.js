@@ -38,7 +38,7 @@ export default class ListeArticle extends Page {
 
         <div class="buttons">
           <a class="button buy" href="#">Prix : <strong>${article.prix}€</strong> </a>
-          <a class="button add" href="#" id="${article.idArticle}">Ajouter au panier</a>
+          <a class="button add ajoutPanier" href="#" id="${article.idArticle}">Ajouter au panier</a>
         </div>
       </div>
     </div>
