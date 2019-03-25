@@ -126,6 +126,10 @@ export default class Authent extends Page {
         users.forEach(function (value) {
             if (value.pseudo === (compte.login) && value.mdp === (compte.password)) {
                 flag = true;
+                if(value.admin){
+                    $('.ajoutarticle').show();
+                    $('.panier').hide();
+                }
             }
         });
         return flag;
