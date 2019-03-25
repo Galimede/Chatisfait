@@ -230,7 +230,7 @@ choix: values.free,
 							return radioList[i].value;
  					}
 				}	
-		
+		 
 			} else {
 				return field.value != '' ? field.value : null;
 			}
