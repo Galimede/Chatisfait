@@ -171,5 +171,19 @@ Pourvoir construire en une commande un container capable e servir le html et l'a
     
     TO DO 
     Finaliser la page d'achat.
-    Finalaliser la page d'abonnement
+    Finaliser la page d'abonnement
 
+## Sprint 14
+
+    Commandes
+    Debut admin
+    Esthetique du site
+    Avanceemnts sur les abonnements
+    
+    TO DO
+    
+## Sprint 15
+    Resume:
+    Suppresion articles.
+    Avancement sur les abonnements
+    
