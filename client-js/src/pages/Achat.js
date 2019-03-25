@@ -97,8 +97,12 @@ export default class Achat extends Page {
             let htmlcontenu:string="";
             if(panier){
                 panier.forEach( article => { 
+                    console.log(article.idArticle);
+                    if(panier.includes(article.idArticle)){
+                        console.log('TEST')
                         htmlcontenu+= `
                         <li>
+                            <div class="img"><a href=""><img alt="img" src="${article.image}"></a></div>
                             <div class="info">
                                 <a class="nom" href="">${article.nom}</a>
                                 <p>${article.description}</p>
@@ -113,6 +117,7 @@ export default class Achat extends Page {
                             </div>
                         </li>̀`;
                     }
+                });
 
                 $('.liste').html(htmlcontenu);
             }
