@@ -99,7 +99,6 @@ public class GenericDataCenter {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        System.out.println("yaaa");
                         iencli.getJsonArrayResponse(response);
                     }
                 },

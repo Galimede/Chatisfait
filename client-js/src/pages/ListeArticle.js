@@ -51,8 +51,9 @@ export default class ListeArticle extends Page {
 
         const ajoutPanier = $('.ajoutPanier'); 
         ajoutPanier.click( (event:Event) => {
-	    event.preventDefault();
-       panier.push($(event.currentTarget).attr('id'));
+        event.preventDefault();
+        let id = parseInt($(event.currentTarget).attr('id'),10);
+       panier.push(id);
        console.log(panier);
 });
 	}

@@ -56,6 +56,10 @@ public class Authentification extends AppCompatActivity implements ReceiverClien
             Toast toast = Toast.makeText(Authentification.this, text, duration);
             toast.show();
 
+            if(found){
+                startActivity(new Intent(this, MainActivity.class));
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
