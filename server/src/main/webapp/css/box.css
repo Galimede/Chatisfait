@@ -26,6 +26,9 @@ div{
 	position: relative;
 }
 
+.h1{
+    display: none;
+}
 
 
 
@@ -139,7 +142,7 @@ div{
 }
 
 .contfooter{
-    
+
 }
 
 
