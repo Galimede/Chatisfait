@@ -10,10 +10,11 @@ import Menu from './components/Menu.js';
 import AboutUs from './pages/AboutUs.js';
 import ListeArticle from './pages/ListeArticle.js';
 import Achat from './pages/Achat';
+import AjouterArticle from './pages/AjouterArticle.js';
 
 
 //declaration du panier
-export let panier:Array<{idarticle:number}> = [];
+export let panier:Array<{ categorie: string, description: string, idArticle: string, image:string, nom: string, prix: number }> = [];
 
 // configuration du PageRenderer
 PageRenderer.titleElement = document.querySelector('.pageTitle');
@@ -27,6 +28,7 @@ const abonnementPage:AddAbonnement = new AddAbonnement();
 const aboutUs:AboutUs = new AboutUs();
 const articles:ListeArticle = new ListeArticle();
 export let achatpage:Achat = new Achat();
+const ajouterArticle:AjouterArticle = new AjouterArticle();
 
 // Déclaration liens menus 
 const menu:Menu = new Menu();
@@ -37,6 +39,9 @@ const boxButton = $('.box');
 const aboutButton = $('.about');
 const panierButton = $('.panier');
 const articlesButton = $('.articles');
+const ajoutArticles = $('.ajoutarticle');
+
+PageRenderer.renderPage(boxPage);
 
 // Gestion des evenements bouttons 
 
@@ -75,4 +80,10 @@ articlesButton.click( (event:Event) => {
 	event.preventDefault();
 	PageRenderer.renderPage(articles);
 });
+
+ajoutArticles.click( (event:Event) => {
+	event.preventDefault();
+	PageRenderer.renderPage(ajouterArticle);
+});
+
 

@@ -6,14 +6,12 @@ import {panier} from '../main.js';
 import {box} from './AddBox.js';
 import {authentPage} from '../main.js';
 
-let articles :Array<{description:string,idArticle:string,nom:string,prix:number}>=[];
-
 export default class Achat extends Page {
 	constructor(){
 		super('Votre Panier');
         fetch('http://localhost:8080/v1/articles')
         .then((response: Response) => response.json())
-        .then( MAJArticles );
+        //.then( MAJArticles );
 	}
 
 	render():string {
@@ -98,13 +96,9 @@ export default class Achat extends Page {
         }else{
             let htmlcontenu:string="";
             if(panier){
-                articles.forEach( article => { 
-                    console.log(article.idArticle);
-                    if(panier.includes(article.idArticle)){
-                        console.log('TEST')
+                panier.forEach( article => { 
                         htmlcontenu+= `
                         <li>
-                            <div class="img"><a href=""><img alt="img" src="${article.image}"></a></div>
                             <div class="info">
                                 <a class="nom" href="">${article.nom}</a>
                                 <p>${article.description}</p>
@@ -118,7 +112,6 @@ export default class Achat extends Page {
                                 </div>
                             </div>
                         </li>̀`;
-                    }
                 });
 
                 $('.liste').html(htmlcontenu);

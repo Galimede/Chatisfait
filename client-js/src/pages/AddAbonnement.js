@@ -40,17 +40,6 @@ export default class AddAbonnement extends Page {
 			<br>
 			<section class="Apropos">
 			<h1 id="apropos">A propos de votre achat</h1>
-			<h4 id="age">Age</h4>
-			<select id="ageselect">
-    			<option value="">Adulte</option>
-    			<option value="Chaton">Chaton</option>
-    			<option value="Senior">Senior</option>
-			</select>
-			<h4 id="Poils">Poils</h4>
-			<select id="poilsselect">
-    			<option value="Court">Court</option>
-    			<option value="Long">Long</option>
-			</select>
 			<h4 id="sterelise">Stérilisé</h4>
 			<select id="stereliseselect">
     			<option value="Oui">Oui</option>
@@ -95,6 +84,8 @@ export default class AddAbonnement extends Page {
 			$('.mensuel').html(`<h1>Vous avez souscrit à un abonnement mensuel</h1>`);
 		});
 	}
+
+
 }
 
 // TODO --> verifier l'authentification
