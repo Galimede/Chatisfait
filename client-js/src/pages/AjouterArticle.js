@@ -36,7 +36,8 @@ export default class AjouterArticle extends Page {
         </label>
         <button id="boutonsubmit" type="submit" class="btn btn-default">Soumettre<img id="sendimg" src="images/send.jpg" /></button>
     </form>
-    </div>`;
+    </div>
+    `;
     }
     
     mount(container:HTMLElement):void {

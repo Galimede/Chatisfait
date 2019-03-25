@@ -24,22 +24,25 @@ export default class ListeArticle extends Page {
         <button class="sort" data-sort="categorie">Trier par categorie</button>
         <ul class="list">`;
         articles.forEach(article => {
-            html += `<br>
-            <li>
-                <div class="img"><a href=""><img alt="img" src="${article.image}"></a></div>
-                <div class="info">
-                    <a class="nom" href="">${article.nom}</a>
-                    <p>${article.description}</p>
-                    <p class="categorie">${article.categorie}</p>
-                    <div class="price">
-                        <span class="st">Prix:</span><strong>${article.prix}€</strong>
-                    </div>
-                    <div class="actions">
-                        <a href="">Details</a>
-                        <a href="" class="ajoutPanier" id="${article.idArticle}">Ajouter Au Panier</a>
-                    </div>
-                </div>
-            </li>̀`;
+            html += `<div class="containerLP">
+  <div class="product">
+    <div class="img-containerLP">
+      <img src="${article.image}">
+    </div>
+    <div class="product-info">
+      <div class="product-content">
+        <h2 class="nom">${article.nom}</h2>
+        <p class="categorie">${article.categorie} </p>
+        <p class="categorie">Brosse</p>
+        <p>${article.description}</p>
+
+        <div class="buttons">
+          <a class="button buy" href="#">Prix : <strong>${article.prix}€</strong> </a>
+          <a class="button add" href="#" id="${article.idArticle}">Ajouter au panier</a>
+        </div>
+      </div>
+    </div>
+  </div>`;
         });
         html += '</div></ul>';
         return html;
