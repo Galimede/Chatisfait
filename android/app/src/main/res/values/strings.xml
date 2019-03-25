@@ -161,9 +161,9 @@
     </array>
 
     <string-array name="choixAbo">
-        <item>Croquettes</item>
-        <item>Litière</item>
-        <item>Les deux</item>
+        <item>Chaton (2 mois à 1 an)</item>
+        <item>Adulte (de 1 à 8 ans)</item>
+        <item>Sénior (à partir de 8ans)</item>
     </string-array>
 
 </resources>

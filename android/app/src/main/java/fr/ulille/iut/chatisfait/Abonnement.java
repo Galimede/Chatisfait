@@ -6,9 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
@@ -19,8 +17,6 @@ import org.json.JSONObject;
 public class Abonnement extends AppCompatActivity implements ReceiverClient {
 
     private Spinner abo;
-    private TextView selection;
-    private EditText name;
 
     protected GenericDataCenter generic;
     private RequestQueue queue;
@@ -34,9 +30,7 @@ public class Abonnement extends AppCompatActivity implements ReceiverClient {
         generic = new GenericDataCenter(this, queue);
 
 
-        selection = (TextView) findViewById(R.id.selection);
-
-        abo = (Spinner) findViewById(R.id.spinnerAbo);
+        abo = (Spinner) findViewById(R.id.categorie);
         String[] choix = getResources().getStringArray(R.array.choixAbo);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(Abonnement.this, R.layout.support_simple_spinner_dropdown_item, choix);
         abo.setAdapter(dataAdapter);
@@ -45,7 +39,6 @@ public class Abonnement extends AppCompatActivity implements ReceiverClient {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
                 String item = (String) parent.getItemAtPosition(pos);
-                selection.setText("item selected : "+item);
             }
 
             @Override
@@ -66,11 +59,11 @@ public class Abonnement extends AppCompatActivity implements ReceiverClient {
                 String[] splitted = generic.cutJsonArray(obj);
                 int nameIdx = generic.searchPattern(splitted, ".*pseudo.*");
 
-                if(splitted[nameIdx].equals("\"pseudo\":\""+name.getText().toString()+"\"") && !found) {
+                /*if(splitted[nameIdx].equals("\"pseudo\":\""+name.getText().toString()+"\"") && !found) {
                     String json = "{'abonne':'true', 'pseudo':'"+GenericDataCenter.getLogin()+"', 'mdp':'"+GenericDataCenter.getPasswd()+"'}";
                     generic.doPut(this, json);
                     //TO DO UPDATE
-                }
+                }*/
             }
 
         } catch (Exception e) {
@@ -89,8 +82,6 @@ public class Abonnement extends AppCompatActivity implements ReceiverClient {
 
     public void doAbonnement(View view){
         if(!GenericDataCenter.getLogin().equals("") && !GenericDataCenter.getPasswd().equals("")){
-            name = (EditText) findViewById(R.id.aboNom);
-            System.out.println("nom : "+name.getText().toString());
 
             /*String base_uri = generic.getFullHostname();
 
