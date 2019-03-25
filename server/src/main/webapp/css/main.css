@@ -19,7 +19,7 @@ body {
 		float: left;
 	}
 	.navbar-nav > li > a {
-		padding-top: 19.5px;
+		padding-top: 25.5px;
 		padding-bottom: 19.5px;
 	}
 	.navbar-nav {
@@ -110,8 +110,9 @@ a h4, a:hover h4 {
 }
 .navbar-brand > img {
 	display: inline-block;
-	height: 50px;
+	height: 70px;
 	margin-right: 10px;
+	margin-top: 20px;
 }
 .navbar-brand > small {
 	font-size: 12px;
