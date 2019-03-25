@@ -3,4 +3,4 @@ CREATE TABLE note(idnote serial NOT NULL PRIMARY KEY , idarticle integer NOT NUL
 CREATE TABLE utilisateur(idutilisateur serial NOT NULL PRIMARY KEY ,pseudo char(60)  ,mdp char(60),sel char(5), prenom char(20), nom char(30), adresse char(60), adressemail char(70), abonne boolean, admin boolean);
 CREATE TABLE commande(idcommande serial NOT NULL PRIMARY KEY, idutilisateur integer,idarticle integer, datecommande DATE , adresseMail char(70), adresse char(60), nom char(20), prenom char(20), FOREIGN KEY  (idutilisateur) REFERENCES utilisateur(idutilisateur),FOREIGN  KEY (idarticle) REFERENCES article(idarticle) ON DELETE CASCADE ON UPDATE CASCADE);
 CREATE TABLE abonnement(idabonnement serial NOT NULL PRIMARY KEY, idutilisateur integer, idarticle integer, age integer, poil char(20), sterilise boolean, poids integer, nom char(20), choix integer, FOREIGN  KEY (idutilisateur) REFERENCES utilisateur(idutilisateur), FOREIGN KEY (idarticle) REFERENCES article(idArticle) ON DELETE CASCADE ON UPDATE CASCADE);
-CREATE TABLE boncommande()
+CREATE TABLE bonreduction(idbonreduction serial NOT NULL PRIMARY,code integer , pourcentage integer, categorie char(20));

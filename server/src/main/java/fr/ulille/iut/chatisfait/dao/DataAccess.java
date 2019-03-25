@@ -94,6 +94,14 @@ public class DataAccess {
         return query.getResultList();
     }
 
+    public List<BonReductionEntity> getAllBonReduction() {
+        TypedQuery<BonReductionEntity> query = em.createNamedQuery("FindAllBonReductions", BonReductionEntity.class);
+        return query.getResultList();
+    }
+
+    public BonReductionEntity getBonReductionByCode(int code) {
+        return em.find(BonReductionEntity.class, code);
+    }
 
     public ArticleEntity getArticleById(int idArticle) {
         return em.find(ArticleEntity.class, idArticle);
