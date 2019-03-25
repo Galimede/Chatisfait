@@ -42,7 +42,7 @@ export default class AddBox extends Page {
                                 <img class="img" src="images/box/2.jpg" alt=""/> 
                             </div>
                             <div class="Block_title">L'abonnement</div>
-                            <div class="Block_title">La personnalisation du profile de votre chat nous permettra d’adapter au mieux la box à votre compagnon afin qu’il soit pleinement satisfait !</div>
+                            <div class="Block_title">L’abonnement est sans engagement, vous pouvez le suspendre à tout moment, vous êtes libre de tout !</div>
         
                         </div>
         
@@ -51,7 +51,7 @@ export default class AddBox extends Page {
                                 <img class="img" src="images/box/4.jpg" alt=""/> 
                             </div>
                             <div class="Block_title">Patience !</div>
-                            <div class="Block_title">La personnalisation du profile de votre chat nous permettra d’adapter au mieux la box à votre compagnon afin qu’il soit pleinement satisfait !</div>
+                            <div class="Block_title">Vous recevrez votre box entre le 15 et le 25 du mois, de quoi gâter votre chat de ses nombreuses surprises !</div>
         
                         </div>
                     </div>
@@ -60,6 +60,19 @@ export default class AddBox extends Page {
             </section>
         
             <section id="bannerfooter"> 
+            <h2>Que contient la box ?</h2>
+            <div class="img">
+                <img src="images/box/pt1.png">
+                Tous les mois recevez des produits correspondant au mieux à votre chat : des jouets, des accessoires, des produits d’hygiène et de soin et au moins un produit alimentaire !
+            </div>
+            <div>
+                <img src="images/box/pt2.png">
+                Ces produits sont bios et éco-responsables, pour son bien-être et celui de la Planet !
+            </div>
+            <div>
+                <img src="images/box/pt3.png">
+                Tous les mois de nouvelles surprises, testez une large gamme de produit dont votre chat ne se lassera jamais !
+            </div>
         
             </section>
 

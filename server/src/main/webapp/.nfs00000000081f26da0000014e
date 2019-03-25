@@ -27,13 +27,13 @@
 							</a>
 						</div>
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="" class="abonner">S'abonner</a></li>
-							<li><a href="" class="box">La Box</a></li>
-							<li><a href="" class="connecter">Se connecter / S'inscrire</a></li>
-							<li><a href="" class="about">Qui Sommes Nous ?</a></li>
+							<li><a href="#" class="abonner">S'abonner</a></li>
+							<li><a href="#" class="box">La Box</a></li>
+							<li><a href="#" class="connecter">Se connecter / S'inscrire</a></li>
+							<li><a href="#" class="about">Qui Sommes Nous ?</a></li>
 							<li><a href=""  class="articles">Articles</a></li> 
 							<li><a href=""  class="ajoutarticle">AjouterArticle</a></li> 
-							<li><a href="" class="panier"><img id="imgpanier" src="images/panier.png"/>Mon panier</a></li>
+							<li><a href="#" class="panier"><img id="imgpanier" src="images/panier.png"/>Mon panier</a></li>
 						</ul>
 					</div>
 				</nav>
