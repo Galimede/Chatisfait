@@ -91,7 +91,8 @@ export default class Inscription extends Page {
                 prenom: values.prenom,
                 nom: values.nom,
                 adresse: values.adresse,
-                mail: values.mail
+                mail: values.mail,
+                admin:false
 			};
 			fetch( 'http://localhost:8080/v1/utilisateurs/', {
 					method:'POST',
