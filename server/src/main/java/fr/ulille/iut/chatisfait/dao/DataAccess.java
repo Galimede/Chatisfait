@@ -184,8 +184,15 @@ public class DataAccess {
     }
 
 
-    public void deleteArticle(String nom) throws Exception {
+    public void deleteArticleByNom(String nom) throws Exception {
         ArticleEntity articleEntity = em.find(ArticleEntity.class,  nom);
+        //System.out.println(articleEntity.toString());
+        if (articleEntity == null) throw new Exception();
+        em.remove(em.merge(articleEntity));
+    }
+
+    public void deleteArticle(int idArticle) throws Exception {
+        ArticleEntity articleEntity = em.find(ArticleEntity.class,  idArticle);
         //System.out.println(articleEntity.toString());
         if (articleEntity == null) throw new Exception();
         em.remove(em.merge(articleEntity));

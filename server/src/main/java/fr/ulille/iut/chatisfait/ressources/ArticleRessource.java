@@ -105,12 +105,12 @@ public class ArticleRessource {
     }
 
     @DELETE
-    @Path("/{nom}")
-    public Response delete(@PathParam("nom") String nom){
+    @Path("/{idArticle}")
+    public Response delete(@PathParam("idArticle") int idArticle){
         DataAccess dataAccess = DataAccess.begin();
-        System.out.println(nom);
+        System.out.println(idArticle);
         try {
-            dataAccess.deleteArticle(nom);
+            dataAccess.deleteArticle(idArticle);
             dataAccess.closeConnection(true);
             return Response.status(Response.Status.NO_CONTENT).build();
         } catch (Exception e) {
