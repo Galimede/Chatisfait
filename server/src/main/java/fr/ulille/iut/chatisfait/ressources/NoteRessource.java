@@ -57,7 +57,7 @@ public class NoteRessource {
     public Response create(NoteDto noteDto) {
         DataAccess dataAccess = DataAccess.begin();
         NoteEntity noteEntity = NoteEntity.convertFromNoteDto(noteDto);
-        if(noteEntity.getIdNote() == 0) {
+        if(noteEntity.getIdNote() < 0) {
             dataAccess.closeConnection(true);
             return Response.status(Response.Status.NOT_ACCEPTABLE).entity("id not specified").build();
         }
