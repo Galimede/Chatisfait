@@ -15,7 +15,8 @@ body {
   width: 610px;
   height: 250px;
   display: flex;
-  margin: 1em 0;
+  margin: 52px auto;
+  margin: 
   border-radius: 5px;
   overflow: hidden;
   cursor: pointer;
