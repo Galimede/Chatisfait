@@ -10,21 +10,23 @@ body {
   width: 100%;
   height: 100%;
 }
-  .product {
-    width: 610px;
-    height: 250px;
-    display: flex;
-    margin: 1em 0;
-    border-radius: 5px;
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: 0px 0px 21px 3px rgba(0,0,0,0.15);
-    transition: all .1s ease-in-out;
+
+.product {
+  width: 610px;
+  height: 250px;
+  display: flex;
+  margin: 1em 0;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0px 0px 21px 3px rgba(0,0,0,0.15);
+  transition: all .1s ease-in-out;
     &:hover {
       box-shadow: 0px 0px 21px 3px rgba(0,0,0,0.11);
     }
-  }
-    .img-containerLP{
+}
+    
+.img-containerLP{
       flex: 2;
       img {
         object-fit: cover;
