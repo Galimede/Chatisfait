@@ -181,7 +181,7 @@ function MAJ (data2: string){
         <li>nom : ${user.nom}</li>
         <li>prenom : ${user.prenom}</li>
         <li>adresse : ${user.adresse}</li>
-        <li>mail : ${user.adressemail}</li>`);
+        <li>mail : ${user.adresseMail}</li>`);
     }else{
         $('.vosinfos').html('<li>Veuillez vous connecter</li>');
     }
