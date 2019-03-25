@@ -44,7 +44,7 @@ public class AbonnementRessource {
             return Response.ok(abonnementEntity.abonneToDto(abonnementEntity)).build();
         } else {
             dataAccess.closeConnection(false);
-            return Response.status(Response.Status.NOT_FOUND).entity("abnnement not found").build();
+            return Response.status(Response.Status.NOT_FOUND).entity("abonnement not found").build();
         }
     }
 
@@ -76,7 +76,6 @@ public class AbonnementRessource {
         if (abonnementEntity == null) {
             return Response.status(Response.Status.NOT_FOUND).entity("Abonne not found").build();
         } else {
-            System.out.println("lol");
             try {
                 if (abonne.getIdArticle() != 0)
                     abonnementEntity.setIdAbonnement(abonne.getIdArticle());

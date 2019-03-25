@@ -7,6 +7,7 @@
         <class>fr.ulille.iut.chatisfait.dao.ArticleEntity</class>
         <class>fr.ulille.iut.chatisfait.dao.CommandeEntity</class>
         <class>fr.ulille.iut.chatisfait.dao.AbonnementEntity</class>
+        <class>fr.ulille.iut.chatisfait.dao.NoteEntity</class>
         <properties>
             <!-- Configuration postgresql -->
  	       	<!--<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/chatisfait"/> -->
