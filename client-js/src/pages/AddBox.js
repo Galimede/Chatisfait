@@ -60,6 +60,21 @@ export default class AddBox extends Page {
             </section>
         
             <section id="bannerfooter"> 
+            <h2>Que contient la box ?</h2>
+            <div class="contfooter"
+            <div class="img">
+                <img src="images/box/pt1.png">
+                Tous les mois recevez des produits correspondant au mieux à votre chat : des jouets, des accessoires, des produits d’hygiène et de soin et au moins un produit alimentaire !
+            </div>
+            <div>
+                <img src="images/box/pt2.png">
+                Ces produits sont bios et éco-responsables, pour son bien-être et celui de la Planet !
+            </div>
+            <div>
+                <img src="images/box/pt3.png">
+                Tous les mois de nouvelles surprises, testez une large gamme de produit dont votre chat ne se lassera jamais !
+            </div>
+            </div>
         
             </section>
 

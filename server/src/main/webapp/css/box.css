@@ -26,6 +26,9 @@ div{
 	position: relative;
 }
 
+.h1{
+    display: none;
+}
 
 
 
@@ -134,8 +137,15 @@ div{
 
 #bannerfooter{
 	background: white;
-	height: 120px;
+    height: 120px;
+    margin-bottom: 80px;
 }
+
+.contfooter{
+
+}
+
+
 
 
 
