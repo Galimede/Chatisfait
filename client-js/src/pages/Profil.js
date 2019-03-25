@@ -23,7 +23,7 @@ export default class AddBox extends Page {
         const compte:{login:string,password:string}=authentPage.getCompte();
 
         if(compte.login!=null){
-                fetch('http://localhost:8080/api/v1/utilisateurs/'+compte.login)
+                fetch('http://localhost:8080/v1/utilisateurs/'+compte.login)
                 .then( (response:Response) => response.json() )
                 .then( MAJ );
         }
@@ -61,7 +61,7 @@ export default class Profil extends Page {
         super('Mon Profil');
         /*compte = authentPage.getCompte();
         console.log(compte);
-        fetch('http://localhost:8080/api/v1/utilisateurs/'+compte.login)
+        fetch('http://localhost:8080/v1/utilisateurs/'+compte.login)
         .then( (response:Response) => response.json() )
         .then ( (data:any) => {
             if(data) user = data;

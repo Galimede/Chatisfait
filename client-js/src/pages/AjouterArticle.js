@@ -87,7 +87,7 @@ export default class AjouterArticle extends Page {
                 image: values.image,
                 categorie: values.categorie,
 			};
-			fetch( 'http://localhost:8080/api/v1/articles/', {
+			fetch( 'http://localhost:8080/v1/articles/', {
 					method:'POST',
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify(article)

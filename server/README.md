@@ -140,3 +140,35 @@ Les ressources utilisées sont spécialisées (main ou test):
 │           │       .......
 │           └── static
 ```
+
+## Passage du serveur Grizzly 2 à Jetty pour profiter du rechargement à chaud 
+
+git remote add correction
+https://git-iut.univ-lille1.fr/jean-marie.place/squelette-projet-s4-git.git
+
+git fetch correction
+
+git merge correction/hot_reload
+
+## Supporter le packaging war et jetty (problème eclipse)
+
+	<build>
+     <plugins>
+       <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-war-plugin</artifactId>
+         <version>2.6</version>
+         <configuration>
+            <failOnMissingWebXml>false</failOnMissingWebXml>
+         </configuration>
+        </plugin>
+		...
+		
+		<dependencies>
+		[...]
+		  <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-jetty-servlet</artifactId>
+            <version>2.28</version>
+          </dependency>
+		

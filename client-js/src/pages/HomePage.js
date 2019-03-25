@@ -20,7 +20,7 @@ export default class HomePage extends Page {
 
 	mount(container:HTMLElement):void {
 		container.classList.add('is-loading');
-		fetch('http://localhost:8080/api/v1/pizzas')
+		fetch('http://localhost:8080/v1/pizzas')
 			.then( (response:Response) => response.json() )
 			.then( (data:any) => {
 				this.data = data;

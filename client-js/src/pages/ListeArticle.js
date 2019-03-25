@@ -12,7 +12,7 @@ let articlesList;
 export default class ListeArticle extends Page {
     constructor() {
         super('Les articles');
-        fetch('http://localhost:8080/api/v1/articles')
+        fetch('http://localhost:8080/v1/articles')
             .then((response: Response) => response.json())
             .then(MAJ);
     }

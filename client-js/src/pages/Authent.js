@@ -21,7 +21,7 @@ export default class Authent extends Page {
         super('Se connecter');
         // $FlowFixMe
         this.submit = this.submit.bind(this);
-        fetch('http://localhost:8080/api/v1/utilisateurs')
+        fetch('http://localhost:8080/v1/utilisateurs')
             .then((response: Response) => response.text())
             .then(MAJ);
     }
@@ -112,7 +112,7 @@ export default class Authent extends Page {
     }
 
     verificationCompte(compte: { login: ?string, password: ?string }): boolean {
-        fetch('http://localhost:8080/api/v1/utilisateurs')
+        fetch('http://localhost:8080/v1/utilisateurs')
             .then((response: Response) => response.text())
             .then(MAJ);
 
