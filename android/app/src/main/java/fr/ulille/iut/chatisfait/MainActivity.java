@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 
@@ -67,16 +68,30 @@ public class MainActivity extends AppCompatActivity implements ReceiverClient {
                 JSONObject obj = response.getJSONObject(i);
                 String[] cut = generic.cutJsonArray(obj);
                 int nomIdx = generic.searchPattern(cut, ".*nom.*");
-                if(cut[nomIdx].matches(".*"+searchQuery+".*")){
+                if(!searchQuery.equals("") && cut[nomIdx].matches(".*"+searchQuery+".*")){
                     choix.add(cut[nomIdx].substring(7,cut[nomIdx].length()-1));
                     choixObj.add(obj);
                 }
 
-                System.out.println(obj);
             }
+
+            Button button4 = (Button) findViewById(R.id.button4);
+            Button button2 = (Button) findViewById(R.id.button2);
+
+            System.out.println(choix.size());
             if(choix.size() == 0){
                 choix.add("Aucun résultat");
-            }
+            }else if(choix.size() > 2)
+                button4.setVisibility(View.INVISIBLE);
+
+            if(choix.size() > 3)
+                button2.setVisibility(View.INVISIBLE);
+
+            if(choix.size() <= 3)
+                button2.setVisibility(View.VISIBLE);
+
+            if(choix.size() <=2)
+                button4.setVisibility(View.VISIBLE);
 
             adapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, choix);
             list.setAdapter(adapter);

@@ -1,12 +1,18 @@
 package fr.ulille.iut.chatisfait;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Article extends AppCompatActivity {
+
+    private String category;
+    private String prix;
+    private String nom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -18,12 +24,12 @@ public class Article extends AppCompatActivity {
 
         String donnees = getIntent().getStringExtra("data");
         String[] data = donnees.split(",");
-        data[0].substring(2, data[0].length()-1);
 
         String description = removeSpecialCharacter(data[1], '"');
         String imagePath = data[3].substring(9, data[3].length()-1);
-        String prix = data[5].substring(7, data[5].length()-1) + "€";
-        String nom = data[4].substring(7, data[4].length()-1);
+        category = data[0].substring(14, data[0].length()-1);
+        prix = data[5].substring(7, data[5].length()-1) + "€";
+        nom = data[4].substring(7, data[4].length()-1);
 
         TextView desc = (TextView) findViewById(R.id.description);
         desc.setText(description);
@@ -50,6 +56,16 @@ public class Article extends AppCompatActivity {
     }
 
     public void doAddToPannier(View view){
+        if(GenericDataCenter.getLogin().equals("") && GenericDataCenter.getPasswd().equals("")){
+            startActivity(new Intent(this, Authentification.class));
+        }else {
 
+            MonPannier.add(category, nom, prix);
+
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(this, "Produit ajouté au pannier", duration);
+            toast.show();
+        }
     }
 }
