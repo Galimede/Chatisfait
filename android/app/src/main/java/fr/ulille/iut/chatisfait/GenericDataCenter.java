@@ -10,7 +10,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,13 +18,15 @@ public class GenericDataCenter {
 
     private Activity activity;
 
-    private static final String HOST = "10.0.2.2";
+    protected static final String HOST = "10.0.2.2";
 
     private static String login = "";
     private static String passwd = "";
 
-    public static final String Utilisateurs = "/utilisateurs";
-    public static final String Articles = "/articles";
+    public static final String Utilisateurs = "/utilisateurs/";
+    public static final String Articles = "/articles/";
+
+    private static String[] pannier;
 
     private RequestQueue queue;
 
@@ -111,11 +112,11 @@ public class GenericDataCenter {
         queue.add(request);
     }
 
-    protected boolean doPut(final ReceiverClient client, String jsonObj){
+    protected boolean doPut(final ReceiverClient client, String jsonObj, String domain, String id){
         JSONObject jsonRequest;
         String base_uri = getFullHostname();
 
-        String uri = base_uri + "/utilisateurs";
+        String uri = base_uri + domain + id;
 
         try {
             jsonRequest = new JSONObject(jsonObj);
@@ -145,6 +146,10 @@ public class GenericDataCenter {
             System.out.println("APPLI Error while initializing Json request content");
             return false;
         }
+    }
+
+    public static void addArticle(){
+
     }
 
 }

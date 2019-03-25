@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
@@ -17,9 +19,14 @@ import org.json.JSONObject;
 public class Abonnement extends AppCompatActivity implements ReceiverClient {
 
     private Spinner abo;
+    private Spinner form;
 
     protected GenericDataCenter generic;
     private RequestQueue queue;
+
+    private String choix;
+    private String formula;
+    private boolean isSterilized;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -39,6 +46,7 @@ public class Abonnement extends AppCompatActivity implements ReceiverClient {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
                 String item = (String) parent.getItemAtPosition(pos);
+                Abonnement.this.choix = item;
             }
 
             @Override
@@ -47,65 +55,47 @@ public class Abonnement extends AppCompatActivity implements ReceiverClient {
             }
         });
 
-    }
+        form = (Spinner) findViewById(R.id.spinnerAbo);
+        String[] formules = getResources().getStringArray(R.array.formul);
+        ArrayAdapter<String> formAdapter = new ArrayAdapter<String>(Abonnement.this, R.layout.support_simple_spinner_dropdown_item, formules);
+        form.setAdapter(formAdapter);
+        form.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener (){
 
-    protected void abonne(JSONArray response){
-        try {
-            boolean found = false;
-
-            for (int i = 0; i < response.length() ; i++) {
-                JSONObject obj = response.getJSONObject(i);
-                System.out.println(obj);
-                String[] splitted = generic.cutJsonArray(obj);
-                int nameIdx = generic.searchPattern(splitted, ".*pseudo.*");
-
-                /*if(splitted[nameIdx].equals("\"pseudo\":\""+name.getText().toString()+"\"") && !found) {
-                    String json = "{'abonne':'true', 'pseudo':'"+GenericDataCenter.getLogin()+"', 'mdp':'"+GenericDataCenter.getPasswd()+"'}";
-                    generic.doPut(this, json);
-                    //TO DO UPDATE
-                }*/
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
+                String item = (String) parent.getItemAtPosition(pos);
+                Abonnement.this.formula = item;
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Another interface callback
+            }
+        });
+
+        CheckBox check = (CheckBox) findViewById(R.id.steril);
+        isSterilized = check.isChecked();
+
     }
 
     public void postJsonObjectResponse(JSONObject response){
         System.out.println(response);
-        //abonne(response);
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(this, "Vous êtes abonné !", duration);
+        toast.show();
+
+        System.out.println("choix: "+choix+"  formule: "+formula+" est sterile : "+isSterilized);
     }
 
     public void getJsonArrayResponse(JSONArray response){
-
     }
 
     public void doAbonnement(View view){
         if(!GenericDataCenter.getLogin().equals("") && !GenericDataCenter.getPasswd().equals("")){
+            String json = "{'abonne':'true'}";
+            generic.doPut(this, json, GenericDataCenter.Utilisateurs, GenericDataCenter.getLogin());
 
-            /*String base_uri = generic.getFullHostname();
-
-            String uri = base_uri + "/utilisateurs";
-
-            JsonArrayRequest request = new JsonArrayRequest(
-                    Request.Method.GET,
-                    uri,
-                    null,
-                    new Response.Listener<JSONArray>() {
-                        @Override
-                        public void onResponse(JSONArray response) {
-                            abonne(response);
-                        }
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            error.printStackTrace();
-                        }
-                    });
-            System.out.println("requete : " + request);
-            queue.add(request);*/
-            generic.doGet(this, GenericDataCenter.Utilisateurs);
         }else{
             Intent it = new Intent(this, Authentification.class);
             startActivity(it);

@@ -85,4 +85,5 @@ ajoutArticles.click( (event:Event) => {
 	PageRenderer.renderPage(ajouterArticle);
 });
 
+$('.ajoutarticle').hide();
 

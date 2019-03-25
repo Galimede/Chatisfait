@@ -2,6 +2,7 @@ package fr.ulille.iut.chatisfait;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -46,5 +47,9 @@ public class Article extends AppCompatActivity {
         }
 
         return buffer.toString();
+    }
+
+    public void doAddToPannier(View view){
+
     }
 }

@@ -82,28 +82,6 @@ public class Authentification extends AppCompatActivity implements ReceiverClien
         login = log.getText().toString();
         mdp = passwd.getText().toString();
 
-        /*String base_uri = generic.getFullHostname();
-
-        String uri = base_uri + "/utilisateurs";
-
-        JsonArrayRequest request = new JsonArrayRequest(
-                Request.Method.GET,
-                uri,
-                null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        authentify(response);
-                    }
-                },
-                new ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace();
-                    }
-                });
-        System.out.println("requete : " + request);
-        queue.add(request);*/
         generic.doGet(this, GenericDataCenter.Utilisateurs);
 
     }
