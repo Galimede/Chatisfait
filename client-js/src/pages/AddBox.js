@@ -68,7 +68,7 @@ export default class AddBox extends Page {
             </div>
             <div>
                 <img src="images/box/pt2.png">
-                Ces produits sont bios et éco-responsables, pour son bien-être et celui de la Planet !
+                Ces produits sont bios et éco-responsables, pour son bien-être et celui de la planète !
             </div>
             <div>
                 <img src="images/box/pt3.png">
