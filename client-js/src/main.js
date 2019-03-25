@@ -14,7 +14,7 @@ import AjouterArticle from './pages/AjouterArticle.js';
 
 
 //declaration du panier
-export let panier:Array<{ categorie: string, description: string, idArticle: string, image:string, nom: string, prix: number }> = [];
+export let panier:Array<{idarticle:number}> = [];
 
 // configuration du PageRenderer
 PageRenderer.titleElement = document.querySelector('.pageTitle');
@@ -42,7 +42,6 @@ const articlesButton = $('.articles');
 const ajoutArticles = $('.ajoutarticle');
 
 PageRenderer.renderPage(boxPage);
-
 // Gestion des evenements bouttons 
 
 panierButton.click((event:Event) => {

@@ -6,12 +6,14 @@ import {panier} from '../main.js';
 import {box} from './AddBox.js';
 import {authentPage} from '../main.js';
 
+let articles :Array<{description:string,idArticle:number,nom:string,prix:number}>=[];
+
 export default class Achat extends Page {
 	constructor(){
 		super('Votre Panier');
         fetch('http://localhost:8080/v1/articles')
         .then((response: Response) => response.json())
-        //.then( MAJArticles );
+        .then( MAJArticles );
 	}
 
 	render():string {
@@ -64,9 +66,9 @@ export default class Achat extends Page {
                         user.abonne=true;
                         console.log(2);
                         console.log(user);
-                        console.log("TEST");
+                        //console.log("TEST");
                         console.log(JSON.stringify(user));
-                        return fetch( '/v1/utilisateurs/'+compte.login, {
+                        return fetch( 'http://localhost:8080/v1/utilisateurs/'+compte.login, {
                             method:'PUT',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(user)
@@ -97,21 +99,23 @@ export default class Achat extends Page {
             let htmlcontenu:string="";
             if(panier){
                 panier.forEach( article => { 
-                        htmlcontenu+= `
-                        <li>
-                            <div class="info">
-                                <a class="nom" href="">${article.nom}</a>
-                                <p>${article.description}</p>
-                                <p class="categorie">${article.categorie}</p>
-                                <div class="price">
-                                    <span class="st">Prix:</span><strong>${article.prix}€</strong>
+                    let flag:boolean=false;
+                    for(let i=0;i<articles.length && flag==false;i++){
+                        if(articles[i].idArticle==article){
+                            flag=true;
+                            htmlcontenu+= `
+                            <li>
+                                <div class="info">
+                                    <a class="nom" href="">${articles[i].nom}</a>
+                                    <p>${articles[i].description}</p>
+                                    <p class="categorie">${articles[i].categorie}</p>
+                                    <div class="price">
+                                        <span class="st">Prix:</span><strong>${articles[i].prix}€</strong>
+                                    </div>
                                 </div>
-                                <div class="actions">
-                                    <a href="">Details</a>
-                                    <a href="" class="ajoutPanier" id="${article.idArticle}">Ajouter Au Panier</a>
-                                </div>
-                            </div>
-                        </li>̀`;
+                            </li>̀`;
+                        }
+                    }
                 });
 
                 $('.liste').html(htmlcontenu);
