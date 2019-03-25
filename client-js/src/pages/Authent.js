@@ -15,6 +15,7 @@ let users: Array<{ id: number, pseudo: string, mdp: string, sel: string, prenom:
 let compte: { login: ?string, password: ?string } = { login: null, password: null };
 const connexionButton = $('.connecter');
 const profilePage: Profil = new Profil();
+const addBox:AddBox = new AddBox();
 export default class Authent extends Page {
 
     constructor() {
@@ -76,7 +77,8 @@ export default class Authent extends Page {
                         event.preventDefault();
                         PageRenderer.renderPage(profilePage);
                     });
-                    }
+                }
+                PageRenderer.renderPage(addBox); // On redirige vers la page de box (index) après la connexion 
                 // puis on vide le formulaire
                 const form: ?HTMLElement = document.querySelector('form.Authent');
                 if (form && form instanceof HTMLFormElement) {

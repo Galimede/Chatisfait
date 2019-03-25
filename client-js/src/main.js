@@ -52,7 +52,7 @@ panierButton.click((event:Event) => {
 
 logoLink.click((event:Event) => {
 	event.preventDefault();
-	PageRenderer.renderPage(homePage);
+	PageRenderer.renderPage(boxPage);
 });
 
 connexionButton.click( (event:Event) => {
