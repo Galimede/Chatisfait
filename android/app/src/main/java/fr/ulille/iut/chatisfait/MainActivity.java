@@ -115,7 +115,8 @@ public class MainActivity extends AppCompatActivity implements ReceiverClient {
     }
 
     public void onPannierClick(View view){
-
+        Intent it = new Intent(this, MonPannier.class);
+        startActivity(it);
     }
 
 }

@@ -166,4 +166,8 @@
         <item>Sénior (à partir de 8ans)</item>
     </string-array>
 
+    <string-array name="formul">
+        <item>Formule 1 mois: 19.90€</item>
+    </string-array>
+
 </resources>
