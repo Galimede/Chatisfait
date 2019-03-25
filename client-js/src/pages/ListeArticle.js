@@ -36,8 +36,8 @@ export default class ListeArticle extends Page {
                   <p>${article.description}</p>
           
                   <div class="buttons">
-                    <a class="button buy" href="#">${article.prix}</a>
-                    <a class="button add" href="#">${article.idArticle}</a>
+                    <a class="button buy" href="#">Prix : ${article.prix} €</a>
+                    <a class="button add" href="#">Ajouter : ${article.idArticle}</a>
                     <span class="button" id="price">${article.prix}</span>
                   </div>
                 </div>
