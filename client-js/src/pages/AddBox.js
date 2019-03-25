@@ -33,7 +33,7 @@ export default class AddBox extends Page {
                                 <img class="img" src="images/box/1.jpg" alt=""/> 
                             </div>
                             <div class="Block_title">Créer le profil de votre chat</div>
-                            <div class="Block_title">Excogitatum est super his, ut homines quidam ignoti, vilitate ipsa parum cavendi ad colligendos rumores per Antiochiae latera cuncta destinarentur relaturi quae audirent. hi peragranter et dissimulanter honoratorum circulis adsistendo pervadendoque divites domus egentium habitu quicquid noscere poterant vel audire latenter intromissi per posticas in regiam </div>
+                            <div class="Block_title">La personnalisation du profil de votre chat nous permettra d’adapter au mieux la box à votre compagnon afin qu’il soit pleinement satisfait !</div>
         
                         </div>
         
@@ -42,7 +42,7 @@ export default class AddBox extends Page {
                                 <img class="img" src="images/box/2.jpg" alt=""/> 
                             </div>
                             <div class="Block_title">L'abonnement</div>
-                            <div class="Block_title">Excogitatum est super his, ut homines quidam ignoti, vilitate ipsa parum cavendi ad colligendos rumores per Antiochiae latera cuncta destinarentur relaturi quae audirent. hi peragranter et dissimulanter honoratorum circulis adsistendo pervadendoque divites domus egentium habitu quicquid noscere poterant vel audire latenter intromissi per posticas in regiam </div>
+                            <div class="Block_title">La personnalisation du profile de votre chat nous permettra d’adapter au mieux la box à votre compagnon afin qu’il soit pleinement satisfait !</div>
         
                         </div>
         
@@ -51,7 +51,7 @@ export default class AddBox extends Page {
                                 <img class="img" src="images/box/4.jpg" alt=""/> 
                             </div>
                             <div class="Block_title">Patience !</div>
-                            <div class="Block_title">Excogitatum est super his, ut homines quidam ignoti, vilitate ipsa parum cavendi ad colligendos rumores per Antiochiae latera cuncta destinarentur relaturi quae audirent. hi peragranter et dissimulanter honoratorum circulis adsistendo pervadendoque divites domus egentium habitu quicquid noscere poterant vel audire latenter intromissi per posticas in regiam </div>
+                            <div class="Block_title">La personnalisation du profile de votre chat nous permettra d’adapter au mieux la box à votre compagnon afin qu’il soit pleinement satisfait !</div>
         
                         </div>
                     </div>
