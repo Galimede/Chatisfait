@@ -2,6 +2,8 @@
 import Page from './Page.js';
 import $ from 'jquery';
 import HomePage from './HomePage.js';
+import PageRenderer from '../PageRenderer.js';
+import Authent from './Authent.js';
 
 export default class Inscription extends Page {
 	constructor(){
@@ -32,11 +34,9 @@ export default class Inscription extends Page {
         <label>
 			<input id="block"  type="text" name="adresse" placeholder="Entrez votre adresse" class="form-control">
         </label>
-        <section class="codepostal">
         </label>
 			<input id="block"  type="text" name="mail" placeholder="Entrez votre adresse mail" class="form-control">
-        </label>
-        </section>
+        </label> <br>
         <button id="boutonsubmit" type="submit" class="btn btn-default">Soumettre<img id="sendimg" src="images/send.jpg" /></button>
     </form>
     </div>
@@ -91,9 +91,8 @@ export default class Inscription extends Page {
                 prenom: values.prenom,
                 nom: values.nom,
                 adresse: values.adresse,
-                mail: values.mail,
-                admin:false
-			};
+                adresseMail: values.mail,
+            };
 			fetch( 'http://localhost:8080/v1/utilisateurs/', {
 					method:'POST',
 					headers: { 'Content-Type': 'application/json' },
@@ -102,10 +101,13 @@ export default class Inscription extends Page {
 			.then(response => {
 				if (!response.ok) {
 					throw new Error( `${response.status} : ${response.statusText}` );
-				}
+                }
 				return response.json();
 			})
-			.catch( error => alert(`Enregistrement impossible : ${error.message}`) );
+            .catch( error => alert(`Enregistrement impossible : ${error.message}`) );
+            alert('Inscription Reussie');
+            const authentPage = new Authent();
+            PageRenderer.renderPage(authentPage);
 		}
     }
 }

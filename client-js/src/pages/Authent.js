@@ -112,6 +112,9 @@ export default class Authent extends Page {
             event.preventDefault();
             PageRenderer.renderPage(inscriptionPage);
         });
+        fetch('http://localhost:8080/v1/utilisateurs')
+        .then((response: Response) => response.text())
+        .then(MAJ); // fetch se fait au cas ou d'inscription 
     }
 
     verificationCompte(compte: { login: ?string, password: ?string }): boolean {

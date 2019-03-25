@@ -27,7 +27,6 @@ public class CommandeEntity {
     private int idCommande;
     private int idUtilisateur;
     private int idArticle;
-    private double prix;
     private Date dateCommande;
     private String adresseMail;
     private String adresse;
@@ -65,16 +64,6 @@ public class CommandeEntity {
 
     public void setIdUtilisateur(int idUtilisateur) {
         this.idUtilisateur = idUtilisateur;
-    }
-
-    @Basic
-    @Column(name = "prix")
-    public double getPrix() {
-        return prix;
-    }
-
-    public void setPrix(double prix) {
-        this.prix = prix;
     }
 
     @Basic
