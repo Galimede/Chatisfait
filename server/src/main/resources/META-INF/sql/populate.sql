@@ -8,8 +8,8 @@ CREATE TABLE utilisateur(idutilisateur serial NOT NULL PRIMARY KEY ,pseudo char(
 CREATE TABLE commande(idcommande serial NOT NULL PRIMARY KEY, idutilisateur integer,idarticle integer , prix integer, datecommande DATE , adresseMail char(70), adresse char(60), nom char(20), prenom char(20), FOREIGN KEY  (idutilisateur) REFERENCES utilisateur(idutilisateur),FOREIGN  KEY (idarticle) REFERENCES article(idarticle) ON DELETE CASCADE ON UPDATE CASCADE);
 CREATE TABLE abonnement(idabonnement serial NOT NULL PRIMARY KEY, idutilisateur integer, idarticle integer, age integer, poil char(20), sterilise boolean, poids integer, nom char(20), choix integer, FOREIGN  KEY (idutilisateur) REFERENCES utilisateur(idutilisateur), FOREIGN KEY (idarticle) REFERENCES article(idArticle) ON DELETE CASCADE ON UPDATE CASCADE);
 CREATE TABLE note(idnote serial NOT NULL PRIMARY KEY , idarticle integer NOT NULL, notetotale integer, nbnote integer, FOREIGN KEY (idarticle) REFERENCES article(idarticle) ON DELETE CASCADE ON UPDATE CASCADE);
-insert into utilisateur(pseudo,mdp, admin) values ('sacha','sacha',true);
-insert into utilisateur(pseudo,mdp,admin) values ('sully','sully',false);
+insert into utilisateur(pseudo,mdp, admin,adresse,adressemail,nom,prenom) values ('sacha','sacha',true,'56 rue du moulineau','hotmail@gmail.com','sacha','sacha');
+insert into utilisateur(pseudo,mdp,admin,adresse,adressemail,nom,prenom) values ('sully','sully',false,'56 rue du sable','gmail@gmail.com','sully','sully');
 insert into article(nom,prix,description,categorie,image) values ('brosse metalique','45','petite brosse pour chat en bois naturel','accessoire','/images/articles/brosse.jpg');
 insert into article(nom,prix,description,categorie,image) values ('croquette purizon','20','croquette pour chat','croquette','/images/articles/croquette.jpg');
 insert into article(nom,prix,description,categorie,image) values ('litiere cat best','10','litiere de qualite cat best original','croquette','/images/articles/litiere.jpg');

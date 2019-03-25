@@ -1,5 +1,5 @@
-insert into utilisateur(pseudo,mdp, admin) values ('sacha','sacha',true);
-insert into utilisateur(pseudo,mdp,admin) values ('sully','sully',false);
+insert into utilisateur(pseudo,mdp, admin,adresse,adressemail,nom,prenom) values ('sacha','sacha',true,'56 rue du moulineau','hotmail@gmail.com','sacha','sacha');
+insert into utilisateur(pseudo,mdp,admin,adresse,adressemail,nom,prenom) values ('sully','sully',false,'56 rue du sable','gmail@gmail.com','sully','sully');
 insert into article(nom,prix,description,categorie,image) values ('brosse metalique','45','petite brosse pour chat en bois naturel','accessoire','/images/articles/brosse.jpg');
 insert into article(nom,prix,description,categorie,image) values ('croquette purizon','20','croquette pour chat','croquette','/images/articles/croquette.jpg');
 insert into article(nom,prix,description,categorie,image) values ('litiere cat best','10','litiere de qualite cat best original','croquette','/images/articles/litiere.jpg');
