@@ -59,6 +59,10 @@ body {
   margin-top: 25px;
 }
 
+li{
+  list-style: none;
+}
+
         
         .buttons {
           padding-top: .4em;
