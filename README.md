@@ -152,12 +152,24 @@ Pourvoir construire en une commande un container capable e servir le html et l'a
 
 ##Sprint 12
     Résumé :
+    Integration du css.
+    Panier fonctionnel.
 
     TO DO
+    Finaliser les commandes.
+    regler les problemes.
         
     Points positif :
         X
     Axes d’amélioration :
         X
 
+## Sprint 13
+    Résumé :
+    Table abonnement rectifier.
+    Quelques problemes de regler.
+    
+    TO DO 
+    Finaliser la page d'achat.
+    Finalaliser la page d'abonnement
 
