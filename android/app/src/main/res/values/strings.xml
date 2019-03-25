@@ -37,7 +37,7 @@
     <string name="hintDisplay">Ready</string>
 
     <string name="default_server">acajou01</string>
-    <string name="default_base">/api/v1</string>
+    <string name="default_base">/v1</string>
     <integer name="default_port">8080</integer>
     <string name="iut_domain">.iut-infobio.priv.univ-lille1.fr</string>
 
