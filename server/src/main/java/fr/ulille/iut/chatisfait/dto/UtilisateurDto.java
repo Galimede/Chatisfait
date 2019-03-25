@@ -15,6 +15,7 @@ public class UtilisateurDto {
     private String adresse;
     private String adresseMail;
     private boolean abonne;
+    private boolean admin;
 
     public int getIdUtilisateur() {
         return idUtilisateur;
@@ -86,5 +87,13 @@ public class UtilisateurDto {
 
     public void setAbonne(boolean abonne) {
         this.abonne = abonne;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 }

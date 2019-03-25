@@ -32,6 +32,7 @@ public class UtilisateurEntity {
     private String adresse;
     private String adresseMail;
     private boolean abonne;
+    private boolean admin;
 
     private final static Logger logger = LoggerFactory.getLogger(UtilisateurEntity.class);
     private static ModelMapper modelMapper = new ModelMapper();
@@ -129,6 +130,16 @@ public class UtilisateurEntity {
 
     public void setAbonne(boolean abonne) {
         this.abonne = abonne;
+    }
+
+    @Basic
+    @Column(name = "admin")
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 
 

@@ -86,6 +86,7 @@ public class UtilisateurRessource {
         } else {
             try {
                 utilisateurEntity.setAbonne(utilisateur.isAbonne());
+                utilisateurEntity.setAdmin(utilisateur.isAdmin());
                 if(utilisateur.getSel() != null)
                     utilisateurEntity.setSel(utilisateur.getSel());
                 if(utilisateur.getAdresse() != null)
