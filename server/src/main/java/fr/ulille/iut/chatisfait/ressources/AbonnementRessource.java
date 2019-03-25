@@ -81,8 +81,16 @@ public class AbonnementRessource {
                     abonnementEntity.setIdAbonnement(abonne.getIdArticle());
                 if (abonne.getIdutilisateur() != 0)
                     abonnementEntity.setIdAbonnement(abonne.getIdutilisateur());
-                if (abonne.getTypeAbonne() != null)
-                    abonnementEntity.setTypeAbonne(abonne.getTypeAbonne());
+                if (abonne.getNom() != null)
+                    abonnementEntity.setNom(abonne.getNom());
+                if (abonne.getAge() != 0)
+                    abonnementEntity.setAge(abonne.getAge());
+                if (abonne.getPoids() != 0)
+                    abonnementEntity.setPoids(abonne.getPoids());
+                if (abonne.getPoil() != null)
+                    abonnementEntity.setPoil(abonne.getPoil());
+                if (abonne.getChoix() != 0)
+                    abonnementEntity.setChoix(abonne.getChoix());
                 dataAccess.updateAbonnement(abonnementEntity);
                 dataAccess.closeConnection(true);
                 return Response.ok(abonnementEntity).build(); //  .created(instanceURI).build();

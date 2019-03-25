@@ -3,6 +3,7 @@ package fr.ulille.iut.chatisfait.dao;
 
 import fr.ulille.iut.chatisfait.dto.AbonnementDto;
 import fr.ulille.iut.chatisfait.dto.ArticleDto;
+import org.glassfish.jersey.server.BackgroundScheduler;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +24,12 @@ public class AbonnementEntity {
     private int idAbonnement;
     private int idutilisateur;
     private int idArticle;
-    private String typeAbonne;
+    private int age;
+    private String poil;
+    private boolean sterilise;
+    private double poids;
+    private String nom;
+    private int choix;
 
     private final static Logger logger = LoggerFactory.getLogger(AbonnementEntity.class);
     private static ModelMapper modelMapper = new ModelMapper();
@@ -68,12 +74,63 @@ public class AbonnementEntity {
     }
 
     @Basic
-    @Column(name = "typeabonne", length = 60)
-    public String getTypeAbonne() {
-        return typeAbonne;
+    @Column(name = "age")
+    public int getAge() {
+        return age;
     }
 
-    public void setTypeAbonne(String typeAbonne) {
-        this.typeAbonne = typeAbonne;
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Basic
+    @Column(name = "poil", length = 20)
+    public String getPoil() {
+        return poil;
+    }
+
+    public void setPoil(String poil) {
+        this.poil = poil;
+    }
+
+    @Basic
+    @Column(name="sterilise")
+    public boolean isSterilise() {
+        return sterilise;
+    }
+
+    public void setSterilise(boolean sterilise) {
+        this.sterilise = sterilise;
+    }
+
+    @Basic
+    @Column(name="poids")
+    public double getPoids() {
+        return poids;
+    }
+
+    public void setPoids(double poids) {
+        this.poids = poids;
+    }
+
+    @Basic
+    @Column(name="nom", length = 20)
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    @Basic
+    @Column(name="choix")
+    public int getChoix() {
+        return choix;
+    }
+
+    public void setChoix(int choix) {
+        this.choix = choix;
     }
 }
+

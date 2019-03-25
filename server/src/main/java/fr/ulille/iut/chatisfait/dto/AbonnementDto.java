@@ -7,8 +7,60 @@ public class AbonnementDto {
     private int idAbonnement;
     private int idutilisateur;
     private int idArticle;
-    private String typeAbonne;
+    private int age;
+    private String poil;
+    private boolean sterilise;
+    private double poids;
+    private String nom;
+    private int choix;
 
+    public int getIdArticle() {
+        return idArticle;
+    }
+
+    public void setIdArticle(int idArticle) {
+        this.idArticle = idArticle;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getPoil() {
+        return poil;
+    }
+
+    public void setPoil(String poil) {
+        this.poil = poil;
+    }
+
+    public boolean isSterilise() {
+        return sterilise;
+    }
+
+    public void setSterilise(boolean sterilise) {
+        this.sterilise = sterilise;
+    }
+
+    public double getPoids() {
+        return poids;
+    }
+
+    public void setPoids(double poids) {
+        this.poids = poids;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
     public int getIdAbonnement() {
         return idAbonnement;
@@ -26,11 +78,11 @@ public class AbonnementDto {
         this.idutilisateur = idutilisateur;
     }
 
-    public String getTypeAbonne() {
-        return typeAbonne;
+    public int getChoix() {
+        return choix;
     }
 
-    public void setTypeAbonne(String type) {
-        this.typeAbonne = type;
+    public void setChoix(int choix) {
+        this.choix = choix;
     }
 }
