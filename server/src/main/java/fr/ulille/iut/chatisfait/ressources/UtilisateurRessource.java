@@ -124,6 +124,7 @@ public class UtilisateurRessource {
             return Response.status(Response.Status.NOT_FOUND).entity("Utilisateur not found").build();
         }
 
+
     }
 
 }
