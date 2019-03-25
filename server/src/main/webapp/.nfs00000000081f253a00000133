@@ -8,9 +8,6 @@
 
 	<link rel="stylesheet" type="text/css" href="css/flatly-bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
-	<link rel="stylesheet" type="text/css" href="css/addAbonnement.css"/>
-	<link rel="stylesheet" type="text/css" href="css/box.css" />
-	
 
 	<script src="build/main.bundle.js" defer ></script>
 	<!-- <script type="module" src="build/main.js"></script> -->

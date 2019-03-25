@@ -11,7 +11,7 @@ PageRenderer.contentElement = document.querySelector('.contenu');
 
 const inscriptionPage: Inscription = new Inscription();
 
-let users: Array<{ id: number, pseudo: string, mdp: string, sel: string, prenom: string, nom: string, adresse: string, mail: string, aboonne: boolean }>;
+let users: Array<{ id: number, pseudo: string, mdp: string, sel: string, prenom: string, nom: string, adresse: string, mail: string, aboonne: boolean,admin:boolean }> = [];
 let compte: { login: ?string, password: ?string } = { login: null, password: null };
 const connexionButton = $('.connecter');
 const profilePage: Profil = new Profil();
