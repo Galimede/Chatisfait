@@ -2,6 +2,8 @@
 import Page from './Page.js';
 import $ from 'jquery';
 import HomePage from './HomePage.js';
+import PageRenderer from '../PageRenderer.js';
+import Authent from './Authent.js';
 
 export default class Inscription extends Page {
 	constructor(){
@@ -101,10 +103,13 @@ export default class Inscription extends Page {
 			.then(response => {
 				if (!response.ok) {
 					throw new Error( `${response.status} : ${response.statusText}` );
-				}
+                }
 				return response.json();
 			})
-			.catch( error => alert(`Enregistrement impossible : ${error.message}`) );
+            .catch( error => alert(`Enregistrement impossible : ${error.message}`) );
+            alert('Inscription Reussie');
+            const authentPage = new Authent();
+            PageRenderer.renderPage(authentPage);
 		}
     }
 }
