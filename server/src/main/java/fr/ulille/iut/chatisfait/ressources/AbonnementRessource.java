@@ -2,7 +2,6 @@ package fr.ulille.iut.chatisfait.ressources;
 
 import fr.ulille.iut.chatisfait.dao.*;
 import fr.ulille.iut.chatisfait.dto.AbonnementDto;
-import fr.ulille.iut.chatisfait.dto.ArticleDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -54,7 +53,7 @@ public class AbonnementRessource {
     public Response create(AbonnementDto abonnementDto) {
         DataAccess dataAccess = DataAccess.begin();
         AbonnementEntity abonnementEntity = AbonnementEntity.convertFromAbonneDto(abonnementDto);
-        if(abonnementEntity.getIdAbonnement() == 0) {
+        if(abonnementDto.getIdUtilisateur() == 0 || abonnementDto.getIdArticle() == 0) {
             dataAccess.closeConnection(true);
             return Response.status(Response.Status.NOT_ACCEPTABLE).entity("id not specified").build();
         }
@@ -79,8 +78,8 @@ public class AbonnementRessource {
             try {
                 if (abonne.getIdArticle() != 0)
                     abonnementEntity.setIdAbonnement(abonne.getIdArticle());
-                if (abonne.getIdutilisateur() != 0)
-                    abonnementEntity.setIdAbonnement(abonne.getIdutilisateur());
+                if (abonne.getIdUtilisateur() != 0)
+                    abonnementEntity.setIdAbonnement(abonne.getIdUtilisateur());
                 if (abonne.getNom() != null)
                     abonnementEntity.setNom(abonne.getNom());
                 if (abonne.getAge() != 0)

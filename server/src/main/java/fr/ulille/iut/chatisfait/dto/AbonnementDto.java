@@ -1,11 +1,9 @@
 package fr.ulille.iut.chatisfait.dto;
 
-import java.sql.Date;
-
 public class AbonnementDto {
 
     private int idAbonnement;
-    private int idutilisateur;
+    private int idUtilisateur;
     private int idArticle;
     private int age;
     private String poil;
@@ -70,12 +68,12 @@ public class AbonnementDto {
         this.idAbonnement = idAbonnement;
     }
 
-    public int getIdutilisateur() {
-        return idutilisateur;
+    public int getIdUtilisateur() {
+        return idUtilisateur;
     }
 
-    public void setIdutilisateur(int idutilisateur) {
-        this.idutilisateur = idutilisateur;
+    public void setIdUtilisateur(int idUtilisateur) {
+        this.idUtilisateur = idUtilisateur;
     }
 
     public int getChoix() {

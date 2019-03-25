@@ -2,14 +2,11 @@ package fr.ulille.iut.chatisfait.dao;
 
 
 import fr.ulille.iut.chatisfait.dto.AbonnementDto;
-import fr.ulille.iut.chatisfait.dto.ArticleDto;
-import org.glassfish.jersey.server.BackgroundScheduler;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
-import java.sql.Date;
 
 @Entity
 @Table(name = "abonnement")
@@ -22,7 +19,7 @@ import java.sql.Date;
 public class AbonnementEntity {
 
     private int idAbonnement;
-    private int idutilisateur;
+    private int idUtilisateur;
     private int idArticle;
     private int age;
     private String poil;
@@ -55,12 +52,12 @@ public class AbonnementEntity {
 
     @Basic
     @Column(name = "idutilisateur", nullable = false)
-    public int getIdutilisateur() {
-        return idutilisateur;
+    public int getIdUtilisateur() {
+        return idUtilisateur;
     }
 
-    public void setIdutilisateur(int idutilisateur) {
-        this.idutilisateur = idutilisateur;
+    public void setIdUtilisateur(int idutilisateur) {
+        this.idUtilisateur = idutilisateur;
     }
 
     @Basic
