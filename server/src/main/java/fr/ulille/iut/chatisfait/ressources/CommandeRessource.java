@@ -100,6 +100,8 @@ public class CommandeRessource {
                     commandeEntity.setPrenom(commande.getPrenom());
                 if(commande.getNom() != null)
                     commandeEntity.setNom(commande.getNom());
+                if(commande.getIdArticle() != 0)
+                    commandeEntity.setIdArticle(commande.getIdArticle());
                 dataAccess.updateCommande(commandeEntity);
                 dataAccess.closeConnection(true);
                 return Response.ok(commandeEntity).build(); //  .created(instanceURI).build();

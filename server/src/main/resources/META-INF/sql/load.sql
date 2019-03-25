@@ -7,4 +7,3 @@ insert into article(nom,prix,description,categorie,image) values ('patee purina 
 insert into commande(idutilisateur,prix,datecommande,adressemail,adresse,nom,prenom) values ('1','20','2008-10-29','mail@mail.com','77 rue du du','toto','toto');
 insert into abonnement(idutilisateur, idarticle, age, nom) values ('1', '1', '5', 'mistigri');
 insert into note(idarticle,nbnote,notetotale) values (1,10,50);
-insert into article()

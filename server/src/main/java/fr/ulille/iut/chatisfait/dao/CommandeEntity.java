@@ -26,12 +26,14 @@ import java.util.Date;
 public class CommandeEntity {
     private int idCommande;
     private int idUtilisateur;
+    private int idArticle;
     private double prix;
     private Date dateCommande;
     private String adresseMail;
     private String adresse;
     private String nom;
     private String prenom;
+
     private final static Logger logger = LoggerFactory.getLogger(CommandeEntity.class);
     private static ModelMapper modelMapper = new ModelMapper();
 
@@ -123,5 +125,15 @@ public class CommandeEntity {
 
     public void setPrenom(String prenom) {
         this.prenom = prenom;
+    }
+
+    @Basic
+    @Column(name = "idarticle")
+    public int getIdArticle() {
+        return idArticle;
+    }
+
+    public void setIdArticle(int idArticle) {
+        this.idArticle = idArticle;
     }
 }

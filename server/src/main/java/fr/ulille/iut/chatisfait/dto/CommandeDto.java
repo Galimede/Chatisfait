@@ -10,6 +10,7 @@ import java.util.Date;
 public class CommandeDto {
     private int idCommande;
     private int idUtilisateur;
+    private int idArticle;
     private double prix;
     private Date dateCommande;
     private String adresseMail;
@@ -31,6 +32,14 @@ public class CommandeDto {
 
     public void setIdUtilisateur(int idUtilisateur) {
         this.idUtilisateur = idUtilisateur;
+    }
+
+    public int getIdArticle() {
+        return idArticle;
+    }
+
+    public void setIdArticle(int idArticle) {
+        this.idArticle = idArticle;
     }
 
     public double getPrix() {
