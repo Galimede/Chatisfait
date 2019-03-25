@@ -93,7 +93,7 @@ export default class Inscription extends Page {
                 adresse: values.adresse,
                 mail: values.mail
 			};
-			fetch( 'http://localhost:8080/api/v1/utilisateurs/', {
+			fetch( 'http://localhost:8080/v1/utilisateurs/', {
 					method:'POST',
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify(user)

@@ -6,13 +6,14 @@ import {panier} from '../main.js';
 import {box} from './AddBox.js';
 import {authentPage} from '../main.js';
 
-let articles :Array<{description:string,idArticle:string,nom:string,prix:number}>;
+let articles :Array<{description:string,idArticle:string,nom:string,prix:number}>=[];
+
 export default class Achat extends Page {
 	constructor(){
 		super('Votre Panier');
-        fetch('http://localhost:8080/api/v1/articles')
+        fetch('http://localhost:8080/v1/articles')
         .then((response: Response) => response.json())
-        .then( MAJ );
+        .then( MAJArticles );
 	}
 
 	render():string {
@@ -36,7 +37,7 @@ export default class Achat extends Page {
         const compte:{login:string,password:string}=authentPage.getCompte();
 
         if(compte.login!=null){
-                fetch('http://localhost:8080/api/v1/utilisateurs/'+compte.login)
+                fetch('http://localhost:8080/v1/utilisateurs/'+compte.login)
                 .then( (response:Response) => response.json() )
                 .then( MAJ );
         }
@@ -58,7 +59,7 @@ export default class Achat extends Page {
                     console.log(1);
                     alert('Vous êtes abonné à la box');
                     let user:{idutilisateur:number, pseudo:string, mdp:string,sel:string,prenom:string,nom:string,adresse:string,adressemail:string,abonne:boolean};
-                    fetch('http://localhost:8080/api/v1/utilisateurs/'+compte.login)
+                    fetch('http://localhost:8080/v1/utilisateurs/'+compte.login)
                     .then( (response:Response) => response.json() )
                     .then ( (data:any) => {
                         if(data) user = data;
@@ -67,7 +68,7 @@ export default class Achat extends Page {
                         console.log(user);
                         console.log("TEST");
                         console.log(JSON.stringify(user));
-                        return fetch( '/api/v1/utilisateurs/'+compte.login, {
+                        return fetch( '/v1/utilisateurs/'+compte.login, {
                             method:'PUT',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(user)
@@ -94,40 +95,39 @@ export default class Achat extends Page {
 
 
 
+        }else{
+            let htmlcontenu:string="";
+            if(panier){
+                articles.forEach( article => { 
+                    console.log(article.idArticle);
+                    if(panier.includes(article.idArticle)){
+                        console.log('TEST')
+                        htmlcontenu+= `
+                        <li>
+                            <div class="img"><a href=""><img alt="img" src="${article.image}"></a></div>
+                            <div class="info">
+                                <a class="nom" href="">${article.nom}</a>
+                                <p>${article.description}</p>
+                                <p class="categorie">${article.categorie}</p>
+                                <div class="price">
+                                    <span class="st">Prix:</span><strong>${article.prix}€</strong>
+                                </div>
+                                <div class="actions">
+                                    <a href="">Details</a>
+                                    <a href="" class="ajoutPanier" id="${article.idArticle}">Ajouter Au Panier</a>
+                                </div>
+                            </div>
+                        </li>̀`;
+                    }
+                });
+
+                $('.liste').html(htmlcontenu);
+            }
         }
-        /*panier=[{idarticle:1},{idarticle:2}];
-        if(panier!=null){
-            articles.forEach( article => { 
-                if(panier.includes(article.idArticle)){
-                    htmlcontenu+= `
-                <li>
-                    <!--<div class="img"><a href="#"><img alt="img" src="images/post1.jpg"></a></div>-->
-                    <div class="info">
-                        <a class="title" href="#">${article.nom}</a>
-                        <p>${article.description}</p>
-                        <div class="price">
-                            <span class="st">Prix:</span><strong>${article.prix}€</strong>
-                        </div>
-                        <div class="actions">
-                            <a href="#">Details</a>
-                            <a href="#">Ajouter Au Panier</a>
-                        </div>
-                    </div>
-                </li>`;
-                }
-            });
-        }*/
         
         
     }
 }
-
-/*function MAJ(data2:any) {
-    const data: Array<{description:string,idArticle:string,nom:string,prix:number}> = data2;
-    if (data) {
-        articles = data;
-    }
-}*/
 
 function MAJ (data2: string){
     let user:{idutilisateur:number, pseudo:string, mdp:string,sel:string,prenom:string,nom:string,adresse:string,adressemail:string,abonne:boolean};
@@ -140,5 +140,12 @@ function MAJ (data2: string){
         <li>mail : ${user.adressemail}</li>`);
     }else{
         $('.vosinfos').html('<li>Veuillez vous connecter</li>');
+    }
+}
+
+function MAJArticles(data2:any) {
+    const data: Array<{description:string,idArticle:string,nom:string,prix:number}> = data2;
+    if (data) {
+        articles = data;
     }
 }

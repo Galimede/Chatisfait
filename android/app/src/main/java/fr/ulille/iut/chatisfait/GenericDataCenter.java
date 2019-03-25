@@ -24,7 +24,14 @@ public class GenericDataCenter {
     private static String login = "";
     private static String passwd = "";
 
+    public static final String Utilisateurs = "/utilisateurs";
+    public static final String Articles = "/articles";
+
     private RequestQueue queue;
+
+    public GenericDataCenter(Activity classe){
+        activity = classe;
+    }
 
 
     public GenericDataCenter(Activity classe, RequestQueue queue){
@@ -80,10 +87,10 @@ public class GenericDataCenter {
         return -1;
     }
 
-    protected void doGet(final ReceiverClient iencli){
+    protected void doGet(final ReceiverClient iencli, String domain){
         String base_uri = getFullHostname();
 
-        String uri = base_uri + "/utilisateurs";
+        String uri = base_uri + domain;
 
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
@@ -92,6 +99,7 @@ public class GenericDataCenter {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
+                        System.out.println("yaaa");
                         iencli.getJsonArrayResponse(response);
                     }
                 },
@@ -104,16 +112,16 @@ public class GenericDataCenter {
         queue.add(request);
     }
 
-    protected void doPost(final ReceiverClient client){
+    protected boolean doPut(final ReceiverClient client, String jsonObj){
         JSONObject jsonRequest;
         String base_uri = getFullHostname();
 
         String uri = base_uri + "/utilisateurs";
 
         try {
-            jsonRequest = new JSONObject("{'abonne':'true', 'mdp':'"+passwd+"', 'pseudo':'"+login+"', 'nom':'"+nom+"', 'prenom':'"+prenom+"', 'adresseMail':'"+email+"', 'adresse':'"+adresse+"'}");
+            jsonRequest = new JSONObject(jsonObj);
             JsonObjectRequest request = new JsonObjectRequest(
-                    Request.Method.POST,
+                    Request.Method.PUT,
                     uri,
                     jsonRequest,
                     new Response.Listener<JSONObject>() {
@@ -131,10 +139,12 @@ public class GenericDataCenter {
 
             queue.add(request);
             System.out.println("request : "+request);
-            GenericDataCenter.setLogin(login);
-            GenericDataCenter.setPasswd(passwd);
+
+            return true;
+
         } catch (Exception e) {
             System.out.println("APPLI Error while initializing Json request content");
+            return false;
         }
     }
 
