@@ -41,7 +41,7 @@ const aboutButton = $('.about');
 const panierButton = $('.panier');
 const articlesButton = $('.articles');
 const ajoutArticles = $('.ajoutarticle');
-const suppArticles = $('.supparticles');
+const suppArticles = $('.supparticle');
 
 PageRenderer.renderPage(boxPage);
 // Gestion des evenements bouttons 
