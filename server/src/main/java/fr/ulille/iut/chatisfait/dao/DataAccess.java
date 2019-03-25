@@ -1,6 +1,5 @@
 package fr.ulille.iut.chatisfait.dao;
 
-import org.glassfish.grizzly.http.Note;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

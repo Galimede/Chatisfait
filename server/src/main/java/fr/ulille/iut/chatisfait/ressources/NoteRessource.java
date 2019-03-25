@@ -84,8 +84,8 @@ public class NoteRessource {
                     noteEntity.setIdArticle(note.getIdArticle());
                 if (note.getNbNote() != 0)
                     noteEntity.setNbNote(note.getNbNote());
-                if (note.getNote() != 0)
-                    noteEntity.setNote(note.getNote());
+                if (note.getNoteTotale() != 0)
+                    noteEntity.setNoteTotale(note.getNoteTotale());
                 dataAccess.updateNote(noteEntity);
                 dataAccess.closeConnection(true);
                 return Response.ok(noteEntity).build(); //  .created(instanceURI).build();

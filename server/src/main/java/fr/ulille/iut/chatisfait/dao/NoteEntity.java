@@ -25,7 +25,7 @@ public class NoteEntity {
 
     private int idNote;
     private int idArticle;
-    private double note;
+    private double noteTotale;
     private int nbNote;
 
     private final static Logger logger = LoggerFactory.getLogger(ArticleEntity.class);
@@ -61,13 +61,13 @@ public class NoteEntity {
     }
 
     @Basic
-    @Column(name = "note")
-    public double getNote() {
-        return note;
+    @Column(name = "notetotale")
+    public double getNoteTotale() {
+        return noteTotale;
     }
 
-    public void setNote(double note) {
-        this.note = note;
+    public void setNoteTotale(double note) {
+        this.noteTotale = note;
     }
 
     @Basic

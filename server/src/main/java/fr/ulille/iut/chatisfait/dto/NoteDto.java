@@ -4,7 +4,7 @@ public class NoteDto {
 
     private int idNote;
     private int idArticle;
-    private double note;
+    private double noteTotale;
     private int nbNote;
 
     public int getIdArticle() {
@@ -15,20 +15,20 @@ public class NoteDto {
         this.idArticle = idArticle;
     }
 
-    public int getId() {
+    public int getIdNote() {
         return idNote;
     }
 
-    public void setId(int id) {
-        this.idNote = id;
+    public void setIdNote(int idNote) {
+        this.idNote = idNote;
     }
 
-    public double getNote() {
-        return note;
+    public double getNoteTotale() {
+        return noteTotale;
     }
 
-    public void setNote(double note) {
-        this.note = note;
+    public void setNoteTotale(double noteTotale) {
+        this.noteTotale = noteTotale;
     }
 
     public int getNbNote() {
