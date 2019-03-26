@@ -11,7 +11,7 @@ import AboutUs from './pages/AboutUs.js';
 import ListeArticle from './pages/ListeArticle.js';
 import Achat from './pages/Achat';
 import AjouterArticle from './pages/AjouterArticle.js';
-
+import SupprimerArticle from './pages/SupprimerArticle.js';
 
 //declaration du panier
 export let panier:Array<{idarticle:number}> = [];
@@ -24,11 +24,12 @@ PageRenderer.contentElement = document.querySelector('.contenu');
 const homePage:HomePage = new HomePage([]);
 export let authentPage:Authent = new Authent();
 const boxPage:AddBox = new AddBox();
-const abonnementPage:AddAbonnement = new AddAbonnement();
+const abonnementPage:AddAbonnement2 = new AddAbonnement();
 const aboutUs:AboutUs = new AboutUs();
 const articles:ListeArticle = new ListeArticle();
 export let achatpage:Achat = new Achat();
 const ajouterArticle:AjouterArticle = new AjouterArticle();
+const supprimerArticle:SupprimerArticle = new SupprimerArticle();
 
 // Déclaration liens menus 
 const menu:Menu = new Menu();
@@ -40,6 +41,7 @@ const aboutButton = $('.about');
 const panierButton = $('.panier');
 const articlesButton = $('.articles');
 const ajoutArticles = $('.ajoutarticle');
+const suppArticles = $('.supparticle');
 
 PageRenderer.renderPage(boxPage);
 // Gestion des evenements bouttons 
@@ -85,5 +87,11 @@ ajoutArticles.click( (event:Event) => {
 	PageRenderer.renderPage(ajouterArticle);
 });
 
+suppArticles.click( (event:Event) => {
+	event.preventDefault();
+	PageRenderer.renderPage(supprimerArticle);
+});
+
 $('.ajoutarticle').hide();
+$('.supparticle').hide();
 

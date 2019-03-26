@@ -2,6 +2,7 @@
 import Page from './Page.js';
 import $ from 'jquery';
 import HomePage from './HomePage.js';
+import {authentPage} from '../main.js';
 
 let typechat:number=0;
 let sterelise:boolean=false;
@@ -43,8 +44,8 @@ export default class AddAbonnement extends Page {
 						<label>
 						sterilise:
 						<select name="sterilise" class="form-control">
-						<option  value="false">Non</option>
-						<option  value="true">Oui</option>
+						<option  value="0">Non</option>
+						<option  value="1">Oui</option>
 						</select>
 						</label>
 						<label>
@@ -81,17 +82,17 @@ export default class AddAbonnement extends Page {
 							<option  value="3">surpoids</option>
 							</select>
 						</label> -->
-							<br><br>
-							<!-- <label id="name" class="name">Nom</label>
-							 <input type="text" name="nomduchat" id="nom" placeholder="Nom du chat" class="form-control" -->
-					</section>
-
-					 <section class="plan cf">
-						<h1>Choix de la formule</h1>
-						<input type="radio" name="radio1" id="free" value="free"><label class="free-label four col" for="free">1 mois - 19,90€<br></label>
+						choix: values.free,	<br><br>
+						choix: values.free,	<!-- <label id="name" class="name">Nom</label>
+						choix: values.free,	 <input type="text" name="nomduchat" id="nom" placeholder="Nom du chat" class="form-control" -->
+					</secchoix: values.free,tion>
+choix: values.free,
+					 <secchoix: values.free,tion class="plan cf">
+						<choix: values.free,h1>Choix de la formule</h1>
+						<input type="radio" name="choix" id="free" value="1"><label class="free-label four col" for="free">1 mois - 19,90€<br></label>
 						<input type="radio" name="radio1" id="3mois" value="free"><label class="free-label four col" for="free">3 mois<br></label>
-						<input type="radio" name="radio1" id="6mois" value="free"><label class="free-label four col" for="free">6 mois<br></label>
-						<input type="radio" name="radio1" id="12mois" value="free"><label class="free-label four col" for="free">12 mois<br></label>
+						<!--<input type="radio" name="radio1" id="6mois" value="free"><label class="free-label four col" for="free">6 mois<br></label>
+						<input type="radio" name="radio1" id="12mois" value="free"><label class="free-label four col" for="free">12 mois<br></label>-->
 						<input class="submit" type="submit" value="Valider">	
 					</section> 
 					</form>
@@ -222,7 +223,18 @@ export default class AddAbonnement extends Page {
 		if ( field instanceof HTMLInputElement ) {
 			// s'il s'agit d'un <input> on utilise la propriété `value`
 			// et on retourne la chaine de caractère saisie
-			return field.value != '' ? field.value : null;
+			if ( field.getAttribute('type') == 'radio') {
+				const radioList:NodeList = document.querySelectorAll(`[name=${fieldName}]`);
+				for (var i = 0, length = radioList.length; i < length; i++){
+ 					if (radioList[i].checked)
+ 						{
+							return radioList[i].value;
+ 					}
+				}	
+		 
+			} else {
+				return field.value != '' ? field.value : null;
+			}
 		} else if ( field instanceof HTMLSelectElement ) {
 			// s'il s'agit d'un <select> on utilise la propriété `selectedOptions`
 			const values:Array<string> = [];
@@ -237,13 +249,15 @@ export default class AddAbonnement extends Page {
     
     submit(event:Event):void {
 		event.preventDefault();
+		let iduser;
+		const compte:{login:string,password:string}=authentPage.getCompte();
+
 		const fieldNames:Array<string> = [
 			'age',
-			//'choix',
+			'choix',
 			'poil',
             'poids',
 			'sterilise',
-			//'nom',
 		];
 		// on récupère la valeur saisie dans chaque champ
 		const values:any = {};
@@ -262,29 +276,34 @@ export default class AddAbonnement extends Page {
 			alert( errors.join('\n') );
 		} else {
 			// si il n'y a pas d'erreur on envoie les données
-			const abonnement = {
-				//nom: values.nom,
-				age: values.age,
-				sterelise: values.sterelise,
-				poil: values.poil,
-				//choix: typebox,
-				poids: values.poids,
-			};
-			console.log('abonnement');
-			console.log(abonnement);
-			console.log('après abo');
-			fetch( 'http://localhost:8080/v1/abonnements/', {
-					method:'POST',
+
+
+			fetch('http://localhost:8080/v1/utilisateurs/' + compte.login)
+			.then((response: Response) => response.json())
+			.then((data: any) => {
+				const abonnement = {
+					age: values.age[0],
+					sterelise: values.sterelise,
+					//poil: values.poil,
+					choix: values.choix,
+					poids: values.poids[0],
+					idUtilisateur : data.idUtilisateur,
+				};
+				return fetch('http://localhost:8080/v1/abonnements', {
+					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify(abonnement)
 				})
+			})
 			.then(response => {
+
 				if (!response.ok) {
-					throw new Error( `${response.status} : ${response.statusText}` );
+					throw new Error(`${response.status} : ${response.statusText}`);
 				}
 				return response.json();
 			})
-			.catch( error => alert(`Enregistrement impossible : ${error.message}`) );
+			.catch(error => alert(`Enregistrement impossible : ${error.message}`));
+
 		}
     }
 

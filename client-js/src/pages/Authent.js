@@ -128,7 +128,12 @@ export default class Authent extends Page {
                 flag = true;
                 if(value.admin){
                     $('.ajoutarticle').show();
+                    $('.supparticle').show();
                     $('.panier').hide();
+                    $('.about').hide();
+                    $('.box').hide();
+                    $('.connecter').hide();
+                    $('.abonner').hide();
                 }
             }
         });

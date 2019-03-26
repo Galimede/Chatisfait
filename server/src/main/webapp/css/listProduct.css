@@ -15,7 +15,8 @@ body {
   width: 610px;
   height: 250px;
   display: flex;
-  margin: 1em 0;
+  margin: 52px auto;
+  margin: 
   border-radius: 5px;
   overflow: hidden;
   cursor: pointer;
@@ -38,6 +39,7 @@ body {
     .product-info {
       background: #fff;
       flex: 3;
+    }
       .product-content {
         padding: .2em 0 .2em 1em;
         h1 {
@@ -50,12 +52,21 @@ body {
           font-weight: bold;
           width: 90%;
         }
+      }
+     
 
+.imgLP{
+  margin-top: 25px;
+}
 
+li{
+  list-style: none;
+}
 
         
         .buttons {
           padding-top: .4em;
+        }
           .button {
             text-decoration: none;
             color: #5e5e5e;

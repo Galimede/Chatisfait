@@ -168,6 +168,9 @@
 
     <string-array name="formul">
         <item>Formule 1 mois: 19.90€</item>
+        <item>Formule 3 mois</item>
+        <item>Formule 6 mois</item>
+        <item>Formule 12 mois</item>
     </string-array>
 
 </resources>

@@ -53,7 +53,7 @@ public class AbonnementRessource {
     public Response create(AbonnementDto abonnementDto) {
         DataAccess dataAccess = DataAccess.begin();
         AbonnementEntity abonnementEntity = AbonnementEntity.convertFromAbonneDto(abonnementDto);
-        if(abonnementDto.getIdUtilisateur() == 0 || abonnementDto.getIdArticle() == 0) {
+        if(abonnementDto.getIdUtilisateur() == 0) {
             dataAccess.closeConnection(true);
             return Response.status(Response.Status.NOT_ACCEPTABLE).entity("id not specified").build();
         }
@@ -65,6 +65,7 @@ public class AbonnementRessource {
         } catch (DatabaseConstraintException e) {
             return Response.status(Response.Status.CONFLICT).build();
         }
+        //lol
     }
 
     @PUT

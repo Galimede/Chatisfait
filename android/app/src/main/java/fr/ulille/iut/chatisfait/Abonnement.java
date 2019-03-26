@@ -86,10 +86,10 @@ public class Abonnement extends AppCompatActivity implements ReceiverClient {
         toast.show();
 
         System.out.println("choix: "+choix+"  formule: "+formula+" est sterile : "+isSterilized);
+        MonPannier.setFormule(formula);
     }
 
-    public void getJsonArrayResponse(JSONArray response){
-    }
+    public void getJsonArrayResponse(JSONArray response){}
 
     public void doAbonnement(View view){
         if(!GenericDataCenter.getLogin().equals("") && !GenericDataCenter.getPasswd().equals("")){
