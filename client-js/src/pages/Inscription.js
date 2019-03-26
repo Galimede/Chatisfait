@@ -15,7 +15,7 @@ export default class Inscription extends Page {
 	render():string {
         return `<div class="formcomplet">
         <label>
-        <h1> Formulaire d'inscription</h1>
+        <h1> Inscription</h1>
         <label>
         <div class="formulaireinscription">
             <form class="Inscription">
