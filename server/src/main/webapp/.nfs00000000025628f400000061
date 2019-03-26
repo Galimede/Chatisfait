@@ -34,10 +34,8 @@
 							<li><a href="" class="about">Qui Sommes Nous ?</a></li>
 							<li><a href=""  class="articles">Produits</a></li> 
 							<li><a href=""  class="supparticle">SupprimerArticles</a></li> 
-							<li><a href=""  class="ajoutarticle">AjouterArticles</a></li>
-							<li><a hre=""  class="listeCommandes">Liste Commandes</a></li> 
+							<li><a href=""  class="ajoutarticle">AjouterArticles</a></li> 
 							<li><a href="" class="panier"><img id="imgpanier" src="images/panier.png"/>Mon panier</a></li>
-
 						</ul>
 					</div>
 				</nav>

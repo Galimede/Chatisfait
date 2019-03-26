@@ -305,13 +305,13 @@ choix: values.free,
 				})
 				.then(response => {
 
-					if (!response.ok) {
-						throw new Error(`${response.status} : ${response.statusText}`);
-					}
-					return response.json();
-				})
-				.catch(error => alert(`Enregistrement impossible : ${error.message}`));
-			}
+				if (!response.ok) {
+					throw new Error(`${response.status} : ${response.statusText}`);
+				}
+				alert('Votre abonnement a bien été enregistré');
+				return response.json();
+			})
+			.catch(error => alert(`Enregistrement impossible : ${error.message}`));
 
 		}else{
 			event.preventDefault();

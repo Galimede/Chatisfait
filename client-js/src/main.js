@@ -12,6 +12,7 @@ import ListeArticle from './pages/ListeArticle.js';
 import Achat from './pages/Achat';
 import AjouterArticle from './pages/AjouterArticle.js';
 import SupprimerArticle from './pages/SupprimerArticle.js';
+import Commandes from './pages/Commandes.js';
 
 //declaration du panier
 export let panier:Array<{idarticle:number}> = [];
@@ -30,6 +31,7 @@ const articles:ListeArticle = new ListeArticle();
 export let achatpage:Achat = new Achat();
 const ajouterArticle:AjouterArticle = new AjouterArticle();
 const supprimerArticle:SupprimerArticle = new SupprimerArticle();
+const commandes:Commandes = new Commandes();
 
 // Déclaration liens menus 
 const menu:Menu = new Menu();
@@ -42,6 +44,7 @@ const panierButton = $('.panier');
 const articlesButton = $('.articles');
 const ajoutArticles = $('.ajoutarticle');
 const suppArticles = $('.supparticle');
+const listeCommandes = $('.listeCommandes');
 
 PageRenderer.renderPage(boxPage);
 // Gestion des evenements bouttons 
@@ -92,6 +95,12 @@ suppArticles.click( (event:Event) => {
 	PageRenderer.renderPage(supprimerArticle);
 });
 
+listeCommandes.click( (event:Event) => {
+	event.preventDefault();
+	PageRenderer.renderPage(commandes);
+})
+
 $('.ajoutarticle').hide();
 $('.supparticle').hide();
+listeCommandes.hide();
 

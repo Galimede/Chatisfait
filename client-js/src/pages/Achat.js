@@ -97,7 +97,7 @@ export default class Achat extends Page {
 
 
         } else {
-            let htmlcontenu: string = "";
+            let htmlcontenu: string = "<h2>Mon Panier</h2>";
             if (panier) {
                 console.log("002");
                 console.log(panier);
@@ -109,14 +109,14 @@ export default class Achat extends Page {
                             htmlcontenu += `
                             <li>
                                 <div class="info">
-                                    <a class="nom" href="">${articles[i].nom}</a>
-                                    <p>${articles[i].description}</p>
-                                    <p class="categorie">${articles[i].categorie}</p>
+                                    <a class="nom" href="">Article: ${articles[i].nom}</a>
+                                    <p>Description: ${articles[i].description}</p>
+                                    <p class="categorie">Categorie: ${articles[i].categorie}</p>
                                     <div class="price">
                                         <span class="st">Prix:</span><strong>${articles[i].prix}€</strong>
                                     </div>
                                 </div>
-                            </li>̀`;
+                            </li><br>`;
                         }
                     }
                 });

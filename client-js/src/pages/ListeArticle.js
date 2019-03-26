@@ -35,7 +35,6 @@ export default class ListeArticle extends Page {
       <div class="product-content">
         <h2 class="nom">${article.nom}</h2>
         <p class="categorie">${article.categorie} </p>
-        <p class="categorie">Brosse</p>
         <p>${article.description}</p>
 
         <div class="buttons">
