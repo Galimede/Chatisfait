@@ -129,6 +129,8 @@ export default class Authent extends Page {
                 if(value.admin){
                     $('.ajoutarticle').show();
                     $('.supparticle').show();
+                    $('.listeCommandes').show();
+                    $('.listeUsers').show();
                     $('.panier').hide();
                     $('.about').hide();
                     $('.box').hide();

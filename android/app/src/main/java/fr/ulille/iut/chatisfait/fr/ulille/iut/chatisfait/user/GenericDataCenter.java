@@ -1,4 +1,4 @@
-package fr.ulille.iut.chatisfait;
+package fr.ulille.iut.chatisfait.fr.ulille.iut.chatisfait.user;
 
 import android.app.Activity;
 import android.view.View;
@@ -14,6 +14,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import fr.ulille.iut.chatisfait.R;
+
 public class GenericDataCenter {
 
     private Activity activity;
@@ -25,14 +27,11 @@ public class GenericDataCenter {
 
     public static final String Utilisateurs = "/utilisateurs/";
     public static final String Articles = "/articles/";
-
-    private static String[] pannier;
+    public static final String Abonnements = "/abonnements/";
 
     private RequestQueue queue;
 
-    public GenericDataCenter(Activity classe){
-        activity = classe;
-    }
+    private static boolean isAbonne;
 
 
     public GenericDataCenter(Activity classe, RequestQueue queue){
@@ -40,7 +39,7 @@ public class GenericDataCenter {
         this.queue = queue;
     }
 
-    protected void hideKeyboard() {
+    public void hideKeyboard() {
         InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
         //Find the currently focused view, so we can grab the correct window token from it.
         View view = activity.getCurrentFocus();
@@ -59,12 +58,12 @@ public class GenericDataCenter {
         return host;
     }
 
-    public static void setLogin(String pseudo){
-        if(login.equals("")) login = pseudo;
+    protected static void setLogin(String pseudo){
+        login = pseudo;
     }
 
-    public static void setPasswd(String password){
-        if(passwd.equals("")) passwd = password;
+    protected static void setPasswd(String password){
+        passwd = password;
     }
 
     public static String getLogin(){
@@ -75,12 +74,20 @@ public class GenericDataCenter {
         return passwd;
     }
 
-    protected String[] cutJsonArray(JSONObject data){
+    public static boolean isAbonne() {
+        return isAbonne;
+    }
+
+    public static void abonne(){
+        isAbonne = true;
+    }
+
+    public String[] cutJsonArray(JSONObject data){
         String text = data.toString().substring(2, data.toString().length()-1);
         return text.split(",");
     }
 
-    protected int searchPattern(String[] donnees, String regex){
+    public int searchPattern(String[] donnees, String regex){
         for(int i=0; i<donnees.length; i++){
             if(donnees[i].matches(regex)) return i;
         }
@@ -88,7 +95,7 @@ public class GenericDataCenter {
         return -1;
     }
 
-    protected void doGet(final ReceiverClient iencli, String domain){
+    public void doGet(final ReceiverClient iencli, String domain){
         String base_uri = getFullHostname();
 
         String uri = base_uri + domain;
@@ -112,7 +119,7 @@ public class GenericDataCenter {
         queue.add(request);
     }
 
-    protected boolean doPut(final ReceiverClient client, String jsonObj, String domain, String id){
+    public boolean doPut(final ReceiverClient client, String jsonObj, String domain, String id){
         JSONObject jsonRequest;
         String base_uri = getFullHostname();
 
@@ -138,7 +145,6 @@ public class GenericDataCenter {
                     });
 
             queue.add(request);
-            System.out.println("request : "+request);
 
             return true;
 
@@ -148,8 +154,37 @@ public class GenericDataCenter {
         }
     }
 
-    public static void addArticle(){
+    public boolean doPost(final ReceiverClient client, String json, String domain){
+        JSONObject jsonRequest;
 
+        String base_uri = getFullHostname();
+        String uri = base_uri + domain;
+
+        try {
+            jsonRequest = new JSONObject(json);
+            JsonObjectRequest request = new JsonObjectRequest(
+                    Request.Method.POST,
+                    uri,
+                    jsonRequest,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            client.postJsonObjectResponse(response);
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            error.printStackTrace();
+                        }
+                    });
+
+            queue.add(request);
+
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 }

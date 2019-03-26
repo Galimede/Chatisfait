@@ -5,5 +5,9 @@ insert into article(nom,prix,description,categorie,image) values ('croquette pur
 insert into article(nom,prix,description,categorie,image) values ('litiere cat best','10','litiere de qualite cat best original','croquette','/images/articles/litiere.jpg');
 insert into article(nom,prix,description,categorie,image) values ('patee purina gourmet','17','patee purina emicee en sauce','croquette','/images/articles/patee.jpg');
 insert into commande(idutilisateur,datecommande,adressemail,adresse,nom,prenom) values ('1','2008-10-29','mail@mail.com','77 rue du du','toto','toto');
+insert into commande(idutilisateur,datecommande,adressemail,adresse,nom,prenom) values ('1','2008-10-29','mail@mail.com','77 rue du du','toto','toto');
+insert into commande(idutilisateur,datecommande,adressemail,adresse,nom,prenom) values ('1','2008-10-29','mail@mail.com','77 rue du du','toto','toto');
+insert into commande(idutilisateur,datecommande,adressemail,adresse,nom,prenom) values ('1','2008-10-29','mail@mail.com','77 rue du du','toto','toto');
+insert into commande(idutilisateur,datecommande,adressemail,adresse,nom,prenom) values ('2','2008-10-29','mail@mail.com','77 rue du du','toto','toto');
 insert into abonnement(idutilisateur, idarticle, age, nom) values ('1', '1', '5', 'mistigri');
 insert into note(idarticle,nbnote,notetotale) values (1,10,50);

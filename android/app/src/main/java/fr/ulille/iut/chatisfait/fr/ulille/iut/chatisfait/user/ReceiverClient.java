@@ -1,4 +1,4 @@
-package fr.ulille.iut.chatisfait;
+package fr.ulille.iut.chatisfait.fr.ulille.iut.chatisfait.user;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

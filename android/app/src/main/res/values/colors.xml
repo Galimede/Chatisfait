@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#88CFDA</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#1B86D8</color>
     <color name="heading1_color">#2A9BD3</color>
@@ -10,3 +10,4 @@
     <color name="error_color">#E77777</color>
     <color name="critical_color">#FE0F0F</color>
 </resources>
+    <!--#008577-->

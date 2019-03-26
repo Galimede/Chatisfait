@@ -19,7 +19,8 @@ import java.util.Date;
 
 @NamedQueries({
         @NamedQuery(name = "FindAllCommandes",query = "SELECT c from CommandeEntity c"),
-        @NamedQuery(name = "FindCommandeById",query = "SELECT c from CommandeEntity c where c.idCommande = :cidcommande")
+        @NamedQuery(name = "FindCommandeById",query = "SELECT c from CommandeEntity c where c.idCommande = :cidcommande"),
+        @NamedQuery(name = "FindCommandeByUtilisateur",query = "SELECT c from CommandeEntity c where c.idUtilisateur = :cidutilisateur")
 })
 
 
@@ -32,16 +33,17 @@ public class CommandeEntity {
     private String adresse;
     private String nom;
     private String prenom;
+    private String nomArticle;
 
     private final static Logger logger = LoggerFactory.getLogger(CommandeEntity.class);
     private static ModelMapper modelMapper = new ModelMapper();
 
 
     public static CommandeDto commandeToDto(CommandeEntity commandeEntity) {
-        return modelMapper.map(commandeEntity,CommandeDto.class);
+        return modelMapper.map(commandeEntity, CommandeDto.class);
     }
 
-    public static  CommandeEntity convertFromCommandeDto(CommandeDto commandeDto) {
+    public static CommandeEntity convertFromCommandeDto(CommandeDto commandeDto) {
         return modelMapper.map(commandeDto, CommandeEntity.class);
     }
 
@@ -57,7 +59,7 @@ public class CommandeEntity {
     }
 
     @Basic
-    @Column(name = "idutilisateur" , nullable = false)
+    @Column(name = "idutilisateur", nullable = false)
     public int getIdUtilisateur() {
         return idUtilisateur;
     }

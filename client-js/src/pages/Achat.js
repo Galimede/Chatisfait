@@ -7,6 +7,8 @@ import { box } from './AddBox.js';
 import { authentPage } from '../main.js';
 import PageRenderer from '../PageRenderer.js';
 import ListeArticle from './ListeArticle.js';
+import {resetPanier} from '../main.js';
+import {boxPage} from '../main.js';
 
 let articles: Array<{ description: string, idArticle: number, nom: string, prix: number }> = [];
 
@@ -62,7 +64,6 @@ export default class Achat extends Page {
                 event.preventDefault();
 
                 if (compte.login != null) {
-                    alert('Vous êtes abonné à la box');
                     let user: { idutilisateur: number, pseudo: string, mdp: string, sel: string, prenom: string, nom: string, adresse: string, adressemail: string, abonne: boolean };
                     fetch('http://localhost:8080/v1/utilisateurs/' + compte.login)
                         .then((response: Response) => response.json())
@@ -79,6 +80,9 @@ export default class Achat extends Page {
 
                             if (!response.ok) {
                                 throw new Error(`${response.status} : ${response.statusText}`);
+                            }else{
+                                alert('Vous êtes abonné à la box');
+                                PageRenderer.renderPage(boxPage);
                             }
                             return response.json();
                         })
@@ -97,7 +101,7 @@ export default class Achat extends Page {
 
 
         } else {
-            let htmlcontenu: string = "";
+            let htmlcontenu: string = "<h2>Mon Panier</h2>";
             if (panier) {
                 console.log("002");
                 console.log(panier);
@@ -106,17 +110,26 @@ export default class Achat extends Page {
                     for (let i = 0; i < articles.length && flag == false; i++) {
                         if (articles[i].idArticle == article) {
                             flag = true;
-                            htmlcontenu += `
-                            <li>
-                                <div class="info">
-                                    <a class="nom" href="">${articles[i].nom}</a>
-                                    <p>${articles[i].description}</p>
-                                    <p class="categorie">${articles[i].categorie}</p>
-                                    <div class="price">
-                                        <span class="st">Prix:</span><strong>${articles[i].prix}€</strong>
-                                    </div>
+                            htmlcontenu += `<li>
+                                    <div class="containerLP">
+                        <div class="product">
+                            <div class="img-containerLP">
+                            <img class="imgLP" src="${articles[i].image}">
+                            </div>
+                            <div class="product-info">
+                            <div class="product-content">
+                                <h2 class="nom">${articles[i].nom}</h2>
+                                <p class="categorie">${articles[i].categorie} </p>
+                                <p>${articles[i].description}</p>
+
+                                <div class="buttons">
+                                <a class="button buy" href="#">Prix : <strong>${articles[i].prix}€</strong> </a>
                                 </div>
-                            </li>̀`;
+                            </div>
+                            </div>
+                        </div>
+                        </li>`;
+        htmlcontenu += '</div></ul>';
                         }
                     }
                 });
@@ -136,6 +149,8 @@ export default class Achat extends Page {
                             PageRenderer.renderPage(produits);
                         } else {
                             alert('Votre commande a été passée');
+                            resetPanier();
+                            PageRenderer.renderPage(boxPage);
                         }
 
                         panier.forEach(article => {

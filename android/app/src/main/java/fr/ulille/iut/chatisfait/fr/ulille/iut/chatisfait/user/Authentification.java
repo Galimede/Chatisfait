@@ -1,4 +1,4 @@
-package fr.ulille.iut.chatisfait;
+package fr.ulille.iut.chatisfait.fr.ulille.iut.chatisfait.user;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,9 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import fr.ulille.iut.chatisfait.MainActivity;
+import fr.ulille.iut.chatisfait.R;
 
 public class Authentification extends AppCompatActivity implements ReceiverClient {
 
@@ -44,6 +47,7 @@ public class Authentification extends AppCompatActivity implements ReceiverClien
                     found = true;
                     GenericDataCenter.setLogin(login);
                     GenericDataCenter.setPasswd(mdp);
+                    MonPannier.clear();
                 }
 
             }

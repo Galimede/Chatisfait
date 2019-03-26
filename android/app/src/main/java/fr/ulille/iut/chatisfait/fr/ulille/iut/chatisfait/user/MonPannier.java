@@ -1,12 +1,17 @@
-package fr.ulille.iut.chatisfait;
+package fr.ulille.iut.chatisfait.fr.ulille.iut.chatisfait.user;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import fr.ulille.iut.chatisfait.Produit;
+import fr.ulille.iut.chatisfait.R;
 
 public class MonPannier extends AppCompatActivity {
 
@@ -47,15 +52,29 @@ public class MonPannier extends AppCompatActivity {
         return facture;
     }
 
-    protected static void setFormule(String formula){
+    public static void setFormule(String formula){
         formule = formula;
     }
 
-    protected static void setAbonnement(){
+    public static void setAbonnement(){
         abon = "Vous êtes abonné à la box";
     }
 
     public static void add(String categorie, String nom, String prix){
         articles.add(new Produit(categorie, nom, prix));
+    }
+
+    protected static void clear(){
+        articles.clear();
+
+        formule = "   ";
+        abon = "Vous n'êtes pas abonné à la box";
+    }
+
+    public void onPaiement(View view){
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(this, "Paiement effectué : vous avez passé commande", duration);
+        toast.show();
     }
 }

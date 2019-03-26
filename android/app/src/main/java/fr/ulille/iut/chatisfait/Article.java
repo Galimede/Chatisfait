@@ -8,6 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import fr.ulille.iut.chatisfait.fr.ulille.iut.chatisfait.user.Authentification;
+import fr.ulille.iut.chatisfait.fr.ulille.iut.chatisfait.user.GenericDataCenter;
+import fr.ulille.iut.chatisfait.fr.ulille.iut.chatisfait.user.MonPannier;
+
 public class Article extends AppCompatActivity {
 
     private String category;

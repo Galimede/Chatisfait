@@ -12,12 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Authentification"></activity>
-        <activity android:name=".Inscription"></activity>
+        <activity android:name=".fr.ulille.iut.chatisfait.user.Authentification"></activity>
+        <activity android:name=".fr.ulille.iut.chatisfait.user.Inscription"></activity>
         <activity android:name=".Abonnement"></activity>
         <activity android:name=".Article"></activity>
         <activity android:name=".AbonnementBox"></activity>
-        <activity android:name=".MonPannier"></activity>
+        <activity android:name=".fr.ulille.iut.chatisfait.user.MonPannier"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
