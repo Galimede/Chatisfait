@@ -2,13 +2,13 @@
 
 ## Objectif
 
-Pourvoir construire en une commande un container capable e servir le html et l'api en http ainsi qu'un lien vers l'apk.
+Pourvoir construire en une commande un container capable de servir le html et l'api en http ainsi qu'un lien vers l'apk.
 
 ##Sprint 2
     Résumé :
         Début du site avec un peu de html et de css.
         DTO créé sur le serveur.
-        Page de connection / inscription pas terminée car on a eu un petit contre-temps avec la gestion des click.
+        Page de connexion / inscription pas terminée car on a eu un petit contre-temps avec la gestion des clicks.
         Début de l'application android avec un bouton connection et redirection vers une page d'authentification.
     TO DO
         Faire au moins 1 chemin de la base de données en passant par java, IHM(site) et android.
@@ -23,7 +23,7 @@ Pourvoir construire en une commande un container capable e servir le html et l'a
 
 ##Sprint 3
     Résumé :
-        Nous avons encore avancer sur le visuel de la page.
+        Nous avons encore avancé sur le visuel de la page.
         Notre serveur REST fonctionne.
         Progression sur l'authentification.
         Ajout de la page Box et de la page abonnement.
@@ -43,7 +43,7 @@ Pourvoir construire en une commande un container capable e servir le html et l'a
     Résumé :
         Nous arrivons à récupérer les données de notre base REST avec le js.
         Pour l'application, nous travaillons sur la récupération des données via le REST.
-        Authentification presque fonctionnel.
+        Authentification presque fonctionnelle.
         Base utilisateur.
     TO DO
         Base articles.
@@ -64,13 +64,13 @@ Pourvoir construire en une commande un container capable e servir le html et l'a
         Finir box.
         Page profil.
     Points positif :
-        X
+        Bonne avancée avec l'authentification fonctionnelle.
     Axes d’amélioration :
         X
 
 ##Sprint 6
     Résumé :
-        La box fonctionnel.
+        La box fonctionnelle.
         Avancement sur l'application.
         Box inscription fonctionne.
     TO DO
@@ -78,9 +78,9 @@ Pourvoir construire en une commande un container capable e servir le html et l'a
         Mon profil.
         Commande BDD à faire.
     Points positif :
-        X
+        Nous avons réussi la principale fonction de notre site.
     Axes d’amélioration :
-        Nous remarquons que nous avons du mal à estimer la difficulté de certaines tâches, certaines plus simple que prévu et d’autre plus compliqué que nous ne le pensions.
+        Nous remarquons que nous avons du mal à estimer la difficulté de certaines tâches, certaines plus simples que prévues et d’autres plus compliqué que nous ne le pensions.
 
 ##Sprint 7
     Résumé :
@@ -90,7 +90,7 @@ Pourvoir construire en une commande un container capable e servir le html et l'a
         Inscription android
         liste article
     Points positif :
-        Nous avons pris le temps de revoir ensemble chaques tâches pour faire un second jugement quand à la difficultés de chacunes des tâches.
+        Nous avons pris le temps de revoir ensemble chaques tâche pour faire un second jugement quant à la difficultés de chacune des tâches.
     Axes d’amélioration :
         X
 
@@ -105,7 +105,7 @@ Pourvoir construire en une commande un container capable e servir le html et l'a
         Commencer la page achat.
         La search bar de la liste pour sélectionner un article.
     Points positif :
-        X
+        Avancement sur l'android.
     Axes d’amélioration :
         X
 
@@ -118,37 +118,37 @@ Pourvoir construire en une commande un container capable e servir le html et l'a
         AJouter des articles.
         Continuer les abonnements.
     Points positif :
-        X
+        Le côté article qui avance.
     Axes d’amélioration :
-        X
+        Tâches qui avancent mais qui ne sont pas finis. Prévoir moins de points d'effort pour les réalisés en 1 sprint.
 
 ##Sprint 10
     Résumé :
         Base abonnement.
         On peut ajouter des articles.
         On peut ajouter des articles dans le panier.
-        Liste trier par nom, catégorie.
+        Liste triée par nom, catégorie.
         Page achat avancement.
         Visualisation profil et panier (dans la base pour le panier).
     TO DO
         relier la page d’abonnement à la page d’achat.
         préparer le côté administrateur.
     Points positif :
-        X
+        Très bon avancement dans les articles.
     Axes d’amélioration :
-        X
+        Certaines tâches encore en cours.
 
 ##Sprint 11
     Résumé :
         Nous avons eu des problèmes techniques empêchant la compilation (lorsque nous avons essayé de mettre en place le hot spot du serveur avec les commandes indiquées sur le slack)
-        -> problèmes réglé non sans difficulté avec l’aide des enseignants.
+        -> problèmes réglés non sans difficulté avec l’aide des enseignants.
     TO DO
         relier la page d’abonnement à la page d’achat.
         préparer le côté administrateur.
     Points positif :
         X
     Axes d’amélioration :
-        X
+        Finir de régler les problèmes sur git.
 
 ##Sprint 12
     Résumé :
@@ -160,7 +160,7 @@ Pourvoir construire en une commande un container capable e servir le html et l'a
     regler les problemes.
         
     Points positif :
-        X
+        Le panier est fonctionnel.
     Axes d’amélioration :
         X
 
@@ -208,11 +208,23 @@ Pourvoir construire en une commande un container capable e servir le html et l'a
     
 ## Sprint 16
     Resume :
-    
+    Le but de ce sprint était de finaliser l'abonnement, ce qui a été fait.
+    Travail sur l'affiche.
+    Avancement du css et du design.
     TO DO
+    Pouvoir vider le panier.
+    Fonctions administrateurs.
     
     Points positif :
-        X
+        La finalisation des tâches principales.
     Axes d’amélioration :
         X
     
+## Sprint 17
+    Partie Administrateur > listes des utilisateurs.
+    
+    TO DO 
+    
+    Points positifs :
+    
+    Axes d'amélioration :
