@@ -37,10 +37,10 @@ export default class Authent extends Page {
 		<label>
 			Mot De passe :
             <input type="password" name="password" class="form-control">
-		</label>
-        <button type="submit" class="btn btn-default">Connexion</button>
+		</label> <br>
+        <center><button type="submit" class="btn btn-default">Connexion</button></center>
     </form>
-    <button class="btn btn-default inscription">S'inscrire</button>`;  //TODO : Rediriger sur inscription
+    <button class="btn btn-default inscription">S'inscrire</button>`;  
     }
 
     submit(event: Event): void {
