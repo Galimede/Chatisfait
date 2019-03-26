@@ -130,6 +130,7 @@ export default class Authent extends Page {
                     $('.ajoutarticle').show();
                     $('.supparticle').show();
                     $('.listeCommandes').show();
+                    $('.listeUsers').show();
                     $('.panier').hide();
                     $('.about').hide();
                     $('.box').hide();
