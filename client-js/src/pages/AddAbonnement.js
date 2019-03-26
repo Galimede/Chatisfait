@@ -282,11 +282,11 @@ choix: values.free,
 			.then((response: Response) => response.json())
 			.then((data: any) => {
 				const abonnement = {
-					//age: values.age,
-					//sterelise: values.sterelise,
+					age: values.age[0],
+					sterelise: values.sterelise,
 					//poil: values.poil,
-					//choix: values.choix,
-					//poids: values.poids,
+					choix: values.choix,
+					poids: values.poids[0],
 					idUtilisateur : data.idUtilisateur,
 				};
 				return fetch('http://localhost:8080/v1/abonnements', {
