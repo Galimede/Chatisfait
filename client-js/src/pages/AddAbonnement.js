@@ -3,12 +3,19 @@ import Page from './Page.js';
 import $ from 'jquery';
 import HomePage from './HomePage.js';
 import {authentPage} from '../main.js';
+import PageRenderer from '../PageRenderer.js';
 
 let typechat:number=0;
 let sterelise:boolean=false;
 let typepoil:string="";
 let typebox:number=0;
 let poids:number=0;
+
+// configuration du PageRenderer
+PageRenderer.titleElement = document.querySelector('.pageTitle');
+PageRenderer.contentElement = document.querySelector('.contenu');
+
+
 
 export default class AddAbonnement extends Page {
 	constructor(){
@@ -248,63 +255,69 @@ choix: values.free,
 	}
     
     submit(event:Event):void {
-		event.preventDefault();
-		let iduser;
 		const compte:{login:string,password:string}=authentPage.getCompte();
+		if(compte.login != null){
+			event.preventDefault();
+			let iduser;
 
-		const fieldNames:Array<string> = [
-			'age',
-			'choix',
-			'poil',
-            'poids',
-			'sterilise',
-		];
-		// on récupère la valeur saisie dans chaque champ
-		const values:any = {};
-		const errors:Array<string> = [];
+			const fieldNames:Array<string> = [
+				'age',
+				'choix',
+				'poil',
+				'poids',
+				'sterilise',
+			];
+			// on récupère la valeur saisie dans chaque champ
+			const values:any = {};
+			const errors:Array<string> = [];
 
-		fieldNames.forEach( (fieldName:string) => {
-			const value = this.getFieldValue(fieldName);
-			if ( !value ){
-				errors.push( `Le champ ${fieldName} ne peut être vide !` );
-			}
-			values[fieldName] = value;
-		});
-
-		if (errors.length) {
-			// si des erreurs sont détectées, on les affiche
-			alert( errors.join('\n') );
-		} else {
-			// si il n'y a pas d'erreur on envoie les données
-
-
-			fetch('http://localhost:8080/v1/utilisateurs/' + compte.login)
-			.then((response: Response) => response.json())
-			.then((data: any) => {
-				const abonnement = {
-					age: values.age[0],
-					sterelise: values.sterelise,
-					//poil: values.poil,
-					choix: values.choix,
-					poids: values.poids[0],
-					idUtilisateur : data.idUtilisateur,
-				};
-				return fetch('http://localhost:8080/v1/abonnements', {
-					method: 'POST',
-					headers: { 'Content-Type': 'application/json' },
-					body: JSON.stringify(abonnement)
-				})
-			})
-			.then(response => {
-
-				if (!response.ok) {
-					throw new Error(`${response.status} : ${response.statusText}`);
+			fieldNames.forEach( (fieldName:string) => {
+				const value = this.getFieldValue(fieldName);
+				if ( !value ){
+					errors.push( `Le champ ${fieldName} ne peut être vide !` );
 				}
-				return response.json();
-			})
-			.catch(error => alert(`Enregistrement impossible : ${error.message}`));
+				values[fieldName] = value;
+			});
 
+			if (errors.length) {
+				// si des erreurs sont détectées, on les affiche
+				alert( errors.join('\n') );
+			} else {
+				// si il n'y a pas d'erreur on envoie les données
+
+
+				fetch('http://localhost:8080/v1/utilisateurs/' + compte.login)
+				.then((response: Response) => response.json())
+				.then((data: any) => {
+					const abonnement = {
+						age: values.age[0],
+						sterelise: values.sterelise,
+						//poil: values.poil,
+						choix: values.choix,
+						poids: values.poids[0],
+						idUtilisateur : data.idUtilisateur,
+					};
+					return fetch('http://localhost:8080/v1/abonnements', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify(abonnement)
+					})
+				})
+				.then(response => {
+
+					if (!response.ok) {
+						throw new Error(`${response.status} : ${response.statusText}`);
+					}
+					return response.json();
+				})
+				.catch(error => alert(`Enregistrement impossible : ${error.message}`));
+			}
+
+		}else{
+			event.preventDefault();
+			PageRenderer.renderPage(authentPage);
 		}
+
     }
 
 
