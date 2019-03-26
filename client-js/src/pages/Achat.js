@@ -110,17 +110,26 @@ export default class Achat extends Page {
                     for (let i = 0; i < articles.length && flag == false; i++) {
                         if (articles[i].idArticle == article) {
                             flag = true;
-                            htmlcontenu += `
-                            <li>
-                                <div class="info">
-                                    <a class="nom" href="">Article: ${articles[i].nom}</a>
-                                    <p>Description: ${articles[i].description}</p>
-                                    <p class="categorie">Categorie: ${articles[i].categorie}</p>
-                                    <div class="price">
-                                        <span class="st">Prix:</span><strong>${articles[i].prix}€</strong>
-                                    </div>
+                            htmlcontenu += `<li>
+                                    <div class="containerLP">
+                        <div class="product">
+                            <div class="img-containerLP">
+                            <img class="imgLP" src="${articles[i].image}">
+                            </div>
+                            <div class="product-info">
+                            <div class="product-content">
+                                <h2 class="nom">${articles[i].nom}</h2>
+                                <p class="categorie">${articles[i].categorie} </p>
+                                <p>${articles[i].description}</p>
+
+                                <div class="buttons">
+                                <a class="button buy" href="#">Prix : <strong>${articles[i].prix}€</strong> </a>
                                 </div>
-                            </li><br>`;
+                            </div>
+                            </div>
+                        </div>
+                        </li>`;
+        htmlcontenu += '</div></ul>';
                         }
                     }
                 });
