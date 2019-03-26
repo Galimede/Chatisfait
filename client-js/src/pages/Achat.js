@@ -7,8 +7,8 @@ import { box } from './AddBox.js';
 import { authentPage } from '../main.js';
 import PageRenderer from '../PageRenderer.js';
 import ListeArticle from './ListeArticle.js';
-import {resetPanier} from '../main.js';
-import {boxPage} from '../main.js';
+import { resetPanier } from '../main.js';
+import { boxPage } from '../main.js';
 
 let articles: Array<{ description: string, idArticle: number, nom: string, prix: number }> = [];
 
@@ -80,7 +80,7 @@ export default class Achat extends Page {
 
                             if (!response.ok) {
                                 throw new Error(`${response.status} : ${response.statusText}`);
-                            }else{
+                            } else {
                                 alert('Vous êtes abonné à la box');
                                 PageRenderer.renderPage(boxPage);
                             }
@@ -129,7 +129,7 @@ export default class Achat extends Page {
                             </div>
                         </div>
                         </li>`;
-        htmlcontenu += '</div></ul>';
+                            htmlcontenu += '</div></ul>';
                         }
                     }
                 });
@@ -149,7 +149,6 @@ export default class Achat extends Page {
                             PageRenderer.renderPage(produits);
                         } else {
                             alert('Votre commande a été passée');
-                            resetPanier();
                             PageRenderer.renderPage(boxPage);
                         }
 
@@ -179,6 +178,8 @@ export default class Achat extends Page {
                                     if (!response.ok) {
                                         throw new Error(`${response.status} : ${response.statusText}`);
                                     }
+                                    resetPanier();
+
                                     return response.json();
                                 })
                                 .catch(error => alert(`Enregistrement impossible : ${error.message}`));
