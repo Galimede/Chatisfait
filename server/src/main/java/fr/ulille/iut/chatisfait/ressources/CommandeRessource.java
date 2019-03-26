@@ -89,6 +89,7 @@ public class CommandeRessource {
             dataAccess.closeConnection(false);
             return Response.status(Response.Status.NOT_ACCEPTABLE).entity("name not specified").build();
         }
+
         try {
             int id = dataAccess.createCommande(commandeEntity);
             URI instanceURI = uriInfo.getAbsolutePathBuilder().path("" + id).build();
