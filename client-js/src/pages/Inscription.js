@@ -15,9 +15,10 @@ export default class Inscription extends Page {
 	render():string {
         return `<div class="formcomplet">
         <label>
-        <h1> Inscription</h1>
+        
         <label>
         <div class="formulaireinscription">
+        <h2>S'inscrire</h2>
             <form class="Inscription">
 		<label>
 			<input id="block" type="text" name="pseudo" placeholder="Entrez un pseudo" class="form-control">
@@ -35,9 +36,9 @@ export default class Inscription extends Page {
 			<input id="block"  type="text" name="adresse" placeholder="Entrez votre adresse" class="form-control">
         </label>
         </label>
-			<input id="block"  type="text" name="mail" placeholder="Entrez votre adresse mail" class="form-control">
+			<input id="block"  type="text" name="mail" placeholder="Entrez votre mail" class="form-control">
         </label> <br>
-        <button id="boutonsubmit" type="submit" class="btn btn-default">Soumettre<img id="sendimg" src="images/send.jpg" /></button>
+        <button id="boutonsubmit" type="submit" class="btn btn-default">Soumettre</button>
     </form>
     </div>
     </div>`;

@@ -134,6 +134,9 @@ form {
 	display:flex;
 	padding: 20px;
 	flex-direction: column;
+
+	border : solid 2px black;
+	border-radius: 25px;
 }
 form label {
 	display: flex;
@@ -284,6 +287,8 @@ form label .form-control {
 #block{
 	background-color: white;
 	border-bottom: 2px solid grey;
+	width: 100%;
+	margin-bottom: 5px;
 }
 
 #imgpanier{
@@ -294,12 +299,15 @@ form label .form-control {
 .formcomplet{
 	margin-left:0%;
 	margin-top: 0%;
+	border : solid 2px black;
+	border-radius: 25px;
 }
 
 .inscription{
 	margin-left: 0%;
 }
 
-.authent{
-	
+.cf{
+	display: inline-block;
+	width: 110%;
 }

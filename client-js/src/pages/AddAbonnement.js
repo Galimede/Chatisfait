@@ -89,10 +89,9 @@ export default class AddAbonnement extends Page {
 							<option  value="3">surpoids</option>
 							</select>
 						</label> -->
-					</secchoix: values.free,tion>
 
-					 <secchoix: values.free,tion class="plan cf">
-						<choix: values.free,h1>Choix de la formule</h1>
+					 <section class="plan cf">
+						<h1>Choix de la formule</h1>
 						<input type="radio" name="choix" id="free" value="1"><label class="free-label four col" for="free">1 mois - 19,90€<br></label>
 						<input type="radio" name="choix" id="basic" value="2"><label class="free-label four col" for="basic">3 mois<br></label>
 						<input type="radio" name="choix" id="premium" value="3"><label class="free-label four col" for="premium">6 mois<br></label>
