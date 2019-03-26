@@ -222,9 +222,7 @@ Pourvoir construire en une commande un container capable de servir le html et l'
     
 ## Sprint 17
     Partie Administrateur > listes des utilisateurs.
-    
-    TO DO 
+    Css.
     
     Points positifs :
     
-    Axes d'amélioration :
