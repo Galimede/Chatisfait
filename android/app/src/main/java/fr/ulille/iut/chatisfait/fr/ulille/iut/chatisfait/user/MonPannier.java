@@ -60,8 +60,8 @@ public class MonPannier extends AppCompatActivity {
         abon = "Vous êtes abonné à la box";
     }
 
-    public static void add(String categorie, String nom, String prix){
-        articles.add(new Produit(categorie, nom, prix));
+    public static void add(String categorie, String nom, String prix, int id){
+        articles.add(new Produit(categorie, nom, prix, id));
     }
 
     protected static void clear(){
@@ -74,7 +74,9 @@ public class MonPannier extends AppCompatActivity {
     public void onPaiement(View view){
         int duration = Toast.LENGTH_SHORT;
 
-        Toast toast = Toast.makeText(this, "Paiement effectué : vous avez passé commande", duration);
+        String message = articles.size() > 0 ? "Paiement effectué : vous avez passé commande" : "Votre pannier est vide :(";
+
+        Toast toast = Toast.makeText(this, message, duration);
         toast.show();
     }
 }

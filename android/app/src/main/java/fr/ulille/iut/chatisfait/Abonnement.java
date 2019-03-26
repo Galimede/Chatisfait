@@ -34,6 +34,7 @@ public class Abonnement extends AppCompatActivity implements ReceiverClient {
     private boolean isSterilized;
 
     private int position;
+    private int idUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -87,7 +88,12 @@ public class Abonnement extends AppCompatActivity implements ReceiverClient {
     }
 
 
-    public void getJsonArrayResponse(JSONArray response){}
+    public void getJsonArrayResponse(JSONArray response){
+        String[] data = response.toString().split(",");
+        System.out.println(data[4]);
+
+        idUser = Integer.parseInt(data[4].substring(16));
+    }
 
     public void postJsonObjectResponse(JSONObject response){
         System.out.println(response);
@@ -100,9 +106,11 @@ public class Abonnement extends AppCompatActivity implements ReceiverClient {
             Toast toast = Toast.makeText(this, "Vous êtes abonné !", duration);
             toast.show();
 
+            generic.doGet(this, GenericDataCenter.Utilisateurs);
+
             System.out.println("choix: " + choix + "  formule: " + formula + " est sterile : " + isSterilized);
             MonPannier.setFormule(formula);
-            generic.doPost(this, "{'choix':'"+position+"', 'sterilise':'"+isSterilized+"'}", GenericDataCenter.Abonnements);
+            generic.doPost(this, "{'choix':'"+position+"', 'sterilise':'"+isSterilized+"', 'idUtilisateur':'"+idUser+"'}", GenericDataCenter.Abonnements);
         }else{
             startActivity(new Intent(this, Authentification.class));
         }

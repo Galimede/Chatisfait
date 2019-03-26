@@ -31,8 +31,6 @@ public class GenericDataCenter {
 
     private RequestQueue queue;
 
-    private static boolean isAbonne;
-
 
     public GenericDataCenter(Activity classe, RequestQueue queue){
         activity = classe;
@@ -72,14 +70,6 @@ public class GenericDataCenter {
 
     public static String getPasswd(){
         return passwd;
-    }
-
-    public static boolean isAbonne() {
-        return isAbonne;
-    }
-
-    public static void abonne(){
-        isAbonne = true;
     }
 
     public String[] cutJsonArray(JSONObject data){

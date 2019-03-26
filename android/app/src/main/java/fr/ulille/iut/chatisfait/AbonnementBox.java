@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -21,6 +23,8 @@ public class AbonnementBox extends AppCompatActivity implements ReceiverClient {
 
     protected GenericDataCenter generic;
     private RequestQueue queue;
+
+    private static boolean isAbonne = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -46,12 +50,12 @@ public class AbonnementBox extends AppCompatActivity implements ReceiverClient {
     }
 
     public void onAbonnage(View view){
-        if(!GenericDataCenter.getLogin().equals("") && !GenericDataCenter.getPasswd().equals("") && !GenericDataCenter.isAbonne()){
+        if(!GenericDataCenter.getLogin().equals("") && !GenericDataCenter.getPasswd().equals("") && !isAbonne){
             String json = "{'abonne':'true'}";
-            GenericDataCenter.abonne();
             generic.doPut(this, json, GenericDataCenter.Utilisateurs, GenericDataCenter.getLogin());
+            isAbonne = true;
 
-        }else if(GenericDataCenter.isAbonne()){
+        }else if(isAbonne){
             int duration = Toast.LENGTH_SHORT;
 
             Toast toast = Toast.makeText(this, "Vous êtes déjà abonné à la box", duration);
@@ -60,5 +64,9 @@ public class AbonnementBox extends AppCompatActivity implements ReceiverClient {
             Intent it = new Intent(this, Authentification.class);
             startActivity(it);
         }
+    }
+
+    public static void clear(){
+        isAbonne = false;
     }
 }

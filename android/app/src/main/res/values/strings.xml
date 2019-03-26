@@ -58,4 +58,11 @@
         <item>Formule 12 mois</item>
     </string-array>
 
+    <integer-array name="a">
+        <item>0x7f070057</item>
+        <item>0x7f070059</item>
+        <item>0x7f07005c</item>
+        <item>0x7f07006a</item>
+    </integer-array>
+
 </resources>

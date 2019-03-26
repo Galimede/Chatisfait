@@ -13,6 +13,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import fr.ulille.iut.chatisfait.AbonnementBox;
 import fr.ulille.iut.chatisfait.MainActivity;
 import fr.ulille.iut.chatisfait.R;
 
@@ -48,6 +49,7 @@ public class Authentification extends AppCompatActivity implements ReceiverClien
                     GenericDataCenter.setLogin(login);
                     GenericDataCenter.setPasswd(mdp);
                     MonPannier.clear();
+                    AbonnementBox.clear();
                 }
 
             }
