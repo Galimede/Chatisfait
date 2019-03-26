@@ -3,11 +3,8 @@ import Page from './Page.js';
 import $ from 'jquery';
 import HomePage from './HomePage.js';
 
-let typechat:number=0;
-let sterelise:boolean=false;
-let typepoil:string="";
-let typebox:number=0;
-let poids:number=0;
+const idArticle = 1;
+const idUtilisateur =1;
 
 export default class AddAbonnement extends Page {
 	constructor(){
@@ -81,18 +78,15 @@ export default class AddAbonnement extends Page {
 							<option  value="3">surpoids</option>
 							</select>
 						</label> -->
-						choix: values.free,	<br><br>
-						choix: values.free,	<!-- <label id="name" class="name">Nom</label>
-						choix: values.free,	 <input type="text" name="nomduchat" id="nom" placeholder="Nom du chat" class="form-control" -->
-					</secchoix: values.free,tion>
-choix: values.free,
-					 <secchoix: values.free,tion class="plan cf">
-						<choix: values.free,h1>Choix de la formule</h1>
-						<input type="radio" name="choix" id="free" value="1"><label class="free-label four col" for="free">1 mois - 19,90€<br></label>
-						<input type="radio" name="radio1" id="3mois" value="free"><label class="free-label four col" for="free">3 mois<br></label>
-						<!--<input type="radio" name="radio1" id="6mois" value="free"><label class="free-label four col" for="free">6 mois<br></label>
-						<input type="radio" name="radio1" id="12mois" value="free"><label class="free-label four col" for="free">12 mois<br></label>-->
+
+					 <section class="plan cf">
+						<h1>Choix de la formule</h1>
+						<input type="radio" name="choix" id="free" value="free"><label class="free-label four col" for="free">1 mois - 19,90€<br></label>
+						<input type="radio" name="choix" id="basic" value="basic"><label class="basic-label four col" for="basic">3 mois<br></label>
+						<input type="radio" name="choix" id="premium" value="premium"><label class="premium-label four col" for="premium">6 mois</label>
+						<input type="radio" name="choix" id="gold" value="gold"><label class="gold-label four col" for="gold">12 mois</label>
 						<input class="submit" type="submit" value="Valider">	
+						
 					</section> 
 					</form>
 </div>
@@ -254,6 +248,8 @@ choix: values.free,
 			'poil',
             'poids',
 			'sterilise',
+			'idArticle',
+			'idUtilisateur',
 			//'nom',
 		];
 		// on récupère la valeur saisie dans chaque champ
@@ -280,6 +276,8 @@ choix: values.free,
 				poil: values.poil,
 				choix: values.choix,
 				poids: values.poids,
+				idAbonnement: idArticle,
+				idUtilisateur: idUtilisateur,
 			};
 			console.log('abonnement');
 			console.log(abonnement);
