@@ -171,7 +171,12 @@ Pourvoir construire en une commande un container capable e servir le html et l'a
     
     TO DO 
     Finaliser la page d'achat.
-    Finaliser la page d'abonnement
+    Finaliser la page d'abonnement.
+    
+    Points positif :
+        X
+    Axes d’amélioration :
+        X
 
 ## Sprint 14
 
@@ -181,9 +186,33 @@ Pourvoir construire en une commande un container capable e servir le html et l'a
     Avanceemnts sur les abonnements
     
     TO DO
+    Suppression des articles.
+    Finir abonnement.
+    
+    Points positif :
+        X
+    Axes d’amélioration :
+        X
     
 ## Sprint 15
     Resume:
     Suppresion articles.
-    Avancement sur les abonnements
+    Avancement sur les abonnements.
+    Points positifs :
+        Notre estimation de travail par sprint qui s'améliore.
+    Axe d'améliorations :
+        Quelques problèmes de compréhension entre certains membres de l'équipes.
+        
+    TO DO
+    Finir et régler les problèmes d'abonnement.
+    
+## Sprint 16
+    Resume :
+    
+    TO DO
+    
+    Points positif :
+        X
+    Axes d’amélioration :
+        X
     
