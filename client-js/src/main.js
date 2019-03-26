@@ -25,7 +25,7 @@ PageRenderer.contentElement = document.querySelector('.contenu');
 // Déclaration des pages 
 const homePage:HomePage = new HomePage([]);
 export let authentPage:Authent = new Authent();
-const boxPage:AddBox = new AddBox();
+export const boxPage:AddBox = new AddBox();
 const abonnementPage:AddAbonnement2 = new AddAbonnement();
 const aboutUs:AboutUs = new AboutUs();
 const articles:ListeArticle = new ListeArticle();
@@ -113,3 +113,6 @@ $('.supparticle').hide();
 listeUsersButton.hide();
 listeCommandes.hide();
 
+export function resetPanier(){
+	panier=[];
+}

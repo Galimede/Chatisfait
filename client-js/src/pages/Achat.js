@@ -7,6 +7,8 @@ import { box } from './AddBox.js';
 import { authentPage } from '../main.js';
 import PageRenderer from '../PageRenderer.js';
 import ListeArticle from './ListeArticle.js';
+import {resetPanier} from '../main.js';
+import {boxPage} from '../main.js';
 
 let articles: Array<{ description: string, idArticle: number, nom: string, prix: number }> = [];
 
@@ -136,6 +138,8 @@ export default class Achat extends Page {
                             PageRenderer.renderPage(produits);
                         } else {
                             alert('Votre commande a été passée');
+                            resetPanier();
+                            PageRenderer.renderPage(boxPage);
                         }
 
                         panier.forEach(article => {
