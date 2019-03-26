@@ -312,6 +312,7 @@ choix: values.free,
 				return response.json();
 			})
 			.catch(error => alert(`Enregistrement impossible : ${error.message}`));
+		}
 
 		}else{
 			event.preventDefault();

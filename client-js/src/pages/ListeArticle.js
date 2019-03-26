@@ -59,6 +59,7 @@ export default class ListeArticle extends Page {
         event.preventDefault();
         let id = parseInt($(event.currentTarget).attr('id'),10);
        panier.push(id);
+       alert('Article ajouté au panier');
        console.log(panier);
 });
 	}
