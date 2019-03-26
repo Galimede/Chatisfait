@@ -1,0 +1,38 @@
+/****** GENERAL *****/
+div{
+	display: block;
+}
+
+/****** BANNIERE S'ABONNER *****/
+
+.bannerInOut{
+	height: 500px;
+	position: relative;
+	overflow: hidden;
+}
+
+.bannerInOut .banner-bg{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
