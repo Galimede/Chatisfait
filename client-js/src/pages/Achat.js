@@ -64,7 +64,6 @@ export default class Achat extends Page {
                 event.preventDefault();
 
                 if (compte.login != null) {
-                    alert('Vous êtes abonné à la box');
                     let user: { idutilisateur: number, pseudo: string, mdp: string, sel: string, prenom: string, nom: string, adresse: string, adressemail: string, abonne: boolean };
                     fetch('http://localhost:8080/v1/utilisateurs/' + compte.login)
                         .then((response: Response) => response.json())
@@ -81,6 +80,9 @@ export default class Achat extends Page {
 
                             if (!response.ok) {
                                 throw new Error(`${response.status} : ${response.statusText}`);
+                            }else{
+                                alert('Vous êtes abonné à la box');
+                                PageRenderer.renderPage(boxPage);
                             }
                             return response.json();
                         })
