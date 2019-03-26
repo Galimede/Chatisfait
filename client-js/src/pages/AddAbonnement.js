@@ -300,6 +300,7 @@ choix: values.free,
 				if (!response.ok) {
 					throw new Error(`${response.status} : ${response.statusText}`);
 				}
+				alert('Votre abonnement a bien été enregistré');
 				return response.json();
 			})
 			.catch(error => alert(`Enregistrement impossible : ${error.message}`));
