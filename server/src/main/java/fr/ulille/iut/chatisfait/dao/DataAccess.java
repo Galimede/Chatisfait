@@ -131,6 +131,18 @@ public class DataAccess {
         return returnValue;
     }
 
+    public List<CommandeEntity> getCommandesByUtilisateur(int idUtilisateur) {
+        List<CommandeEntity> returnValue;
+        TypedQuery<CommandeEntity> query = em.createNamedQuery("FindCommandeByUtilisateur", CommandeEntity.class);
+        query.setParameter("cidutilisateur", idUtilisateur);
+        try {
+            returnValue = query.getResultList();
+        } catch (NonUniqueResultException | NoResultException e) {
+            returnValue = null;
+        }
+        return returnValue;
+    }
+
     public NoteEntity getNoteByIdArticle(int idArticle) {
         NoteEntity returnValue;
         TypedQuery<NoteEntity> query = em.createNamedQuery("FindNoteByIdArticle", NoteEntity.class);

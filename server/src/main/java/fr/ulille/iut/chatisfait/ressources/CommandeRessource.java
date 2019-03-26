@@ -13,6 +13,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.net.URI;
+import java.time.Instant;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,6 +46,25 @@ public class CommandeRessource {
     }
 
     @GET
+    @Path("/users/{idutilisateur}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<CommandeDto> getUtilisateurCommande(@PathParam("idutilisateur")  int idUtilisateur) {
+        DataAccess dataAccess = DataAccess.begin();
+        if(idUtilisateur == 0) {
+            return null;
+        }
+        System.out.println("idUtilisateur :                           " + idUtilisateur);
+        List<CommandeEntity> commandeEntities = dataAccess.getCommandesByUtilisateur(idUtilisateur);
+        if ( commandeEntities != null ) {
+            dataAccess.closeConnection(true);
+            return commandeEntities.stream().map(CommandeEntity::commandeToDto).collect(Collectors.toList());
+        }else {
+            dataAccess.closeConnection(false);
+            return null;
+        }
+    }
+
+    @GET
     @Path("{idcommande}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getCommande(@PathParam("idcommande")  int idCommande) {
@@ -62,11 +84,11 @@ public class CommandeRessource {
     public Response create(CommandeDto commandeDto) {
         DataAccess dataAccess = DataAccess.begin();
         CommandeEntity commandeEntity = CommandeEntity.convertFromCommandeDto(commandeDto);
+        commandeEntity.setDateCommande(Calendar.getInstance().getTime());
         if(commandeDto.getIdUtilisateur() == 0 ) {
             dataAccess.closeConnection(false);
             return Response.status(Response.Status.NOT_ACCEPTABLE).entity("name not specified").build();
         }
-
         try {
             int id = dataAccess.createCommande(commandeEntity);
             URI instanceURI = uriInfo.getAbsolutePathBuilder().path("" + id).build();
