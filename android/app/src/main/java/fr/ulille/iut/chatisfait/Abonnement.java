@@ -16,6 +16,11 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import fr.ulille.iut.chatisfait.fr.ulille.iut.chatisfait.user.Authentification;
+import fr.ulille.iut.chatisfait.fr.ulille.iut.chatisfait.user.GenericDataCenter;
+import fr.ulille.iut.chatisfait.fr.ulille.iut.chatisfait.user.MonPannier;
+import fr.ulille.iut.chatisfait.fr.ulille.iut.chatisfait.user.ReceiverClient;
+
 public class Abonnement extends AppCompatActivity implements ReceiverClient {
 
     private Spinner abo;
@@ -27,6 +32,8 @@ public class Abonnement extends AppCompatActivity implements ReceiverClient {
     private String choix;
     private String formula;
     private boolean isSterilized;
+
+    private int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -47,6 +54,7 @@ public class Abonnement extends AppCompatActivity implements ReceiverClient {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
                 String item = (String) parent.getItemAtPosition(pos);
                 Abonnement.this.choix = item;
+                Abonnement.this.position = pos;
             }
 
             @Override
@@ -78,27 +86,25 @@ public class Abonnement extends AppCompatActivity implements ReceiverClient {
 
     }
 
-    public void postJsonObjectResponse(JSONObject response){
-        System.out.println(response);
-        int duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(this, "Vous êtes abonné !", duration);
-        toast.show();
-
-        System.out.println("choix: "+choix+"  formule: "+formula+" est sterile : "+isSterilized);
-        MonPannier.setFormule(formula);
-    }
 
     public void getJsonArrayResponse(JSONArray response){}
 
-    public void doAbonnement(View view){
-        if(!GenericDataCenter.getLogin().equals("") && !GenericDataCenter.getPasswd().equals("")){
-            String json = "{'abonne':'true'}";
-            generic.doPut(this, json, GenericDataCenter.Utilisateurs, GenericDataCenter.getLogin());
+    public void postJsonObjectResponse(JSONObject response){
+        System.out.println(response);
+    }
 
+    public void doAbonnement(View view){
+        if(!GenericDataCenter.getLogin().equals("") && !GenericDataCenter.getPasswd().equals("")) {
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(this, "Vous êtes abonné !", duration);
+            toast.show();
+
+            System.out.println("choix: " + choix + "  formule: " + formula + " est sterile : " + isSterilized);
+            MonPannier.setFormule(formula);
+            generic.doPost(this, "{'choix':'"+position+"', 'sterilise':'"+isSterilized+"'}", GenericDataCenter.Abonnements);
         }else{
-            Intent it = new Intent(this, Authentification.class);
-            startActivity(it);
+            startActivity(new Intent(this, Authentification.class));
         }
     }
 

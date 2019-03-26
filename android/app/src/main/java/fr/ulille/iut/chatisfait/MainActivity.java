@@ -18,6 +18,11 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import fr.ulille.iut.chatisfait.fr.ulille.iut.chatisfait.user.Authentification;
+import fr.ulille.iut.chatisfait.fr.ulille.iut.chatisfait.user.GenericDataCenter;
+import fr.ulille.iut.chatisfait.fr.ulille.iut.chatisfait.user.MonPannier;
+import fr.ulille.iut.chatisfait.fr.ulille.iut.chatisfait.user.ReceiverClient;
+
 public class MainActivity extends AppCompatActivity implements ReceiverClient {
 
     private GenericDataCenter generic;
@@ -30,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements ReceiverClient {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity2);
+        setContentView(R.layout.activity_main);
 
         SearchView search = (SearchView) findViewById(R.id.searchTool);
 

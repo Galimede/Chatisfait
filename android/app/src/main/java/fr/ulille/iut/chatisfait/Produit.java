@@ -17,6 +17,6 @@ public class Produit {
     }
 
     public String toString(){
-        return category + ',' + nom + ',' + prix;
+        return category + " , " + nom + " , " + prix;
     }
 }
