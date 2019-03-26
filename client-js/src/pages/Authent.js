@@ -29,7 +29,7 @@ export default class Authent extends Page {
     }
 
     render(): string {
-        return `<form class="Authent">
+        return `<center><form class="Authent">
 		<label>
 			Login :
 			<input type="text" name="login" class="form-control">
@@ -38,9 +38,9 @@ export default class Authent extends Page {
 			Mot De passe :
             <input type="password" name="password" class="form-control">
 		</label> <br>
-        <center><button type="submit" class="btn btn-default">Connexion</button></center>
+        <center><button type="submit" class="btn btn-default">Connexion</button>
     </form>
-    <button class="btn btn-default inscription">S'inscrire</button>`;  
+    <button class="btn btn-default inscription">S'inscrire</button></center>`;  
     }
 
     submit(event: Event): void {
