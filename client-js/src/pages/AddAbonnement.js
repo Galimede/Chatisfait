@@ -2,6 +2,7 @@
 import Page from './Page.js';
 import $ from 'jquery';
 import HomePage from './HomePage.js';
+import {authentPage} from '../main.js';
 
 let typechat:number=0;
 let sterelise:boolean=false;
@@ -248,13 +249,15 @@ choix: values.free,
     
     submit(event:Event):void {
 		event.preventDefault();
+		let iduser;
+		const compte:{login:string,password:string}=authentPage.getCompte();
+
 		const fieldNames:Array<string> = [
 			'age',
 			'choix',
 			'poil',
             'poids',
 			'sterilise',
-			//'nom',
 		];
 		// on récupère la valeur saisie dans chaque champ
 		const values:any = {};
@@ -273,29 +276,34 @@ choix: values.free,
 			alert( errors.join('\n') );
 		} else {
 			// si il n'y a pas d'erreur on envoie les données
-			const abonnement = {
-				//nom: values.nom,
-				age: values.age,
-				sterelise: values.sterelise,
-				poil: values.poil,
-				choix: values.choix,
-				poids: values.poids,
-			};
-			console.log('abonnement');
-			console.log(abonnement);
-			console.log('après abo');
-			fetch( 'http://localhost:8080/v1/abonnements', {
-					method:'POST',
+
+
+			fetch('http://localhost:8080/v1/utilisateurs/' + compte.login)
+			.then((response: Response) => response.json())
+			.then((data: any) => {
+				const abonnement = {
+					//age: values.age,
+					//sterelise: values.sterelise,
+					//poil: values.poil,
+					//choix: values.choix,
+					//poids: values.poids,
+					idUtilisateur : data.idUtilisateur,
+				};
+				return fetch('http://localhost:8080/v1/abonnements', {
+					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify(abonnement)
 				})
+			})
 			.then(response => {
+
 				if (!response.ok) {
-					throw new Error( `${response.status} : ${response.statusText}` );
+					throw new Error(`${response.status} : ${response.statusText}`);
 				}
 				return response.json();
 			})
-			.catch( error => alert(`Enregistrement impossible : ${error.message}`) );
+			.catch(error => alert(`Enregistrement impossible : ${error.message}`));
+
 		}
     }
 
