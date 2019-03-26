@@ -12,9 +12,11 @@ export default class Profil extends Page {
 
 	render(): string {
         return`
+        <div class="recap">
             <h2 class="abonnement"> Vous êtes abonné à la box </h2> 
             <ul class="informations">
-            </ul>`;
+            </ul>
+        <div>`;
     } 
 
     mount(container:HTMLElement):void {
